@@ -1,0 +1,11 @@
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Service.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Service.pdb
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Data.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Model.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\EntityFramework.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Data.pdb
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Model.pdb
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\bin\Debug\EntityFramework.xml
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\obj\Debug\ResourceMetadata.Service.csprojResolveAssemblyReference.cache
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\obj\Debug\ResourceMetadata.Service.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Service\obj\Debug\ResourceMetadata.Service.pdb

@@ -1,0 +1,5 @@
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.pdb
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.csprojResolveAssemblyReference.cache
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.dll
+D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.pdb

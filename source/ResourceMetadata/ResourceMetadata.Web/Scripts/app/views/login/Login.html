@@ -1,0 +1,76 @@
+﻿<div style="margin-top:75px;">
+    <div id="logincontainer" name="logincontainer" ng-show="loginMode">
+        <form name="loginform" role="form" class="ui secondary small form segment">
+            <h5 class="ui header">Login</h5>
+            <div class="ui divider"></div>
+            <div class="field">
+                <label for="email">
+                    Email<span style="color: Red">*</span>
+                </label>
+                <input type="text" id="email" placeholder="Email" required data-ng-model="userLogin.email" />
+            </div><div class="ui divider"></div>
+            <div class="field">
+                <label for="password">
+                    Password<span style="color: Red">*</span>
+                </label>
+                <input type="password" id="password" placeholder="Password" required data-ng-model="userLogin.password" />
+            </div><div class="ui divider"></div>
+            <div class="inline field">
+                <button data-ng-disabled="loginform.$invalid" data-ng-click="login(userLogin)"
+                        class="ui blue mini button">
+                    Login
+                </button>
+                <a href="javascript:;" ng-click="toggleMode('register')">Register</a>
+            </div>
+        </form>
+    </div>
+
+    <div id="regsitrationcontainer" name="regsitrationcontainer" ng-show="registrationMode">
+        <form name="registrationform" role="form" class="ui secondary small form segment">
+            <h5 class="ui header">Register</h5>
+            <div class="ui divider"></div>
+            <div class="field">
+                <label for="firstname">
+                    First Name<span style="color: Red">*</span>
+                </label>
+                <input type="text" id="firstname" placeholder="First Name" required data-ng-model="userRegistration.firstName" />
+            </div><div class="ui divider"></div>
+            <div class="field">
+                <label for="lastname">
+                    Last Name<span style="color: Red">*</span>
+                </label>
+                <input type="text" id="lastname" placeholder="Last Name" required data-ng-model="userRegistration.lastName" />
+            </div><div class="ui divider"></div>
+            <div class="field">
+                <label for="email">
+                    Email<span style="color: Red">*</span>
+                </label>
+                <input type="text" id="email" placeholder="Email" required data-ng-model="userRegistration.email" />
+            </div><div class="ui divider"></div>
+            <div class="field">
+                <label for="password">
+                    Password<span style="color: Red">*</span>
+                </label>
+                <input type="password" id="password" placeholder="Password" required data-ng-model="userRegistration.password" />
+            </div><div class="ui divider"></div>
+
+            <div class="field">
+                <label for="confirmpassword">
+                    Confirm Password<span style="color: Red">*</span>
+                </label>
+                <input type="password" id="confirmpassword" placeholder="Password" required data-ng-model="userRegistration.confirmPassword" />
+            </div><div class="ui divider"></div>
+
+
+            <div class="inline field">
+                <button data-ng-disabled="registrationform.$invalid" data-ng-click="register(userRegistration)"
+                        class="ui blue mini button">
+                    Register
+                </button>
+                <a href="javascript:;" ng-click="toggleMode('login')">Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+
+</div>

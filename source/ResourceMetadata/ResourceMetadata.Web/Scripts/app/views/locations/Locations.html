@@ -1,0 +1,54 @@
+﻿<h5 class="ui header">Locations</h5>
+<div class="ui divider"></div>
+<div class="ui active inverted dimmer" data-ng-hide="loaded">
+    <div class="ui text loader">Loading</div>
+</div>
+<div data-ng-show="loaded"> 
+    <table class="ui small table segment">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!--<td colspan="4" data-ng-hide="loaded">
+                    <img src="/Content/themes/base/images/loading.gif" />
+                </td>-->
+            </tr>
+            <tr>
+                <td class="danger" colspan="4" data-ng-show="haveContent">
+                    There are no locations in server
+                </td>
+            </tr>
+            <tr data-ng-repeat="location in locations">
+                <td>
+                    {{location.Name}}
+                </td>
+                <td>
+                    {{location.Description}}
+                </td>
+                <td style="width: 4%;">
+                    <a href="#/LocationEdit/{{location.Id}}"><i class="edit icon"></i></a>
+                </td>
+                <td style="width: 4%;">
+                    <a href="javascript:;" data-ng-click="deleteLocation(location.Id)"><i class="trash icon"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="float: right;">
+      <a class="ui mini blue button" href="#/LocationAdd">Create new</a> 
+    </div>
+
+</div>
+

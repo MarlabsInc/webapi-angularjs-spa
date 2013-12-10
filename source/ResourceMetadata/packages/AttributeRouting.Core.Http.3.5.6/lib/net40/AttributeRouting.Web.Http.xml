@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AttributeRouting.Web.Http</name>
+    </assembly>
+    <members>
+        <member name="M:AttributeRouting.Web.Http.Constraints.InboundHttpMethodConstraint.#ctor(System.Net.Http.HttpMethod[])">
+            <summary>
+            Constrains an inbound route by HTTP method.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.DefaultHttpRouteConventionAttribute">
+            <summary>
+            Sets up the default Web API route convention
+            See: http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.DELETEAttribute">
+            <summary>
+            Defines a route for an action constrained to requests providing an httpMethod value of DELETE.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.HttpRouteAttribute">
+            <summary>
+            The route information for an action.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.HttpRouteAttribute.#ctor(System.String)">
+            <summary>
+            Specify the route information for an action.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.HttpRouteAttribute.#ctor(System.String,System.Net.Http.HttpMethod[])">
+            <summary>
+            Specify the route information for an action.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+            <param name="allowedMethods">The httpMethods against which to constrain the route</param>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.DELETEAttribute.#ctor(System.String)">
+            <summary>
+            Specify a route for a DELETE request.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.Framework.HttpAttributeRoute">
+            <summary>
+            Route to use for Web API routes.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.Framework.HttpAttributeRoute.#ctor(System.String,System.Web.Http.Routing.HttpRouteValueDictionary,System.Web.Http.Routing.HttpRouteValueDictionary,System.Web.Http.Routing.HttpRouteValueDictionary,AttributeRouting.Web.Http.HttpConfigurationBase)">
+            <summary>
+            Route used by the AttributeRouting framework in self-host projects.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.GETAttribute">
+            <summary>
+            Defines a route for an action constrained to requests providing an httpMethod value of GET.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.GETAttribute.#ctor(System.String)">
+            <summary>
+            Specify a route for a GET request.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.HttpConfigurationBase.AddRoutesFromController``1">
+            <summary>
+            Appends the routes from the specified controller type to the end of route collection.
+            </summary>
+            <typeparam name="T">The controller type.</typeparam>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.HttpConfigurationBase.AddRoutesFromControllersOfType``1">
+            <summary>
+            Appends the routes from all controllers that derive from the specified controller type to the route collection.
+            </summary>
+            <typeparam name="T">The base controller type.</typeparam>
+        </member>
+        <member name="P:AttributeRouting.Web.Http.HttpConfigurationBase.InMemory">
+            <summary>
+            Defines whether the Web API pipeline will run in memory or not.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Web.Http.HttpConfigurationBase.MessageHandler">
+            <summary>
+            The message handler that will be the recipient of the request.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Web.Http.HttpConfigurationBase.FrameworkControllerType">
+            <summary>
+            The controller type applicable to this context.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Web.Http.HttpConfigurationBase.CurrentUICultureResolver">
+            <summary>
+            This delegate returns the current UI culture name,
+            which is used when constraining inbound routes by culture.
+            The default delegate returns the CurrentUICulture name of the current thread.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.HttpConfiguration.AddDefaultRouteConstraint(System.String,System.Web.Http.Routing.IHttpRouteConstraint)">
+            <summary>
+            Automatically applies the specified constaint against url parameters
+            with names that match the given regular expression.
+            </summary>
+            <param name="keyRegex">The regex used to match url parameter names</param>
+            <param name="constraint">The constraint to apply to matched parameters</param>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.POSTAttribute">
+            <summary>
+            Defines a route for an action constrained to requests providing an httpMethod value of POST.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.POSTAttribute.#ctor(System.String)">
+            <summary>
+            Specify a route for a POST request.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+        </member>
+        <member name="T:AttributeRouting.Web.Http.PUTAttribute">
+            <summary>
+            Defines a route for an action constrained to requests providing an httpMethod value of PUT.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Web.Http.PUTAttribute.#ctor(System.String)">
+            <summary>
+            Specify a route for a PUT request.
+            </summary>
+            <param name="routeUrl">The url that is associated with this action</param>
+        </member>
+    </members>
+</doc>

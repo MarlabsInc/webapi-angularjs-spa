@@ -1,0 +1,153 @@
+/**
+ * Unicorn Admin Template
+ * Diablo9983 -> diablo9983@gmail.com
+**/
+body {
+	background-color: #63a69a;
+}
+
+#header {
+    box-shadow: 0 1px 0 #7A212E;
+	background-color: #333333;
+    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#D33A50), to(#AD3F4D));
+    background-image: -webkit-linear-gradient(top, #D33A50 0%, #ad3f4d 100%);
+    background-image: -moz-linear-gradient(top, #D33A50 0%, #AD3F4D 100%);
+	background-image: -ms-linear-gradient(top, #D33A50 0%, #AD3F4D 100%);
+	background-image: -o-linear-gradient(top, #D33A50 0%, #AD3F4D 100%);
+	background-image: linear-gradient(top, #D33A50 0%, #AD3F4D 100%);
+    /*border-bottom: 1px solid #E03D55;*/
+}
+
+#search input[type=text], #search button {
+	box-shadow: 0 0 0;
+	background-color: #AD3F4D;
+}
+#search input[type=text] {
+	color: #eeeeee;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2); 
+}
+#search input[type=text]:focus {
+	color: #ffffff;
+}
+#search input[type=text]::-webkit-input-placeholder {
+    color: #fff;
+    opacity: .3;
+}
+#search input[type=text]:-moz-placeholder {
+    color: #999;
+}
+#search input[type=text]::-moz-placeholder {
+    color: #999;
+}
+#search input[type=text]:-ms-input-placeholder {
+    color: #999;
+}
+#search button {
+	box-shadow: -2px 2px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2); 
+}
+#search button i {
+	opacity: .3;
+}
+#user-nav .btn-inverse {
+    background-color: #d23a4f;
+    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#d23a4f), to(#ad3e4d));
+    background-image: -webkit-linear-gradient(top, #d23a4f 0%, #ad3e4d 100%);
+    background-image: -moz-linear-gradient(top, #d23a4f 0%, #ad3e4d 100%);
+    background-image: -ms-linear-gradient(top, #d23a4f 0%, #ad3e4d 100%);
+    background-image: -o-linear-gradient(top, #d23a4f 0%, #ad3e4d 100%);
+	background-image: linear-gradient(top, #d23a4f 0%, #ad3e4d 100%);
+	border-top-color: #792230;
+}
+#user-nav .btn-inverse:hover {
+	background-color: #B43349;
+    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#E02A4A), to(#B43349));
+	background-image: -webkit-linear-gradient(top, #E02A4A 0%, #B43349 100%);
+    background-image: -moz-linear-gradient(top, #E02A4A 0%, #B43349 100%);
+    background-image: -ms-linear-gradient(top, #E02A4A 0%, #B43349 100%);
+    background-image: -o-linear-gradient(top, #E02A4A 0%, #B43349 100%);
+	background-image: linear-gradient(top, #E02A4A 0%, #B43349 100%);
+}
+#user-nav .btn-inverse > a {
+    color: #ffffff;
+    color: rgba(255,255,255,0.6);
+}
+#user-nav .btn-inverse .label, #user-nav .btn-inverse .badge {
+	background-color: #333333;
+}
+#sidebar > ul {
+	border-top: 1px solid #457F73;
+	border-bottom: 1px solid #69C2AF;
+}
+#sidebar > ul > li {
+	border-top: 1px solid #69C2AF;
+	border-bottom: 1px solid #457F73;
+}
+#sidebar > ul > li.active {
+    background-color: #3a3a3a;
+	background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#41786D), to(#4B9183));
+	background-image: -webkit-linear-gradient(top, #41786D 0%, #4B9183 100%);
+	background-image: -moz-linear-gradient(top, #41786D 0%, #4B9183 100%);
+	background-image: -ms-linear-gradient(top, #41786D 0%, #4B9183 100%);
+	background-image: -o-linear-gradient(top, #41786D 0%, #4B9183 100%);
+	background-image: linear-gradient(top, #41786D 0%, #4B9183 100%);
+}
+
+#sidebar > ul > li > a {
+	color: #B2F4E5;
+}
+
+#sidebar > ul > li.open.submenu > a {
+	border-bottom: 1px solid #19372F;
+}
+#sidebar > ul > li.open.active.submenu > a {
+	border-bottom: 1px solid #19372F;
+}
+#sidebar > ul > li > a > .label {
+	background-color: #41786D;
+}
+#sidebar > ul > li > a:hover {
+	background-color: #549B8D;
+}
+#sidebar > ul ul {
+	border-top: 1px solid #346a5d;
+	background-color: #41786D ;
+}
+#sidebar > ul ul li a {
+	color: #8EC9BE;
+	border-top: 1px solid #488F7E;
+	border-bottom: 1px solid #2D5A4F;
+}
+#sidebar > ul ul li a:hover, #sidebar > ul ul li.active a {
+	color: #eeeeee;
+	background-color: #346A5D;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu .active a, .dropdown-menu .active a:hover {
+    color: #eeeeee;
+	background-color: #444444;
+    background-image: -webkit-gradient(linear, 0 0%, 0 100%, #555555, #222222);
+    background-image: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+    background-image: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+    background-image: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+    background-image: -o-linear-gradient(top, #555555 0%, #222222 100%);
+    background-image: linear-gradient(top, #555555 0%, #222222 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#222222',GradientType=0 ); /* IE6-9 */
+}
+
+@media (max-width: 480px) {
+	#sidebar > a {
+		background-image: -moz-linear-gradient(top, #464646 0%, #404040 100%);
+		border-bottom: 1px solid #6e6e6e;
+	}
+	#sidebar > ul {
+		background-color: #444444;
+	}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+	#sidebar > ul ul:before {
+		border-right: 7px solid rgba(0, 0, 0, 0.2);
+	}
+	#sidebar > ul ul:after {
+		border-right: 6px solid #222222;
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>AttributeRouting.Core.Web</id>
+    <version>3.5.6</version>
+    <title>AttributeRouting.Core.Web</title>
+    <authors>Tim McCall</authors>
+    <owners>Tim McCall</owners>
+    <projectUrl>http://attributerouting.net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Core functionality for AttributeRouting ASP.NET MVC and Web API packages.</description>
+    <copyright>© 2012 Tim McCall</copyright>
+    <tags>attribute routing route asp.net webapi web api</tags>
+    <dependencies>
+      <dependency id="AttributeRouting.Core" version="3.5.6" />
+    </dependencies>
+  </metadata>
+</package>

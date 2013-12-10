@@ -1,0 +1,1129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AttributeRouting</name>
+    </assembly>
+    <members>
+        <member name="T:AttributeRouting.AreaConfiguration">
+            <summary>
+            Helper for configuring areas when initializing AttributeRouting framework.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.AreaConfiguration.#ctor(System.String,AttributeRouting.ConfigurationBase)">
+            <summary>
+            Helper for configuring areas when initializing AttributeRouting framework.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.AreaConfiguration.ToSubdomain(System.String)">
+            <summary>
+            Set the subdomain this area is mapped to.
+            </summary>
+            <param name="subdomain">The name fo the subdomain</param>
+        </member>
+        <member name="T:AttributeRouting.ConfigurationBase">
+            <summary>
+            Configuration options to use when generating AttributeRoutes.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.#ctor">
+            <summary>
+            Creates and initializes a new configuration object.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddRoutesFromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Appends the routes from all controllers in the specified assembly to the route collection.
+            </summary>
+            <param name="assembly">The assembly.</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddRoutesFromAssemblyOf``1">
+            <summary>
+            Appends the routes from all controllers in the specified assembly to the route collection.
+            </summary>
+            <typeparam name="T">The type denoting the assembly.</typeparam>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddRoutesFromController(System.Type)">
+            <summary>
+            Appends the routes from the specified controller type to the end of route collection.
+            </summary>
+            <param name="controllerType">The controller type.</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddRoutesFromControllerInternal(System.Type,System.Boolean)">
+            <summary>
+            Appends the routes from the controller to the promoted controller type list,
+            optionally removing an already added type in order to add it to the end of the list.
+            </summary>
+            <param name="controllerType">The controller type.</param>
+            <param name="reorderTypes">Whether to remove and re-add already added controller types.</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddRoutesFromControllersOfType(System.Type)">
+            <summary>
+            Appends the routes from all controllers that derive from the specified controller type to the route collection.
+            </summary>
+            <param name="baseControllerType">The base controller type.</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddTranslationProvider``1">
+            <summary>
+            Add a provider for translating components of routes.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.AddTranslationProvider(AttributeRouting.Framework.Localization.TranslationProviderBase)">
+            <summary>
+            Add a provider for translating components of routes.
+            Use <see cref="T:AttributeRouting.Framework.Localization.FluentTranslationProvider"/> for a default implementation.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.MapArea(System.String)">
+            <summary>
+            Returns a utility for configuring areas when initializing AttributeRouting framework.
+            </summary>
+            <param name="name">The name of the area to configure</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.ScanAssembly(System.Reflection.Assembly)">
+            <summary>
+            Scans the specified assembly for routes to register.
+            </summary>
+            <param name="assembly">The assembly.</param>
+        </member>
+        <member name="M:AttributeRouting.ConfigurationBase.ScanAssemblyOf``1">
+            <summary>
+            Scans the assembly of the specified controller for routes to register.
+            </summary>
+            <typeparam name="T">The type used to specify the assembly.</typeparam>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.AppendTrailingSlash">
+            <summary>
+            When true, the generated routes will have a trailing slash on the path of outbound URLs.
+            The default is false.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.AttributeRouteFactory">
+            <summary>
+            Factory for generating routes used by AttributeRouting.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.AutoGenerateRouteNames">
+            <summary>
+            When true, the generated routes will have auto-generated route names in the form controller_action.
+            The default is false.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.ConstrainTranslatedRoutesByCurrentUICulture">
+            <summary>
+            Constrains translated routes by the thread's current UI culture.
+            The default is false.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.DefaultSubdomain">
+            <summary>
+            Specify the default subdomain for this application.
+            The default is www.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.FrameworkControllerType">
+            <summary>
+            Type of the framework controller (IController, IHttpController).
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.InlineRouteConstraints">
+            <summary>
+            Collection of available inline route constraint definitions.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.InheritActionsFromBaseController">
+            <summary>
+            When true, the generated routes will include actions defined on base controllers.
+            The default is false.
+            Note: Base Controllers should be declared as abstract to avoid routes being generated for them
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.MappedSubdomains">
+            <summary>
+            List of all the subdomains mapped via AttributeRouting.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.ParameterFactory">
+            <summary>
+            Factory for generating optional route parameters.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.PreserveCaseForUrlParameters">
+            <summary>
+            When true, the generated routes will not lowercase URL parameter values.
+            The default is false.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.RouteConstraintFactory">
+            <summary>
+            Factory for generating route constraints.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.RouteNameBuilder">
+            <summary>
+            Given a route specification, this delegate returns the route name 
+            to use when <see cref="P:AttributeRouting.ConfigurationBase.AutoGenerateRouteNames"/> is true;
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.SubdomainParser">
+            <summary>
+            Given the requested hostname, this delegate parses the subdomain.
+            The default yields everything before the domain name;
+            eg: www.example.com yields www, and example.com yields null.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.TranslationProviders">
+            <summary>
+            Translation providers.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.ConfigurationBase.UseLowercaseRoutes">
+            <summary>
+            When true, the generated routes will produce lowercase URLs.
+            The default is false.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.AlphaRouteConstraintBase">
+            <summary>
+            Constrains a url parameter to contain only letters from the alphabet.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.RegexRouteConstraintBase">
+            <summary>
+            Constraints a url parameter by a regular expression.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.IAttributeRouteConstraint">
+            <summary>
+            Abstraction allowing shared matching logic in constraint base implementations.
+            </summary>
+            <remarks>
+            Due to
+            System.Web.Routing.IRouteConstraint (used in web-hosted scenarios) and 
+            System.Web.Http.Routing.IHttpRouteConstraint (used in self-hosted scenarios).
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Constraints.RegexRouteConstraintBase.Pattern">
+            <summary>
+            The pattern to match.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.RegexRouteConstraintBase.CompiledExpression">
+            <summary>
+            The compiled reg-ex expression.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.RegexRouteConstraintBase.Options">
+            <summary>
+            Regex options for matching.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.EnumValueRouteConstraintBase`1">
+            <summary>
+            Constrains a url parameter by the values in the given enum type.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.ICompoundRouteConstraint">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.IRouteConstraintFactory"/> 
+            when handling compound inline route constraints.
+            </summary>
+            <remarks>
+            Due to 
+            System.Web.Routing.IRouteConstraint (used in web-hosted scenarios) and 
+            System.Web.Http.Routing.IHttpRouteConstraint (used in self-hosted scenarios).    
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Constraints.ICompoundRouteConstraint.Constraints">
+            <summary>
+            Constraints to logically and when matching the route parameter.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.EnumRouteConstraintBase`1">
+            <summary>
+            Constrains a url parameter by the names in the given enum type.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.IQueryStringRouteConstraint">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.IRouteConstraintFactory"/> 
+            when handling inline route constraints contained in query strings.
+            </summary>
+            <remarks>
+            Due to 
+            System.Web.Routing.IRouteConstraint (used in web-hosted scenarios) and 
+            System.Web.Http.Routing.IHttpRouteConstraint (used in self-hosted scenarios).    
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Constraints.IQueryStringRouteConstraint.Constraint">
+            <summary>
+            The constraint used in the query string.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.IInboundHttpMethodConstraint">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.IRouteConstraintFactory"/> 
+            when applying inbound http method constraints.
+            </summary>
+            <remarks>
+            Due to 
+            System.Web.Routing.HttpMethodConstraint (used in web-hosted scenarios) and
+            System.Web.Http.Routing.HttpMethodConstraint (used in self-hosted scenarios).    
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Constraints.IInboundHttpMethodConstraint.AllowedMethods">
+            <summary>
+            The allowed HTTP methods.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.MaxRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a long with a maximum value.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.MaxRouteConstraintBase.Max">
+            <summary>
+            Maximum value of the parameter.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.MinRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a long with a minimum value.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.MinRouteConstraintBase.Min">
+            <summary>
+            Minimum value of the parameter.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.LengthRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a string of a given length 
+            or within a given range of lengths if two params are given.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Constraints.LengthRouteConstraintBase.#ctor(System.String)">
+            <summary>
+            Constraints a url parameter to be a string of a given length.
+            </summary>
+            <param name="length">The length of the string</param>
+        </member>
+        <member name="M:AttributeRouting.Constraints.LengthRouteConstraintBase.#ctor(AttributeRouting.Constraints.MinLengthRouteConstraintBase,AttributeRouting.Constraints.MaxLengthRouteConstraintBase)">
+            <summary>
+            Constraints a url parameter to be within a given range of lengths.
+            </summary>
+            <param name="minLength">The minimum length constraint</param>
+            <param name="maxLength">The maximum length constraint</param>
+        </member>
+        <member name="P:AttributeRouting.Constraints.LengthRouteConstraintBase.Length">
+            <summary>
+            Length of the string.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.LengthRouteConstraintBase.MinLength">
+            <summary>
+            Minimum length of the string.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.LengthRouteConstraintBase.MaxLength">
+            <summary>
+            Minimum length of the string.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.MinLengthRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a string with a maximum length.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.MinLengthRouteConstraintBase.MinLength">
+            <summary>
+            Minimum length of the string.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.IOptionalRouteConstraint">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.IRouteConstraintFactory"/> 
+            when handling optional route parameters with inline constraints.
+            </summary>
+            <remarks>
+            Due to 
+            System.Web.Routing.IRouteConstraint (used in web-hosted scenarios) and 
+            System.Web.Http.Routing.IHttpRouteConstraint (used in self-hosted scenarios).    
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Constraints.IOptionalRouteConstraint.Constraint">
+            <summary>
+            Constraint to consider optional.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.RangeRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a long within a given range of values.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.RangeRouteConstraintBase.Min">
+            <summary>
+            Minimum value.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.RangeRouteConstraintBase.Max">
+            <summary>
+            Minimum valut.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.MaxLengthRouteConstraintBase">
+            <summary>
+            Constraints a url parameter to be a string with a maximum length.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Constraints.MaxLengthRouteConstraintBase.MaxLength">
+            <summary>
+            Maximum length of the string.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Constraints.TypeOfRouteConstraintBase`1">
+            <summary>
+            Constraints a url parameter to be parsable as the given type.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.AttributeRouteVisitor">
+            <summary>
+            Visitor-ish used to extend implementations of <see cref="T:AttributeRouting.Framework.IAttributeRoute"/>.
+            </summary>
+            <remarks>
+            Due to different route implementations in
+            System.Web.Routing (used for MVC controller routes) and
+            System.Web.Http.Routing (used for Web API controller routes). 
+            </remarks>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.#ctor(AttributeRouting.Framework.IAttributeRoute,AttributeRouting.ConfigurationBase)">
+            <summary>
+            Creates a new visitor extending implementations of IAttributeRoute with common logic.
+            </summary>
+            <param name="route">The route</param>
+            <param name="configuration">The route's configuration</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.AddQueryStringDefaultsToRouteValues(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Adds querystring default values to route values collection if they aren't already present.
+            </summary>
+            <param name="routeValues">The route values.</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.GetFinalVirtualPath(System.String)">
+            <summary>
+            Performs lowercasing and appends trailing slash if this route is so configured.
+            </summary>
+            <param name="virtualPath">The current virtual path, after translation</param>
+            <returns>The final virtual path</returns>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.GetTranslatedVirtualPath``1(System.Func{AttributeRouting.Framework.IAttributeRoute,``0})">
+            <summary>
+            Gets the translated virtual path for this route.
+            </summary>
+            <typeparam name="TVirtualPathData">
+            The type of virtual path data to be returned. 
+            This varies based on whether the route is a
+            System.Web.Routing.Route or System.Web.Http.Routing.HttpRoute.
+            </typeparam>
+            <param name="fromTranslation">A delegate that can get the TVirtualPathData from a translated route</param>
+            <returns>Returns null if no translation is available.</returns>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.IsCultureNameMatched(System.String)">
+            <summary>
+            Tests whether the route matches the current UI culture.
+            </summary>
+            <param name="cultureName">The name of the UI culture to test to test.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.IsStaticLeftPartOfUrlMatched(System.String)">
+            <summary>
+            Optimizes route matching by comparing the static left part of a route's URL with the requested path.
+            </summary>
+            <param name="requestedPath">The path of the requested URL.</param>
+            <returns>True if the requested URL path starts with the static left part of the route's URL.</returns>
+            <remarks>Thanks: http://samsaffron.com/archive/2011/10/13/optimising-asp-net-mvc3-routing </remarks>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.IsSubdomainMatched(System.String)">
+            <summary>
+            Tests whether the configured subdomain (if any) matches the current host.
+            </summary>
+            <param name="requestedSubdomain">The subdomain part of the host from the current request</param>
+            <returns>True if the subdomain for this route matches the current request host.</returns>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeRouteVisitor.ProcessQueryStringConstraints(System.Func{System.Object,System.String,System.Boolean})">
+            <summary>
+            Processes query constraints separately from route constraints.
+            </summary>
+            <param name="processConstraint">
+            Delegate used to process the query constraints according to the underlying route framework.
+            Accepts a constraint and parameter name and returns true if the constraint passes.
+            </param>
+            <returns>True if all query string constraints pass or if there are none to test.</returns>
+            <remarks>
+            Need to separate path and query constraints because methods in the web stack
+            will not add query params to generated urls if there is a constraint for the param name
+            that is not present in the url template. See logic in:
+            - System.Web.Http.Routing.HttpParsedRoute.Bind(...)
+            - System.Web.Routing.ParsedRoute.Bind(...)
+            </remarks>
+        </member>
+        <member name="T:AttributeRouting.Framework.IAttributeRouteFactory">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.RouteBuilder"/> when generating an <see cref="T:AttributeRouting.Framework.IAttributeRoute"/>.
+            </summary>
+            <remarks>
+            Due to different route implementations in
+            System.Web.Routing (used for mvc controller routes) and
+            System.Web.Http.Routing (used for web api controllers).
+            </remarks>
+        </member>
+        <member name="M:AttributeRouting.Framework.IAttributeRouteFactory.CreateAttributeRoutes(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Create attribute routes from the given metadata.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.IRouteConstraintFactory">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.RouteBuilder"/> when generating a route constraint.
+            </summary>
+            <remarks>
+            Due to 
+            System.Web.Routing.IRouteConstraint (used in web-hosted scenarios) and 
+            System.Web.Http.Routing.IHttpRouteConstraint (used in self-hosted scenarios).    
+            </remarks>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateRegexRouteConstraint(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Creates a new regex route constraint.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateInboundHttpMethodConstraint(System.String[])">
+            <summary>
+            Creates a new inbound http method constraint.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateInlineRouteConstraint(System.String,System.Object[])">
+            <summary>
+            Creates an inline constraint of a specific type with the given parameters.
+            </summary>
+            <param name="name">The short name of the inline constraint</param>
+            <param name="parameters">The paramters with which to construct the constraint</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateCompoundRouteConstraint(System.Object[])">
+            <summary>
+            Creates a compound route constraint wrapper to allow anding of individual inline constraints.
+            </summary>
+            <param name="constraints">The constraints to apply together</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateOptionalRouteConstraint(System.Object)">
+            <summary>
+            Creates an optional route constraint wrapper to allow inline constraints to be optional.
+            </summary>
+            <param name="constraint">The constraint</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.IRouteConstraintFactory.CreateQueryStringRouteConstraint(System.Object)">
+            <summary>
+            Creates an query string route constraint wrapper to allow constraints in the query string.
+            </summary>
+            <param name="constraint">The constraint</param>
+        </member>
+        <member name="T:AttributeRouting.Framework.IParameterFactory">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.RouteBuilder"/> when generating a url parameter.
+            </summary>
+            <remarks>
+            Due to 
+            UrlParameter.Optional (used in web-hosted scenarios) and
+            RouteParameter.Optional (used in self-hosted scenarios).
+            </remarks>
+        </member>
+        <member name="M:AttributeRouting.Framework.IParameterFactory.Optional">
+            <summary>
+            Generates an optional parameter of the correct type.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.FirstInWinsRouteNameBuilder">
+            <summary>
+            Strategy that generates routes in the form "Area_Controller_Action". 
+            In case of duplicates, the duplicate route is not named, and the builder will return null.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.IRouteNameBuilder">
+            <summary>
+            Strategy for building route names from a route specification.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.IAttributeRoute">
+            <summary>
+            Abstraction used by <see cref="T:AttributeRouting.Framework.RouteBuilder"/> to generate routes with custom functionality.
+            </summary>
+            <remarks>
+            Due to different route implementations in
+            System.Web.Routing (used for MVC controller routes) and
+            System.Web.Http.Routing (used for Web API controllers).
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.AppendTrailingSlash">
+            <summary>
+            If true, will override <see cref="P:AttributeRouting.ConfigurationBase.AppendTrailingSlash"/>
+            set via global configuration and the generated route will have a trailing slash on the path of outbound URLs.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.Constraints">
+            <summary>
+            Constraints dictionary
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.CultureName">
+            <summary>
+            The culture name associated with this route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.DataTokens">
+            <summary>
+            DataTokens dictionary
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.Defaults">
+            <summary>
+            Defaults dictionary
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.PreserveCaseForUrlParameters">
+            <summary>
+            If true, will override <see cref="P:AttributeRouting.ConfigurationBase.PreserveCaseForUrlParameters"/>
+            set via global configuration and the generated route will not lowercase URL parameter values.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.QueryStringConstraints">
+            <summary>
+            Constraints dictionary for querystring constraints.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.QueryStringDefaults">
+            <summary>
+            Defaults dictionary for querystring defaults.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.RouteName">
+            <summary>
+            The name of this route, for supporting named routes.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.SourceLanguageRoute">
+            <summary>
+            The source-language route if this route is a translated route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.Subdomain">
+            <summary>
+            The subdomain this route is to be applied against.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.Translations">
+            <summary>
+            The translations available for this route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.UseLowercaseRoute">
+            <summary>
+            If true, will override <see cref="P:AttributeRouting.ConfigurationBase.UseLowercaseRoutes"/>
+            set via global configuration and the generated route will have a lowercase URL.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.IAttributeRoute.Url">
+            <summary>
+            Route URL
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.ISubdomainParser">
+            <summary>
+            Strategy for parsing subdomains from a host.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1">
+            <summary>
+            Fluent helper for adding translations for the route components of a controller in a strongly typed manner.
+            </summary>
+            <typeparam name="TController">The type of controler for which to add translations</typeparam>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1.#ctor(AttributeRouting.Framework.Localization.TranslationBuilder)">
+            <summary>
+            Fluent helper for adding translations for the route components of a controller.
+            </summary>
+            <param name="builder">The translation builder that will add translations to the <see cref="T:AttributeRouting.Framework.Localization.FluentTranslationProvider"/></param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1.AreaUrl(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Add translations for the area url applied on this controller.
+            </summary>
+            <param name="cultureTranslationPairs">Dictionary using cultureName as a key and a translation as the value</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1.RoutePrefixUrl(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Add translations for the route prefix url applied on this controller.
+            </summary>
+            <param name="cultureTranslationPairs">Dictionary using cultureName as a key and a translation as the value</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1.RouteUrl(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Add translations for the route url for an action in this controller.
+            </summary>
+            <param name="action">Expression pointing to an action method on the controller</param>
+            <param name="cultureTranslationPairs">Dictionary using cultureName as a key and a translation as the value</param>
+        </member>
+        <member name="T:AttributeRouting.Framework.ThreeSectionSubdomainParser">
+            <summary>
+            Strategy that will parse all but the last two sections from a given host.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.UniqueRouteNameBuilder">
+            <summary>
+            Strategy ensuring that every route has a unique name.
+            Preferably, it generates routes names like "Area_Controller_Action".
+            In case of duplicates, it will append the HTTP method (if not a GET route) and/or a unique index to the route.
+            So the most heinous possible form is "Area_Controller_Action_Method_Index".
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Helpers.ObjectExtensions.HasNoValue(System.Object)">
+            <summary>
+            Returns true if the object is null or it's string representation is null or empty.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Helpers.ObjectExtensions.SafeGet``2(``0,System.Func{``0,``1})">
+            <summary>
+            Will attempt to get the value returned from the delegate.
+            If a NullReferenceException is thrown, the default for the leaf type will be returned.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Helpers.ObjectExtensions.SafeGet``2(``0,System.Func{``0,``1},``1)">
+            <summary>
+            Will attempt to get the value returned from the delegate.
+            If a NullReferenceException is thrown, the given default will be returned.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Helpers.ReflectionExtensions.GetControllerTypes(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Get controllers in given assembly, depending on target framework (MVC, WebAPI)
+            </summary>
+            <param name="assembly"></param>
+            <param name="controllerType"> </param>
+            <returns></returns>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.TranslationBuilder">
+            <summary>
+            Fluent helper for adding translations for route components.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationBuilder.#ctor(AttributeRouting.Framework.Localization.TranslationsDictionary)">
+            <summary>
+            Fluent helper for adding translations for route components.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationBuilder.ForKey(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds translations to the <see cref="T:AttributeRouting.Framework.Localization.FluentTranslationProvider"/> 
+            based on the key of the route component to translate; 
+            see <see cref="T:AttributeRouting.Framework.Localization.TranslationKeyGenerator"/>
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationBuilder.ForController``1">
+            <summary>
+            Returns a <see cref="T:AttributeRouting.Framework.Localization.ControllerTranslationBuilder`1"/>
+            for adding translations of route components in a strongly typed manner.
+            </summary>
+            <typeparam name="TController">The type of the controller with routes to translate</typeparam>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.FluentTranslationProvider">
+            <summary>
+            Default implementation of <see cref="T:AttributeRouting.Framework.Localization.TranslationProviderBase"/>
+            allowing the addition of translations for route components in a fluent style.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.TranslationProviderBase">
+            <summary>
+            Provider for generating translations of route components.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationProviderBase.GetTranslation(System.String,System.String)">
+            <summary>
+            Gets the translation for the given route component key and culture.
+            </summary>
+            <param name="key">The key of the route component to translate; see <see cref="T:AttributeRouting.Framework.Localization.TranslationKeyGenerator"/></param>
+            <param name="cultureName">The culture name for the translation</param>
+        </member>
+        <member name="P:AttributeRouting.Framework.Localization.TranslationProviderBase.CultureNames">
+            <summary>
+            List of culture names that have translations available via this provider.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.FluentTranslationProvider.#ctor">
+            <summary>
+            Default implementation of <see cref="T:AttributeRouting.Framework.Localization.TranslationProviderBase"/>
+            allowing the addition of translations for route components in a fluent style.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.FluentTranslationProvider.AddTranslations">
+            <summary>
+            Returns a <see cref="T:AttributeRouting.Framework.Localization.TranslationBuilder"/> for adding translations in a fluent style.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.Localization.FluentTranslationProvider.Translations">
+            <summary>
+            Dictionary containing the translations of route components.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.TranslationKeyGenerator">
+            <summary>
+            Generates conventional keys for use with the translation provder.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.AreaUrl(System.String)">
+            <summary>
+            Generates the conventional key for the url of the specified area.
+            </summary>
+            <param name="areaName">The name of the area</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.RoutePrefixUrl(System.String,System.String)">
+            <summary>
+            Generates the conventional key for the url of the specified route prefix.
+            </summary>
+            <param name="areaName">The name of the area, if applicable</param>
+            <param name="controllerName">The name of the controller</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.RouteUrl(System.String,System.String,System.String)">
+            <summary>
+            Generates the conventional key for the url of the specified route.
+            </summary>
+            <param name="areaName">The name of the area, if applicable</param>
+            <param name="controllerName">The name of the controller</param>
+            <param name="actionName">The name of the action method</param>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.AreaUrl``1">
+            <summary>
+            Generates the conventional key for the url of the area on the specified controller.
+            </summary>
+            <typeparam name="TController">The type of the controller</typeparam>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.RoutePrefixUrl``1">
+            <summary>
+            Generates the conventional key for the url of the route prefix on the specified controller.
+            </summary>
+            <typeparam name="TController">The type of the controller</typeparam>
+        </member>
+        <member name="M:AttributeRouting.Framework.Localization.TranslationKeyGenerator.RouteUrl``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Generates the conventional key for the url of the route on the specified action method.
+            </summary>
+            <typeparam name="TController">The type of the controller</typeparam>
+            <param name="action">Expression pointing to the the action method</param>
+        </member>
+        <member name="T:AttributeRouting.Framework.Localization.TranslationsDictionary">
+            <summary>
+            Dictionary of keys and dictionaries of culture name and translation pairs.
+            <code>
+            var translations = new TranslationsDictionary();
+            ...
+            var translation = translations[key][cultureName];
+            </code>
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.RouteBuilder">
+            <summary>
+            Creates <see cref="T:AttributeRouting.Framework.IAttributeRoute"/> objects according to the 
+            options set in implementations of <see cref="T:AttributeRouting.ConfigurationBase"/>.
+            </summary>    
+        </member>
+        <member name="M:AttributeRouting.Framework.RouteBuilder.BuildAllRoutes">
+            <summary>
+            Yields all the routes to register in the route table.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.IRouteAttribute">
+            <remarks>
+            Implementors MUST disambiguate among routes based on the HttpMethods allowed for this route.
+            In System.Web.Mvc, that means deriving from ActionMethodSelectorAttribute.
+            In System.Web.Http, that means deriving from IActionHttpMethodProvider.
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.RouteUrl">
+            <summary>
+            The url for this action.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.HttpMethods">
+            <summary>
+            The HttpMethods this route is constrained against.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.Order">
+            <summary>
+            The order of this route among all the routes defined against this action.
+            </summary>
+            <remarks>
+            Zero and Positive integers denote top routes: 1 is first, 2 is second, etc....
+            Negative integers denote bottom routes: -1 is last, -2 is second to last, etc....
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.ActionPrecedence">
+            <summary>
+            The order of this route among all the routes defined against this action.
+            </summary>
+            <remarks>
+            Positive integers (including zero) denote top routes: 1 is first, 2 is second, etc....
+            Negative integers denote bottom routes: -1 is last, -2 is second to last, etc....
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.Precedence">
+            <summary>
+            The order of this route among all the routes defined against this controller.
+            </summary>
+            <remarks>
+            Positive integers (including zero) denote top routes: 1 is first, 2 is second, etc....
+            Negative integers denote bottom routes: -1 is last, -2 is second to last, etc....
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.ControllerPrecedence">
+            <summary>
+            The order of this route among all the routes defined against this controller.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.SitePrecedence">
+            <summary>
+            The order of this route among all the routes in the site.
+            </summary>
+            <remarks>
+            Positive integers (including zero) denote top routes: 1 is first, 2 is second, etc....
+            Negative integers denote bottom routes: -1 is last, -2 is second to last, etc....
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.RouteName">
+            <summary>
+            The name this route will be registered with in the RouteTable.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.IsAbsoluteUrl">
+            <summary>
+            If true, the generated route url will be applied from the root, skipping any relevant area name or route prefix.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.TranslationKey">
+            <summary>
+            Key used by translation provider to lookup the translation for the <see cref="P:AttributeRouting.IRouteAttribute.RouteUrl"/>.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.UseLowercaseRoute">
+            <summary>
+            If set, will override <see cref="P:AttributeRouting.ConfigurationBase.UseLowercaseRoutes"/>
+            set via global configuration for this route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.UseLowercaseRouteFlag">
+            <summary>
+            Gets the tri-state value for UseLowercaseRoutes.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.PreserveCaseForUrlParameters">
+            <summary>
+            If set, will override <see cref="P:AttributeRouting.ConfigurationBase.PreserveCaseForUrlParameters"/>
+            set via global configuration for this route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.PreserveCaseForUrlParametersFlag">
+            <summary>
+            Gets the tri-state value for PreserveCaseForUrlParameters.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.AppendTrailingSlash">
+            <summary>
+            If true, will override <see cref="P:AttributeRouting.ConfigurationBase.AppendTrailingSlash"/>
+            set via global configuration for this route.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.AppendTrailingSlashFlag">
+            <summary>
+            Gets the tri-state value for AppendTrailingSlash.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.IgnoreRoutePrefix">
+            <summary>
+            If true, will ignore any route prefix specified via the <see cref="T:AttributeRouting.RoutePrefixAttribute"/>
+            when building up the route URL.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.IRouteAttribute.IgnoreAreaUrl">
+            <summary>
+            If true, will ignore any area URL prefix specified via the <see cref="T:AttributeRouting.RouteAreaAttribute"/>
+            when building up the route URL.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.RouteConventionAttributeBase">
+            <summary>
+            Base class that implementors can use to define a custom controller-level route convention.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.RouteConventionAttributeBase.GetRouteAttributes(System.Reflection.MethodInfo)">
+            <summary>
+            Gets the RouteAttributes to be applied to the given action method.
+            </summary>
+            <param name="actionMethod">The action method.</param>
+            <returns>A collection of routes for the action.</returns>
+        </member>
+        <member name="M:AttributeRouting.RouteConventionAttributeBase.GetDefaultRoutePrefix(System.Reflection.MethodInfo)">
+            <summary>
+            Gets the default route prefix to use if no RoutePrefix is applied on the controller.
+            </summary>
+            <param name="actionMethod">The action method.</param>
+            <returns>A default prefix to use for the actions in the controller.</returns>
+        </member>
+        <member name="M:AttributeRouting.RouteConventionAttributeBase.GetDefaultRoutePrefixes(System.Type)">
+            <summary>
+            Gets a <see cref="T:AttributeRouting.RoutePrefixAttribute"/> to apply to the controller 
+            if no explicit route prefix is specified.
+            </summary>
+            <param name="controllerType">The controller type.</param>
+            <returns>A <see cref="T:AttributeRouting.RoutePrefixAttribute"/>.</returns>
+        </member>
+        <member name="M:AttributeRouting.RouteConventionAttributeBase.GetDefaultRouteArea(System.Type)">
+            <summary>
+            Gets a <see cref="T:AttributeRouting.RouteAreaAttribute"/> to apply to the controller 
+            if no explicit route area is specified.
+            </summary>
+            <param name="controllerType">The controller type.</param>
+            <returns>A <see cref="T:AttributeRouting.RoutePrefixAttribute"/>.</returns>
+        </member>
+        <member name="T:AttributeRouting.Framework.RouteNameBuilders">
+            <summary>
+            Strategies for generating conventional route names.
+            </summary>
+            <remarks>
+            A bit awkward currently due to initial impl not being formalized into separate strategy classes.
+            Will refactor use via configuration API for v4.0.
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Framework.RouteNameBuilders.Unique">
+            <summary>
+            This builder ensures that every route has a unique name.
+            Preferably, it generates routes names like "Area_Controller_Action".
+            In case of duplicates, it will append the HTTP method (if not a GET route) and/or a unique index to the route.
+            So the most heinous possible form is "Area_Controller_Action_Method_Index".
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.Framework.RouteNameBuilders.FirstInWins">
+            <summary>
+            This builder generates routes in the form "Area_Controller_Action". 
+            In case of duplicates, the duplicate route is not named, and the builder will return null.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.RoutePrefixAttribute">
+            <summary>
+            Defines a prefix shared by all the routes defined in this controller.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.RoutePrefixAttribute.#ctor">
+            <summary>
+            Defines a prefix shared by all the routes defined in this controller.
+            The url prefix will be the name of the controller without the "Controller" suffix.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.RoutePrefixAttribute.#ctor(System.String)">
+            <summary>
+            Defines a prefix shared by all the routes defined in this controller.
+            </summary>
+            <param name="url">The url prefix to apply to the routes</param>
+        </member>
+        <member name="P:AttributeRouting.RoutePrefixAttribute.Url">
+            <summary>
+            The url prefix to apply to the routes.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.RoutePrefixAttribute.Precedence">
+            <summary>
+            The order of the routes using the given prefix 
+            among all the routes generated with prefixes for this controller.
+            </summary>
+            <remarks>
+            Positive integers (including zero) denote top routes: 1 is first, 2 is second, etc....
+            Negative integers denote bottom routes: -1 is last, -2 is second to last, etc....
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.RoutePrefixAttribute.TranslationKey">
+            <summary>
+            Key used by translation provider to lookup the translation for the <see cref="P:AttributeRouting.RoutePrefixAttribute.Url"/>.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.RouteAreaAttribute">
+            <summary>
+            Defines an area shared by all the routes defined in this controller.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.RouteAreaAttribute.#ctor">
+            <summary>
+            Defines an area shared by all the routes defined in this controller.
+            The area name will be the most immediate section of the namespace for the controller.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.RouteAreaAttribute.#ctor(System.String)">
+            <summary>
+            Defines an area shared by all the routes defined in this controller.
+            </summary>
+            <param name="areaName">The name of the containing area</param>
+        </member>
+        <member name="P:AttributeRouting.RouteAreaAttribute.AreaName">
+            <summary>
+            The area name that is registered for the routes in the controller.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.RouteAreaAttribute.AreaUrl">
+            <summary>
+            The url prefix to apply to the routes.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.RouteAreaAttribute.TranslationKey">
+            <summary>
+            Key used by translation provider to lookup the translation for the <see cref="P:AttributeRouting.RouteAreaAttribute.AreaUrl"/>.
+            </summary>
+        </member>
+        <member name="P:AttributeRouting.RouteAreaAttribute.Subdomain">
+            <summary>
+            The subdomain that this area is mapped to. By default, areas apply to all subdomains.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.RouteSpecification">
+            <summary>
+            Contains all the information <see cref="T:AttributeRouting.Framework.RouteBuilder"/> needs to create a route.
+            </summary>
+        </member>
+        <member name="T:AttributeRouting.Framework.AttributeReflector">
+            <summary>
+            Creates <see cref="T:AttributeRouting.Framework.RouteSpecification"/> objects according to the 
+            options set in implementations of <see cref="T:AttributeRouting.ConfigurationBase"/>.
+            </summary>    
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeReflector.BuildRouteSpecifications">
+            <summary>
+            Yields all the information needed by <see cref="T:AttributeRouting.Framework.RouteBuilder"/> to build routes.
+            </summary>
+        </member>
+        <member name="M:AttributeRouting.Framework.AttributeReflector.GetSortableOrder(System.Int32)">
+            <summary>
+            Gets the sortable order for the given value.
+            </summary>
+            <param name="value">An integer sort order, where positive N is Nth, and negative N is Nth from last.</param>
+            <returns>The sortable order corresponding to the given value.</returns>
+        </member>
+        <member name="T:AttributeRouting.Framework.SubdomainParsers">
+            <summary>
+            Strategies for parsing the subdomain from host names.
+            </summary>
+            <remarks>
+            A bit awkward currently due to initial impl not being formalized into separate strategy classes.
+            Will refactor use via configuration API for v4.0.
+            </remarks>
+        </member>
+        <member name="P:AttributeRouting.Framework.SubdomainParsers.ThreeSection">
+            <summary>
+            Will parse all but the last two sections from a given host.
+            </summary>
+        </member>
+    </members>
+</doc>

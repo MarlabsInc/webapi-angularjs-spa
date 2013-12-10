@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebApi.Cors</id>
+    <version>5.0.0</version>
+    <title>Microsoft ASP.NET Web API 2 Cross-Origin Support</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ENU.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-api</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This package contains the components to enable Cross-Origin Resource Sharing (CORS) in ASP.NET Web API.</description>
+    <summary>This package contains the components to enable Cross-Origin Resource Sharing (CORS) in ASP.NET Web API.</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>Microsoft AspNet WebApi AspNetWebApi Cors Cross Origin</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.0.0" />
+      <dependency id="Microsoft.AspNet.Cors" version="5.0.0" />
+    </dependencies>
+  </metadata>
+</package>

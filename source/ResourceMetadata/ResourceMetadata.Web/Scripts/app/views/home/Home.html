@@ -1,0 +1,46 @@
+﻿
+<h5 class="ui header">Home</h5>
+<div class="ui divider"></div>
+<p>
+    Welcome to the Resource Manager application. Here is your top 5 resources below with the Priority assigned.
+</p>
+<div class="ui active inverted dimmer" data-ng-hide="loaded">
+    <div class="ui text loader">Loading</div>
+</div> <div data-ng-show="loaded">
+    <table class="ui small table segment">
+        <thead>
+            <tr>
+                <th>
+                    Priority
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr data-ng-repeat="resource in resources">
+                <td>
+                    {{resource.Priority}}
+                </td>
+                <td>
+                    <a href="#/Resources/{{resource.Id}}">{{resource.Name}}</a>
+                </td>
+                <td>
+                    {{resource.Description}}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="danger" colspan="4" data-ng-hide="hasContent">
+                    There are no resources in server
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
