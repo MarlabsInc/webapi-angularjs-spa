@@ -25,6 +25,7 @@
         resourceMngrSvc.registerUser(userRegistration)
         .then(function (data) {
             $scope.isAuthenticated = true;
+            $location.url('/Home');
         }, function (error) {
 
         });

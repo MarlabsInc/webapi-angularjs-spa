@@ -1,5 +1,6 @@
 ﻿window.app = angular.module('resourceManagerApp', ['ui.select2'])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
         $routeProvider
             .when('/Login', { templateUrl: 'Scripts/app/views/login/Login.html' })
             .when('/Locations', { templateUrl: 'Scripts/app/views/locations/Locations.html', controller: 'locationsCtrl' })
