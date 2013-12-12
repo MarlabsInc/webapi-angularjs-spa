@@ -37,44 +37,7 @@ namespace ResourceMetadata.Data
         protected override void Seed(ResourceManagerEntities context)
         {
             context.Users.Add(new User {  Email = "abc@yahoo.com", Password = "abc" });
-            context.SaveChanges();
-            //    context.Locations.Add(new Location{ ID=1, })
-
-
-            //    context.Resources.Add(new Resource
-            //    {
-            //        Name = "Ember resource",
-            //        Description = "Resources for Ember development",
-            //        IsShared = true,
-            //        Location = "Computer",
-            //        Priority = 1,
-            //        Path = @"D://DileepD/",
-            //        CreatedOn = DateTime.Now
-            //    });
-
-            //    context.Resources.Add(new Resource
-            //    {
-            //        Name = "WebAPI",
-            //        Description = "Resources for Web API development",
-            //        IsShared = true,
-            //        Location = "Computer",
-            //        Priority = 2,
-            //        Path = @"D://DileepD/",
-            //        CreatedOn = DateTime.Now
-            //    });
-            //    context.Resources.Add(new Resource
-            //    {
-            //        Name = "MVC resource",
-            //        Description = "Resources for MVC development",
-            //        IsShared = true,
-            //        Location = "Computer",
-            //        Priority = 3,
-            //        Path = @"D://DileepD/",
-            //        CreatedOn = DateTime.Now
-            //    });
-
-            //    context.SaveChanges();
-            //    base.Seed(context);
+            context.SaveChanges();           
         }
     }
 
