@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Model", "ResourceMetadata.Model\ResourceMetadata.Model.csproj", "{673CF0EE-E1DB-4FB5-934B-80830B50B3A0}"
 EndProject
@@ -10,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Service", "ResourceMetadata.Service\ResourceMetadata.Service.csproj", "{2DE79BEB-2A40-42AB-8065-E9416C9076E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Web", "ResourceMetadata.Web\ResourceMetadata.Web.csproj", "{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D5A53570-7E31-4E3F-9280-AA132557249C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
