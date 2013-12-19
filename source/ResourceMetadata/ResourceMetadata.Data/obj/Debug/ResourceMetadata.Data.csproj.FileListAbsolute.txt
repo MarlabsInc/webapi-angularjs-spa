@@ -8,3 +8,13 @@ D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\Reso
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Model.pdb
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Data\obj\Debug\ResourceMetadata.Data.dll
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Data\obj\Debug\ResourceMetadata.Data.pdb
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Data.dll.config
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Data.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Data.pdb
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\EntityFramework.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Model.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\EntityFramework.xml
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Model.pdb
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\obj\Debug\ResourceMetadata.Data.csprojResolveAssemblyReference.cache
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\obj\Debug\ResourceMetadata.Data.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Data\obj\Debug\ResourceMetadata.Data.pdb

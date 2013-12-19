@@ -3,3 +3,8 @@ D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\Reso
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.csprojResolveAssemblyReference.cache
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.dll
 D:\Dileep\Angularjs\Projects\Angular-ResourceMetadata\2013\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.pdb
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.pdb
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.csprojResolveAssemblyReference.cache
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.dll
+E:\GitHub\Marlabs\webapi-angularjs-spa\source\ResourceMetadata\ResourceMetadata.Model\obj\Debug\ResourceMetadata.Model.pdb
