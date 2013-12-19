@@ -10,8 +10,7 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace ResourceMetadata.Web.Controllers
-{
-
+{ 
     public class ResourceActivitiesController : ApiController
     {
         private readonly IResourceActivityService activityService;
@@ -21,7 +20,7 @@ namespace ResourceMetadata.Web.Controllers
             this.activityService = activityService;
         }
 
-        [HttpGet("api/Resources/{resourceId}/Activities")]
+        [Route("api/Resources/{resourceId}/Activities")]
         public IHttpActionResult Get(int resourceId)
         {
             var activities = activityService.GetActivitiesByResourceId(resourceId);
@@ -30,7 +29,7 @@ namespace ResourceMetadata.Web.Controllers
             return Ok(activityViewModel);
         }
 
-        [HttpPost("api/Resources/{resourceId}/Activities")]
+        [Route("api/Resources/{resourceId}/Activities")]
         public IHttpActionResult Post(int resourceId, ResourceActivityViewModel activity)
         {
             var entity = new ResourceActivity();
@@ -40,7 +39,7 @@ namespace ResourceMetadata.Web.Controllers
             return Created(Url.Link("DefaultApi", new { controller = "ResourceActivities", id = activity.Id }), activity);
         }
 
-        [HttpDelete("api/ResourceActivities/{activityId}")]
+        [Route("api/ResourceActivities/{activityId}")]
         public IHttpActionResult Delete(int activityId)
         {
             activityService.DeleteActivity(activityId);

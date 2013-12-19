@@ -1,8 +1,11 @@
-﻿<div style="margin-top:75px;">
+﻿<div class="ui active inverted dimmer" data-ng-hide="loaded">
+    <div class="ui text loader">Loading</div>
+</div> 
+<div style="margin-top:75px;">
     <div id="logincontainer" name="logincontainer" ng-show="loginMode">
         <form name="loginform" role="form" class="ui secondary small form segment">
             <h5 class="ui header">Login</h5>
-            <div class="ui divider"></div>
+            <div class="ui divider"></div>  
             <div class="field">
                 <label for="email">
                     Email<span style="color: Red">*</span>

@@ -2,12 +2,15 @@
     $scope.isAuthenticated = false;
     $scope.loginMode = true;
     $scope.registrationMode = false;
+    $scope.loaded = false;
     $scope.login = function (userLogin) {
         resourceMngrSvc.login(userLogin)
         .then(function (data) {
+            $scope.loaded = false;
             $scope.isAuthenticated = true;
             $location.url('/Home');
         }, function (error) {
+
         });
     };
 
@@ -24,6 +27,7 @@
     $scope.register = function (userRegistration) {
         resourceMngrSvc.registerUser(userRegistration)
         .then(function (data) {
+            $scope.loaded = false;
             $scope.isAuthenticated = true;
             $location.url('/Home');
         }, function (error) {
