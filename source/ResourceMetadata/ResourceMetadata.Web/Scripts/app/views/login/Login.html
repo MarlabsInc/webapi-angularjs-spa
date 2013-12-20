@@ -1,25 +1,33 @@
-﻿<div class="ui active inverted dimmer" data-ng-hide="loaded">
+﻿
+
+<div class="ui active inverted dimmer" data-ng-hide="loaded">
     <div class="ui text loader">Loading</div>
-</div> 
+</div>
 <div style="margin-top:75px;">
     <div id="logincontainer" name="logincontainer" ng-show="loginMode">
         <form name="loginform" role="form" class="ui secondary small form segment">
             <h5 class="ui header">Login</h5>
-            <div class="ui divider"></div>  
+            <div class="ui divider"></div> 
+            <div ng-show="loginform.$error.invaliduser">
+                <div class="error-message">
+                    Please check username/password
+                </div>
+                <div class="ui divider"></div>
+            </div>
             <div class="field">
                 <label for="email">
                     Email<span style="color: Red">*</span>
                 </label>
-                <input type="text" id="email" placeholder="Email" required data-ng-model="userLogin.email" />
+                <input type="text" id="email" class="error" name="email" placeholder="Email" required data-ng-model="userLogin.email" />
             </div><div class="ui divider"></div>
             <div class="field">
                 <label for="password">
                     Password<span style="color: Red">*</span>
                 </label>
-                <input type="password" id="password" placeholder="Password" required data-ng-model="userLogin.password" />
+                <input type="password" id="password" name="password" placeholder="Password" required data-ng-model="userLogin.password" />
             </div><div class="ui divider"></div>
             <div class="inline field">
-                <button data-ng-disabled="loginform.$invalid" data-ng-click="login(userLogin)"
+                <button data-ng-click="login(loginform,userLogin)"
                         class="ui blue mini button">
                     Login
                 </button>

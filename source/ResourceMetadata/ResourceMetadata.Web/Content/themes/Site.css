@@ -874,3 +874,8 @@ a {
 .menu-container {
     margin-bottom: 1rem;
 }
+.error-message{
+    color:#e80c4d; 
+    padding:5px;
+    font-size:1em;
+}

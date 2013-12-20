@@ -29,13 +29,13 @@
             </tr>
             <tr data-ng-repeat="resource in resources">
                 <td>
-                    <a  href="#/Resources/{{resource.Id}}">{{resource.Name}}</a>
+                    <a  href="/Resources/{{resource.Id}}">{{resource.Name}}</a>
                 </td>
                 <td>
                     {{resource.Description}}
                 </td>
                 <td style="width: 4%;">
-                    <a href="#/ResourceEdit/{{resource.Id}}"><i class="edit icon"></i></a>
+                    <a href="/ResourceEdit/{{resource.Id}}"><i class="edit icon"></i></a>
                 </td>
                 <td style="width: 4%;">
                     <a href="javascript:;" data-ng-click="deleteResource(resource.Id)"><i class="trash icon"></i></a>

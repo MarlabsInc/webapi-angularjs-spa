@@ -35,9 +35,6 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="ResourceMetadata.Model">
-      <HintPath>..\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +64,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceMetadata.Model\ResourceMetadata.Model.csproj">
+      <Project>{673cf0ee-e1db-4fb5-934b-80830b50b3a0}</Project>
+      <Name>ResourceMetadata.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

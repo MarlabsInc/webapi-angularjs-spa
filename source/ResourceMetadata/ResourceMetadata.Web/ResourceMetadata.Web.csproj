@@ -70,18 +70,6 @@
       <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="ResourceMetadata.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="ResourceMetadata.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="ResourceMetadata.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ResourceMetadata.Service\bin\Debug\ResourceMetadata.Service.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -231,6 +219,8 @@
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Scripts\app\controllers\home\homecontroller.js" />
+    <Content Include="Scripts\app\directives\shared\topmenu.js" />
+    <Content Include="Scripts\app\helpers\authorizationinterceptor.js" />
     <Content Include="Scripts\app\views\about\About.html" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\directives\shared\datepicker.js" />
@@ -238,7 +228,6 @@
     <Content Include="Scripts\app\directives\shared\modal.js" />
     <Content Include="Scripts\app\directives\shared\select2dropdown.js" />
     <Content Include="Scripts\app\partials\TopMenu.html" />
-    <Content Include="Scripts\app\directives\shared\topmenu.js" />
     <Content Include="Scripts\app\services\shared\resourcemngrservice.js" />
     <Content Include="Scripts\app\services\shared\errormanagerservice.js" />
     <Content Include="Scripts\app\services\shared\confirmationservice.js" />
@@ -270,6 +259,9 @@
     <Content Include="Scripts\app\services\resources\resourcesservice.js" />
     <Content Include="Scripts\app\services\resources\resourceutilityservice.js" />
     <Content Include="Scripts\app\views\login\Login.html" />
+    <Content Include="Scripts\app\views\shared\Error.html" />
+    <Content Include="Scripts\libs\angular-1.1.5.min.js" />
+    <Content Include="Scripts\libs\angular-1.2.5.min.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
     <Content Include="Scripts\libs\bootstrapunicorn\bootstrap-colorpicker.js" />
     <Content Include="Scripts\libs\bootstrapunicorn\bootstrap-datepicker.js" />
@@ -383,6 +375,20 @@
     <Folder Include="Scripts\app\common\directives\" />
     <Folder Include="Scripts\app\common\services\" />
     <Folder Include="Scripts\app\user\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceMetadata.Data\ResourceMetadata.Data.csproj">
+      <Project>{d6dccec1-4b37-4d54-ba9e-9c53948dc285}</Project>
+      <Name>ResourceMetadata.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceMetadata.Model\ResourceMetadata.Model.csproj">
+      <Project>{673cf0ee-e1db-4fb5-934b-80830b50b3a0}</Project>
+      <Name>ResourceMetadata.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceMetadata.Service\ResourceMetadata.Service.csproj">
+      <Project>{2de79beb-2a40-42ab-8065-e9416c9076e3}</Project>
+      <Name>ResourceMetadata.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

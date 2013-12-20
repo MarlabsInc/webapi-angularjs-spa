@@ -16,7 +16,8 @@ namespace ResourceMetadata.Web
     {
         protected void Application_Start()
         {
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            //WebApiConfig.Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration.Filters.Add(new ResourceManagerAuthroize());
             Bootstrapper.Configure();
             Database.SetInitializer(new ResourceManagerDbInitializer());

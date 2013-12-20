@@ -30,14 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ResourceMetadata.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ResourceMetadata.Data\bin\Debug\ResourceMetadata.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="ResourceMetadata.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ResourceMetadata.Model\bin\Debug\ResourceMetadata.Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +44,16 @@
     <Compile Include="ResourceActivityService.cs" />
     <Compile Include="ResourceService.cs" />
     <Compile Include="UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceMetadata.Data\ResourceMetadata.Data.csproj">
+      <Project>{d6dccec1-4b37-4d54-ba9e-9c53948dc285}</Project>
+      <Name>ResourceMetadata.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceMetadata.Model\ResourceMetadata.Model.csproj">
+      <Project>{673cf0ee-e1db-4fb5-934b-80830b50b3a0}</Project>
+      <Name>ResourceMetadata.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
