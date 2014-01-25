@@ -15,11 +15,11 @@ Server-Side
 * EF 6 Code First 
 * AutoMapper
 * Autofac
+* Semantic UI
 
 Client-Side
 -----------
 
-* AngularJS 1.2.4
-* Mocha.js, Chai.js, Sinon.js
-* Grunt, Bower
+* AngularJS 1.1.5
+
 
