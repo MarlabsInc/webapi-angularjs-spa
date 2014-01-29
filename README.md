@@ -1,9 +1,9 @@
 webapi-angularjs-spa
 ====================
 
-[![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](https://www.marlabs.com)
+[![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](http://www.marlabs.com)
 
-A reference app for building single page apps (SPA) with ASP.NET Web API 2 and AngularJS, developed by [Marlabs](https://www.marlabs.com)
+A reference app for building single page apps (SPA) with ASP.NET Web API 2 and AngularJS, developed by [Marlabs](http://www.marlabs.com)
 
 Technologies
 ============
