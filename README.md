@@ -22,4 +22,14 @@ Client-Side
 * AngularJS 1.1.5
 * Semantic UI
 
+# Roadmap Targets
+
+* Code refactoring.
+* Use $resource for working with REST API.
+* Unit tests with Karma/Jasmine
+* Task automation with Gulp.js
+* Leverage Browserify 
+* Performance optimizations and best prarctices for SPA.
+
+
 
