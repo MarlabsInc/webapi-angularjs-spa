@@ -8,5 +8,6 @@
                 ngModel.$setViewValue(e.val);
                 scope.$apply();
             });
+        }
     };
-})
+});

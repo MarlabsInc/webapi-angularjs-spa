@@ -1,12 +1,9 @@
-﻿app.controller('activityAddCtrl', function ($scope, $location, $routeParams, activitySvc, errorMngrSvc) {
+﻿app.controller('ActivityAddCtrl', ['$scope', '$location', '$routeParams', 'activitySvc', function ($scope, $location, $routeParams, activitySvc) {
     $scope.activity = { resourceId: $routeParams.resourceId };
     $scope.addActivity = function (activity, date) {
         activitySvc.addActivity(activity)
             .then(function (addedActivity) {
                 $location.url('/Resources/' + addedActivity.ResourceId);
-            }, function (error) {
-                errorMngrSvc.handleError(error);
-            })
-
+            });
     }
-});
+}]);

@@ -54,6 +54,13 @@ namespace ResourceMetadata.Service
 
         public Resource UpdateResource(Resource resource)
         {
+            var existingResource = GetResourceByPriority(resource.Priority);
+
+            if (existingResource != null && existingResource.Id !=  resource.Id)
+            {
+                repository.Delete(existingResource);
+            }
+
             repository.Update(resource);
             SaveChanges();
             return resource;

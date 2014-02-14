@@ -1,21 +1,27 @@
-﻿app.controller('resourceMngrCtrl', function ($scope, $location, resourceMngrSvc) {
+﻿app.controller('ResourceMngrCtrl', ['$scope', '$location', 'resourceMngrSvc', function ($scope, $location, resourceMngrSvc) {
     $scope.loginMode = true;
     $scope.registrationMode = false;
     $scope.loaded = true;
     $scope.login = function (loginform, userLogin) {
-        loginform.$setValidity('invaliduser', true);
-        if (!loginform.$invalid) {
-            $scope.loaded = false;
-            resourceMngrSvc.login(userLogin)
-            .then(function (data) {
-                $scope.loaded = true;
-                $scope.$emit('logOn');
-                $location.url('/Home');
-            }, function (error) {
-                $scope.loaded = true;
-                loginform.$setValidity('invaliduser', false);
-            });
-        }
+        $scope.loaded = false;
+        userLogin.Action = 0;
+        $scope.errorMessage = '';
+        resourceMngrSvc.login(userLogin)
+        .then(function (data) {
+            $scope.loaded = true;
+            $scope.$emit('logOn');
+            $location.url('/Home');
+        }, function (errorResponse) {
+            $scope.loaded = true;
+            if (errorResponse.status == 404) {
+                $scope.errorMessage = errorResponse.data;
+            }
+            else {
+                $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
+            }
+            //$scope.errorMessage = errorResponse.data;
+            //loginform.$setValidity('invaliduser', false);
+        });
     };
 
     $scope.toggleMode = function (mode) {
@@ -29,19 +35,21 @@
         }
     };
     $scope.register = function (userRegistration) {
-
         if (userRegistration.password !== userRegistration.confirmPassword) {
-            $scope.invalidPasswords = true;
+            $scope.errorMessage = "Passwords do not match";
             return;
         }
         $scope.loaded = false;
+        $scope.errorMessage = '';
+        userRegistration.Action = 1;
         resourceMngrSvc.registerUser(userRegistration)
         .then(function (data) {
             $scope.loaded = true;
             $scope.$emit('logOn');
             $location.url('/Home')
         }, function (error) {
-
+            $scope.loaded = true;
+            $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
         });
     };
 
@@ -66,4 +74,4 @@
 
         });
     }
-});
+}]);

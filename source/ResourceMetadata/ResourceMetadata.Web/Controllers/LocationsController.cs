@@ -45,7 +45,7 @@ namespace ResourceMetadata.Controllers
             return Ok(viewModel);
         }
 
-        public IHttpActionResult Post(LocationViewModel viewModel)
+        public IHttpActionResult Post(LocationViewModel location)
         {
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
             var user = userService.GetUserByEmail(userEmail);
@@ -53,12 +53,12 @@ namespace ResourceMetadata.Controllers
             if (user != null)
             {
                 Location entity = new Location();
-                Mapper.Map(viewModel, entity);
+                Mapper.Map(location, entity);
                 entity.CreatedOn = DateTime.UtcNow;
                 entity.UserId = user.Id;
                 locationService.AddLocation(entity);
-                Mapper.Map(entity, viewModel);
-                return Created(Url.Link("DefaultApi", new { controller = "Locations", id = viewModel.Id }), viewModel);
+                Mapper.Map(entity, location);
+                return Created(Url.Link("DefaultApi", new { controller = "Locations", id = location.Id }), location);
             }
             return InternalServerError();
         }

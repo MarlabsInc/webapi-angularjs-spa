@@ -36,4 +36,20 @@ namespace ResourceMetadata.Web.Helpers
 
         }
     }
+
+    public class InvalidUserResult : IHttpActionResult
+    {
+        private readonly HttpRequestMessage request;
+
+        public InvalidUserResult(HttpRequestMessage request)
+        {
+            this.request = request;
+        }
+        public System.Threading.Tasks.Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
+        {
+            var response = request.CreateResponse(HttpStatusCode.NotFound);
+            response.Content = new StringContent("Please check UserName/Password");
+            return System.Threading.Tasks.Task.FromResult(response);
+        }
+    }
 }

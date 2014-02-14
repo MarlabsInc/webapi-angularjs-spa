@@ -2,7 +2,7 @@
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'Scripts/app/partials/TopMenu.html',
+        templateUrl: '/Scripts/app/partials/TopMenu.html',
         link: function (scope, element, attrs) {
             var menuItems = element.find("a");
             menuItems.on('click', function () {
@@ -10,11 +10,11 @@
                 $(this).addClass('active');
             });
 
-            scope.$on('logOff', function () {
+            scope.$on('logOff', function () { 
                 scope.isAuthenticated = false;
             });
 
-            scope.$on('logOn', function () {
+            scope.$on('logOn', function () { 
                 scope.isAuthenticated = true;
             });
         }

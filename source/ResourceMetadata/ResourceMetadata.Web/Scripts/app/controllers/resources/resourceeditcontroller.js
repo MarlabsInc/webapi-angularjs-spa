@@ -1,21 +1,30 @@
-﻿app.controller('resourceEditCtrl', function ($scope, $location, $routeParams, resourceSvc, resourceUtilSvc, errorMngrSvc) {
-    url: '/api/Resources/',
-    $scope.resource = {};
-    $scope.loading = "loading";
-    resourceUtilSvc.createResourceEditFormModel($routeParams.resourceId)
-        .then(function (data) {
-            $scope.locations = data[1];
-            $scope.resource = data[0];         
-            $scope.loading = "";
-        }, function (reason) {
-            errorMngrSvc.handleError(reason);
-        });
+﻿app.controller('ResourceEditCtrl', ['$scope', '$location', '$routeParams', 'resourceSvc',
+    function ($scope, $location, $routeParams, resourceSvc) {
+        init();
+        $scope.editResource = function (resource) {
+            resourceSvc.editResource(resource).then(function (data) {
+                $location.url('/Resources');
+            });
+        };
 
-    $scope.editResource = function (resource) {
-        resourceSvc.editResource(resource).then(function (data) {
-            $location.url('/Resources');
-        }, function (reason) {
-            errorMngrSvc.handleError(reason);
-        });
-    };
-});
+        function priorityValues() {
+            var priorities = [];
+            for (var i = 1; i <= 10; i++) {
+                priorities.push({ priority: i });
+            }
+
+            return priorities;
+        }
+
+        function init() {
+            resourceSvc.createResourceEditFormModel($routeParams.resourceId)
+         .then(function (data) {
+             $scope.locations = data[1];
+             $scope.resource = data[0];
+
+             //hack for issue with select2 hard coded values pre-selection.
+             $scope.priorities = priorityValues();
+         });
+        }
+
+    }]);

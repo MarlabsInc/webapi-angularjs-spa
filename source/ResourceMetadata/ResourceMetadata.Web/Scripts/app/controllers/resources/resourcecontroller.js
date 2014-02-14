@@ -1,11 +1,20 @@
-﻿app.controller('resourceCtrl', function ($scope, $routeParams, resourceSvc, errorMngrSvc) {
+﻿app.controller('ResourceCtrl', ['$scope', '$routeParams', '$location', 'resourceSvc', function ($scope, $routeParams, $location, resourceSvc) {
     $scope.resource = { hasActivites: false };
-    resourceSvc.getResource($routeParams.resourceId)
-        .then(function (resource) {
-            $scope.resource = resource;
-            $scope.loaded = true;
-        }, function (reason) {
-            errorMngrSvc.handleError(reason);
+    $scope.addResource = function (resource) {
+        resourceSvc.addResource(resource)
+        .then(function (data) {
+            $location.url('/Resources');
         });
+    }
 
-});
+    init();
+
+    function init() {
+        if ($routeParams.resourceId > 0) {
+            $scope.resource = resourceSvc.getResource($routeParams.resourceId);
+        }
+        else {
+            $scope.locations = resourceSvc.createResourceAddFormModel();
+        }
+    }
+}]);
