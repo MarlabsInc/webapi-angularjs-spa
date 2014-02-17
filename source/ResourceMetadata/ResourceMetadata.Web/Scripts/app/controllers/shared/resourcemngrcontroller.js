@@ -25,6 +25,7 @@
     };
 
     $scope.toggleMode = function (mode) {
+        $scope.errorMessage = '';
         if (mode === 'login') {
             $scope.loginMode = true;
             $scope.registrationMode = false;
