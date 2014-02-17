@@ -8,6 +8,7 @@ namespace ResourceMetadata.Web.Enums
     public enum LoginActions
     {
         Login,
+        Register,
         LogOff
 
     }

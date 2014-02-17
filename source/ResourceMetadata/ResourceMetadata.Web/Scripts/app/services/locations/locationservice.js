@@ -1,38 +1,25 @@
-﻿app.factory('locationSvc', function ($http, $q) {
+﻿app.factory('locationSvc', ['$resource', function ($resource) {
+    var url = '/api/Locations/';
+    var Location = $resource('/api/Locations/:locationId', { locationId: '@Id' }, { 'update': { method: 'PUT' } });
+
     return {
         addLocation: function (location) {
-            var deferred = $q.defer();
-            $http({ method: 'post', url: '/api/Locations', data: location })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-            return deferred.promise;
+            //$resource.save will immediately return an object which will have $promise property. 
+            //This property will get resolved with values, once the Server returns response
+            return Location.save(location).$promise;
         },
         editLocation: function (location) {
-            var deferred = $q.defer();
-            $http({ method: 'put', url: '/api/Locations/' + location.Id, data: location })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-            return deferred.promise;
+            var updation = Location.update(location);
+            return updation.$promise;
         },
         getLocation: function (id) {
-            var deferred = $q.defer();
-            $http({ method: 'get', url: '/api/Locations/' + id, data: location })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-
-            return deferred.promise;
-        } 
-    };
-});
+            return Location.get({ locationId: id });
+        },
+        getLocations: function () {
+            return Location.query();
+        },
+        deleteLocation: function (locationId) {
+            return Location.delete({ locationId: locationId }).$promise;
+        }
+    }
+}]);

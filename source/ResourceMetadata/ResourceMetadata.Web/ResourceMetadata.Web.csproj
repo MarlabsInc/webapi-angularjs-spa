@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="AttributeRouting">
       <HintPath>..\packages\AttributeRouting.Core.3.5.6\lib\net40\AttributeRouting.dll</HintPath>
     </Reference>
@@ -49,8 +52,12 @@
     <Reference Include="AttributeRouting.Web.Http">
       <HintPath>..\packages\AttributeRouting.Core.Http.3.5.6\lib\net40\AttributeRouting.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.1.5\lib\net40\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.2.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc5.3.2.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi5.3.0.0-rc1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
@@ -70,6 +77,13 @@
       <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,6 +98,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.0-rc1\lib\net45\System.Web.Http.dll</HintPath>
@@ -91,6 +109,29 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.0-rc1\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -102,13 +143,13 @@
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrapunicorn\bootstrap-responsive.css" />
     <Content Include="Content\bootstrapunicorn\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrapunicorn\bootstrap.css" />
@@ -141,6 +182,7 @@
     <Content Include="Content\images\loader-mini.gif" />
     <Content Include="Content\images\loader-small-inverted.gif" />
     <Content Include="Content\images\loader-small.gif" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\loading.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -216,11 +258,15 @@
     <Content Include="Content\themes\semantic\semantic.css" />
     <Content Include="Content\themes\semantic\sidebar.min.css" />
     <Content Include="Content\themes\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Scripts\app\controllers\home\homecontroller.js" />
+    <Content Include="Scripts\app\directives\shared\loadingoverlay.js" />
+    <Content Include="Scripts\app\directives\shared\requestverificationtoken.js" />
     <Content Include="Scripts\app\directives\shared\topmenu.js" />
     <Content Include="Scripts\app\helpers\authorizationinterceptor.js" />
+    <Content Include="Scripts\app\partials\Loader.html" />
     <Content Include="Scripts\app\views\about\About.html" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\directives\shared\datepicker.js" />
@@ -232,86 +278,50 @@
     <Content Include="Scripts\app\services\shared\errormanagerservice.js" />
     <Content Include="Scripts\app\services\shared\confirmationservice.js" />
     <Content Include="Scripts\app\views\home\Home.html" />
-    <Content Include="Scripts\app\views\locations\LocationAdd.html" />
-    <Content Include="Scripts\app\controllers\locations\locationaddcontroller.js" />
-    <Content Include="Scripts\app\views\locations\LocationEdit.html" />
-    <Content Include="Scripts\app\controllers\locations\locationeditcontroller.js" />
+    <Content Include="Scripts\app\views\locations\Add.html" />
+    <Content Include="Scripts\app\views\locations\Edit.html" />
+    <Content Include="Scripts\app\controllers\locations\locationcontroller.js" />
     <Content Include="Scripts\app\views\locations\Locations.html" />
     <Content Include="Scripts\app\controllers\locations\locationscontroller.js" />
     <Content Include="Scripts\app\services\locations\locationservice.js" />
-    <Content Include="Scripts\app\services\locations\locationsservice.js" />
     <Content Include="Scripts\app\controllers\activities\activityaddcontroller.js" />
     <Content Include="Scripts\app\controllers\activities\activitiescontroller.js" />
     <Content Include="Scripts\app\services\activities\activityservice.js" />
     <Content Include="Scripts\app\directives\activities\resourceactivitylist.js" />
-    <Content Include="Scripts\app\views\activities\ResourceActivityAdd.html" />
+    <Content Include="Scripts\app\views\activities\Add.html" />
     <Content Include="Scripts\app\directives\activities\ResourceActivityList.html" />
     <Content Include="Scripts\app\controllers\shared\resourcemngrcontroller.js" />
-    <Content Include="Scripts\app\views\resources\ResourceAdd.html" />
-    <Content Include="Scripts\app\controllers\resources\resourceaddcontroller.js" />
+    <Content Include="Scripts\app\views\resources\Add.html" />
     <Content Include="Scripts\app\controllers\resources\resourcecontroller.js" />
-    <Content Include="Scripts\app\views\resources\ResourceDetails.html" />
-    <Content Include="Scripts\app\views\resources\ResourceEdit.html" />
+    <Content Include="Scripts\app\views\resources\Details.html" />
+    <Content Include="Scripts\app\views\resources\Edit.html" />
     <Content Include="Scripts\app\controllers\resources\resourceeditcontroller.js" />
     <Content Include="Scripts\app\views\resources\Resources.html" />
     <Content Include="Scripts\app\controllers\resources\resourcescontroller.js" />
     <Content Include="Scripts\app\services\resources\resourceservice.js" />
-    <Content Include="Scripts\app\services\resources\resourcesservice.js" />
-    <Content Include="Scripts\app\services\resources\resourceutilityservice.js" />
     <Content Include="Scripts\app\views\login\Login.html" />
     <Content Include="Scripts\app\views\shared\Error.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\libs\angular-1.1.5.min.js" />
+    <Content Include="Scripts\libs\angular-1.2.11.min.js" />
     <Content Include="Scripts\libs\angular-1.2.5.min.js" />
+    <Content Include="Scripts\libs\angular-1.2.9.min.js" />
+    <Content Include="Scripts\libs\angular-animate-1.2.9.min.js" />
+    <Content Include="Scripts\libs\angular-resource-1.2.9.min.js" />
+    <Content Include="Scripts\libs\angular-route-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\bootstrap-colorpicker.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\bootstrap-datepicker.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\bootstrap.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\bootstrap.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\excanvas.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\excanvas.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\fullcalendar.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\fullcalendar.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery-ui.custom.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery-ui.custom.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.dataTables.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.dataTables.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.pie.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.pie.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.resize.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.flot.resize.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.gritter.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.gritter.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.masonry.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.masonry.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.peity.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.peity.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.uniform.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.validate.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\jquery.wizard.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\select2.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\select2.min.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\select2.min11.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.calendar.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.charts.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.chat.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.dashboard.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.form_common.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.form_validation.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.interface.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.login.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.tables.js" />
-    <Content Include="Scripts\libs\bootstrapunicorn\unicorn.wizard.js" />
     <Content Include="Scripts\libs\angular.min.js" />
-    <Content Include="Scripts\libs\bootstrap\bootstrap-datepicker.js" />
-    <Content Include="Scripts\libs\bootstrap\bootstrap.min.js" />
     <Content Include="Content\themes\bootstrap\datepicker.css" />
-    <Content Include="Scripts\libs\jquery-1.7.1.js" />
-    <Content Include="Scripts\libs\jquery-1.7.1.min.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\libs\select2\select2.js" />
     <Content Include="Scripts\libs\select2\select2.min.js" />
@@ -319,15 +329,20 @@
     <Content Include="Scripts\libs\semantic\semantic.js" />
     <Content Include="Scripts\libs\semantic\shape.js" />
     <Content Include="Scripts\libs\semantic\sidebar.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
-    <Compile Include="Controllers\LoginContoller.cs" />
     <Compile Include="Controllers\ResourceActivitiesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Enums\Enum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -344,7 +359,9 @@
     <Compile Include="ViewModels\ResourceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\fontawesome\fontawesome-webfont.eot" />
     <Content Include="Content\fontawesome\fontawesome-webfont.ttf" />
     <Content Include="Content\fontawesome\fontawesome-webfont.woff" />
@@ -363,6 +380,12 @@
     <Content Include="Content\themes\fonts\icons.otf" />
     <Content Include="Content\themes\fonts\icons.ttf" />
     <Content Include="Content\themes\fonts\icons.woff" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -372,9 +395,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\app\common\directives\" />
-    <Folder Include="Scripts\app\common\services\" />
+    <Folder Include="Models\" />
     <Folder Include="Scripts\app\user\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ResourceMetadata.Data\ResourceMetadata.Data.csproj">
@@ -415,7 +438,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

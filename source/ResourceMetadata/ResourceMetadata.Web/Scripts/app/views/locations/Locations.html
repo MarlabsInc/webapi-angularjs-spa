@@ -1,9 +1,6 @@
 ﻿<h5 class="ui header">Locations</h5>
 <div class="ui divider"></div>
-<div class="ui active inverted dimmer" data-ng-hide="loaded">
-    <div class="ui text loader">Loading</div>
-</div>
-<div data-ng-show="loaded"> 
+<div>
     <table class="ui small table segment">
         <thead>
             <tr>
@@ -20,14 +17,10 @@
             </tr>
         </thead>
         <tbody>
+            <tr></tr>
             <tr>
-                <!--<td colspan="4" data-ng-hide="loaded">
-                    <img src="/Content/themes/base/images/loading.gif" />
-                </td>-->
-            </tr>
-            <tr>
-                <td class="danger" colspan="4" data-ng-show="haveContent">
-                    There are no locations in server
+                <td class="danger" colspan="4" data-ng-show="locations.length == 0">
+                    There are no locations
                 </td>
             </tr>
             <tr data-ng-repeat="location in locations">
@@ -38,7 +31,7 @@
                     {{location.Description}}
                 </td>
                 <td style="width: 4%;">
-                    <a href="/LocationEdit/{{location.Id}}"><i class="edit icon"></i></a>
+                    <a href="/Locations/Edit/{{location.Id}}"><i class="edit icon"></i></a>
                 </td>
                 <td style="width: 4%;">
                     <a href="javascript:;" data-ng-click="deleteLocation(location.Id)"><i class="trash icon"></i></a>
@@ -47,7 +40,7 @@
         </tbody>
     </table>
     <div style="float: right;">
-      <a class="ui mini blue button" href="/LocationAdd">Create new</a> 
+        <a class="ui mini blue button" href="/Locations/Add">Create new</a>
     </div>
 
 </div>

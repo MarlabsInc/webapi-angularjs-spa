@@ -1,8 +1,6 @@
 ﻿<h5 class="ui header">Resources</h5>
 <div class="ui divider"></div>
-<div class="ui active inverted dimmer" data-ng-hide="loaded">
-    <div class="ui text loader">Loading</div>
-</div> <div data-ng-show="loaded">
+<div>
     <table class="ui small table segment">
         <thead>
             <tr>
@@ -19,23 +17,21 @@
             </tr>
         </thead>
         <tbody>
+            <tr></tr>
             <tr>
-
-            </tr>
-            <tr>
-                <td class="danger" colspan="4" data-ng-show="haveContent">
-                    There are no resources in server
+                <td class="danger" colspan="4" data-ng-show="resources.length == 0">
+                    There are no resources
                 </td>
             </tr>
             <tr data-ng-repeat="resource in resources">
                 <td>
-                    <a  href="/Resources/{{resource.Id}}">{{resource.Name}}</a>
+                    <a href="/Resources/{{resource.Id}}">{{resource.Name}}</a>
                 </td>
                 <td>
                     {{resource.Description}}
                 </td>
                 <td style="width: 4%;">
-                    <a href="/ResourceEdit/{{resource.Id}}"><i class="edit icon"></i></a>
+                    <a href="/Resources/Edit/{{resource.Id}}"><i class="edit icon"></i></a>
                 </td>
                 <td style="width: 4%;">
                     <a href="javascript:;" data-ng-click="deleteResource(resource.Id)"><i class="trash icon"></i></a>
@@ -44,7 +40,7 @@
         </tbody>
     </table>
     <div style="float: right;">
-        <a class="ui mini blue button" href="/ResourceAdd">Create new</a>
+        <a class="ui mini blue button" href="/Resources/Add">Create new</a>
     </div>
 </div>
 

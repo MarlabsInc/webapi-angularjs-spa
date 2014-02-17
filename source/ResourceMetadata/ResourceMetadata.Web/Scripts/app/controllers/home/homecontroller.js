@@ -1,15 +1,9 @@
-﻿app.controller('homeCtrl', function ($scope, resourcesSvc) {
-    init(); 
+﻿app.controller('HomeCtrl', ['$scope', 'resourceSvc', function ($scope, resourceSvc) {
+    init();
     function init() {
         loadResources();
-    } 
-    function loadResources() {
-        resourcesSvc.getTopFileResources().then(function (data) {
-            $scope.resources = data;
-            $scope.loaded = true;
-            $scope.hasContent = data.length > 0;
-        }, function (reason) {
-            //errorMngrSvc.handleError(reason);
-        });
     }
-})
+    function loadResources() {
+        $scope.resources = resourceSvc.getTopFiveResources();
+    }
+}]);

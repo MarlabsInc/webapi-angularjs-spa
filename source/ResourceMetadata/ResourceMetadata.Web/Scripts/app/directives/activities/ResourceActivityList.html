@@ -1,9 +1,10 @@
-﻿<div class="ui small feed segment" data-ng-controller="activitiesCtrl">
+﻿<div class="ui small feed segment" ng-controller="ActivitiesCtrl">
     <div class="ui small header">Activities</div>
-    <div data-ng-repeat="activity in activities" class="event" data-ng-show="activities">
+    <div data-ng-repeat="activity in activities" class="event">
         <div class="content" style="width:95%;">
-          You had an activity<a cst-modal="activity-modal-{{activity.Id}}" style="color:#00BAFF; text-decoration:none;"> {{activity.Title}}</a> against this Resource on <b>{{activity.ActivityDateString}}</b> 
-           
+            You had an activity<a cst-modal="activity-modal-{{activity.Id}}" style="color:#00BAFF; text-decoration:none;">
+                {{activity.Title}}
+            </a> against this Resource on <b>{{activity.ActivityDateString}}</b>
             <div class="summary">
             </div>
         </div><i class="trash icon" style="width:5%;" data-ng-click="deleteActivity(activity);"></i>
@@ -17,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div data-ng-hide="activities" class="event">
+    <div data-ng-show="activities.length == 0" class="event">
         <div class="content ui warning message">
             You don't have any activity against this resource
         </div>

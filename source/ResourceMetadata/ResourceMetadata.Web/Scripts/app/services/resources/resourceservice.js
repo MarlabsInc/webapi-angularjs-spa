@@ -1,40 +1,33 @@
-﻿app.factory('resourceSvc', function ($http, $q) {
+﻿app.factory('resourceSvc', ['$resource', '$q', 'locationSvc', function ($resource, $q, locationSvc) {
+    var Resource = $resource('/api/Resources/:resourceId', { resourceId: '@Id' }, { 'update': { method: 'PUT' } });
     return {
-        url: '/api/Resources/',
-
+        getTopFiveResources: function () {
+            return Resource.query({ count: 5 });
+        },
+        getResources: function () {
+            return Resource.query();
+        },
+        deleteResource: function (resourceId) {
+            return Resource.delete({ resourceId: resourceId });
+        },
         addResource: function (resource) {
-            var deferred = $q.defer();
-            $http({ method: 'post', url: this.url, data: resource })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-            return deferred.promise;
+            return Resource.save(resource).$promise;
         },
         editResource: function (resource) {
-            var deferred = $q.defer();
-            $http({ method: 'put', url: this.url + resource.Id, data: resource })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-            return deferred.promise;
+            return Resource.update(resource).$promise;
         },
         getResource: function (id) {
-            var deferred = $q.defer();
-            $http({ method: 'get', url: this.url + id })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-
-            return deferred.promise;
-        } 
+            return Resource.get({ resourceId: id });
+        },
+        createResourceAddFormModel: function () {
+            return locationSvc.getLocations();
+        },
+        createResourceEditFormModel: function (resourceId) {
+            var sample = $q.all([this.getResource(resourceId).$promise, locationSvc.getLocations().$promise]);
+            sample.then(function (data) {
+                return data;
+            });
+            return sample;
+        }
     };
-});
+}]);

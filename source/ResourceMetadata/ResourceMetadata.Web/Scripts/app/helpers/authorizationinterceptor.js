@@ -12,7 +12,7 @@
                     break;
                 }
                 default: {
-                   // $location.url('/Error');
+                    // $location.url('/Error');
                     break;
                 }
             }
@@ -21,3 +21,4 @@
         }
     }
 });
+

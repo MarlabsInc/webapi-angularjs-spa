@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 using ResourceMetadata.Web.Helpers;
+using System.Web.Mvc;
+using System.Web.Optimization;
 
 namespace ResourceMetadata.Web
 {
@@ -21,6 +23,10 @@ namespace ResourceMetadata.Web
             GlobalConfiguration.Configuration.Filters.Add(new ResourceManagerAuthroize());
             Bootstrapper.Configure();
             Database.SetInitializer(new ResourceManagerDbInitializer());
+            AreaRegistration.RegisterAllAreas();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

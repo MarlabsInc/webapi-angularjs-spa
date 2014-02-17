@@ -7,10 +7,10 @@
     <div id="logincontainer" name="logincontainer" ng-show="loginMode">
         <form name="loginform" role="form" class="ui secondary small form segment">
             <h5 class="ui header">Login</h5>
-            <div class="ui divider"></div> 
-            <div ng-show="loginform.$error.invaliduser">
+            <div class="ui divider"></div>
+            <div ng-show="errorMessage">
                 <div class="error-message">
-                    Please check username/password
+                    {{errorMessage}}
                 </div>
                 <div class="ui divider"></div>
             </div>
@@ -18,16 +18,16 @@
                 <label for="email">
                     Email<span style="color: Red">*</span>
                 </label>
-                <input type="text" id="email" class="error" name="email" placeholder="Email" required data-ng-model="userLogin.email" />
+                <input type="text" id="email" class="error" name="email" placeholder="Email" required data-ng-model="userLogin.Email" />
             </div><div class="ui divider"></div>
             <div class="field">
                 <label for="password">
                     Password<span style="color: Red">*</span>
                 </label>
-                <input type="password" id="password" name="password" placeholder="Password" required data-ng-model="userLogin.password" />
+                <input type="password" id="password" name="password" placeholder="Password" required data-ng-model="userLogin.Password" />
             </div><div class="ui divider"></div>
             <div class="inline field">
-                <button data-ng-click="login(loginform,userLogin)"
+                <button data-ng-click="login(loginform,userLogin)" data-ng-disabled="loginform.$invalid"
                         class="ui blue mini button">
                     Login
                 </button>
@@ -40,6 +40,12 @@
         <form name="registrationform" role="form" class="ui secondary small form segment">
             <h5 class="ui header">Register</h5>
             <div class="ui divider"></div>
+            <div ng-show="errorMessage">
+                <div class="error-message">
+                    {{errorMessage}}
+                </div>
+                <div class="ui divider"></div>
+            </div>
             <div class="field">
                 <label for="firstname">
                     First Name<span style="color: Red">*</span>

@@ -4,9 +4,7 @@
 <p>
     Welcome to the Resource Manager application. Here is your top 5 resources below with the Priority assigned.
 </p>
-<div class="ui active inverted dimmer" data-ng-hide="loaded">
-    <div class="ui text loader">Loading</div>
-</div> <div data-ng-show="loaded">
+<div>
     <table class="ui small table segment">
         <thead>
             <tr>
@@ -36,8 +34,8 @@
 
             </tr>
             <tr>
-                <td class="danger" colspan="4" data-ng-hide="hasContent">
-                    There are no resources in server
+                <td class="danger" colspan="4" ng-show="resources.length == 0">
+                    There are no resources
                 </td>
             </tr>
         </tbody>
