@@ -8,7 +8,7 @@
             return Resource.query();
         },
         deleteResource: function (resourceId) {
-            return Resource.delete({ resourceId: resourceId });
+            return Resource.delete({ resourceId: resourceId }).$promise;
         },
         addResource: function (resource) {
             return Resource.save(resource).$promise;

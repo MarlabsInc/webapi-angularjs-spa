@@ -29,6 +29,7 @@ gulp.task('app-js-minify', function () {
 });
 
 gulp.task('libs-js-minify', function () {
+    /*Excludes already minified files.*/
     gulp.src(filePath.libsjsminify.src)
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
@@ -52,10 +53,20 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('clean', function () {
-    gulp.src('./ngscripts.js', { read: false })
-    .pipe(clean());
+    gulp.src(
+        [
+            'app/ngscripts.js',
+            'libs/angular-ui/select2.min.js',
+            'libs/select2/select2.min.js',
+            'libs/semantic/semantic.min.js',
+            'libs/jquery-1.9.1.min.js',
+            '../Content/themes/semantic/semantic.min.css',
+            '../Content/themes/Site.min.css',
+            '../Content/themes/select2/select2.min.css'
+        ], { read: false })
+    .pipe(clean({force:true}));
 });
 gulp.task('build', ['app-js-minify', 'libs-js-minify', 'minify-css']);
-gulp.task('clean',['clean']);
+gulp.task('cleanbuild', ['clean']);
 
 //gulp.watch('./app/**/*.js', ['js']);

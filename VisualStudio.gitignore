@@ -178,3 +178,13 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/app/ngscripts.js
+source/ResourceMetadata/ResourceMetadata.Web/Content/themes/Site.min.css
+source/ResourceMetadata/ResourceMetadata.Web/Content/themes/select2/select2.min.css
+source/ResourceMetadata/ResourceMetadata.Web/Content/themes/semantic/semantic.min.css
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/angular-ui/select2.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jquery-1.9.1.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/select2/select2.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/semantic/semantic.min.js
+
