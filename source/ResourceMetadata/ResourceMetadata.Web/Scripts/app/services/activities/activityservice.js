@@ -1,7 +1,7 @@
 ﻿app.service('activitySvc', ['$resource', function ($resource) {
-    var Activity = $resource('/api/Resources/:resourceId/Activities/:activityId'
-            , { resourceId: '@ResourceId', activityId: '@Id' }
-            , { 'delete': { method: 'delete', url: '/api/ResourceActivities/:activityId' } });
+    var Activity = $resource('/api/Resources/:resourceId/Activities/:activityId',
+        { resourceId: '@ResourceId', activityId: '@Id' },
+        { 'delete': { method: 'delete', url: '/api/ResourceActivities/:activityId' } });
 
     return {
         addActivity: function (activity) {

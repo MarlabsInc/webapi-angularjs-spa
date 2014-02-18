@@ -148,27 +148,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrapunicorn\bootstrap-responsive.css" />
-    <Content Include="Content\bootstrapunicorn\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrapunicorn\bootstrap.css" />
-    <Content Include="Content\bootstrapunicorn\bootstrap.min.css" />
-    <Content Include="Content\bootstrapunicorn\colorpicker.css" />
-    <Content Include="Content\bootstrapunicorn\datepicker.css" />
-    <Content Include="Content\bootstrapunicorn\fullcalendar.css" />
-    <Content Include="Content\bootstrapunicorn\jquery-ui.css" />
-    <Content Include="Content\bootstrapunicorn\jquery.gritter.css" />
-    <Content Include="Content\bootstrapunicorn\jquery.ui.ie.css" />
-    <Content Include="Content\bootstrapunicorn\select2.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.blue.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.grey.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.light-blue.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.login.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.main.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.red-green.css" />
-    <Content Include="Content\bootstrapunicorn\unicorn.red.css" />
-    <Content Include="Content\bootstrapunicorn\uniform.css" />
     <Content Include="Content\fontawesome\fontawesome-webfont.svg" />
     <Content Include="Content\fontawesome\fontawesome.css" />
     <Content Include="Content\fonts\basic.icons.svg" />
@@ -182,7 +161,6 @@
     <Content Include="Content\images\loader-mini.gif" />
     <Content Include="Content\images\loader-small-inverted.gif" />
     <Content Include="Content\images\loader-small.gif" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\loading.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -238,8 +216,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\themes\bootstrap\bootstrap-responsive.min.css" />
-    <Content Include="Content\themes\bootstrap\bootstrap.min.css" />
     <Content Include="Content\themes\fonts\basic.icons.svg" />
     <Content Include="Content\themes\fonts\icons.svg" />
     <Content Include="Content\themes\images\loader-large-inverted.gif" />
@@ -258,6 +234,7 @@
     <Content Include="Content\themes\semantic\semantic.css" />
     <Content Include="Content\themes\semantic\sidebar.min.css" />
     <Content Include="Content\themes\Site.css" />
+    <Content Include="Content\themes\smoothness\jquery-ui.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
@@ -305,6 +282,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\gulpfile.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -321,8 +299,8 @@
     <Content Include="Scripts\libs\angular-route-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
     <Content Include="Scripts\libs\angular.min.js" />
-    <Content Include="Content\themes\bootstrap\datepicker.css" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
+    <Content Include="Scripts\libs\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\libs\select2\select2.js" />
     <Content Include="Scripts\libs\select2\select2.min.js" />
     <Content Include="Scripts\libs\semantic\dropdown.js" />
@@ -386,6 +364,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -396,6 +375,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\app\jshint\" />
     <Folder Include="Scripts\app\user\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
