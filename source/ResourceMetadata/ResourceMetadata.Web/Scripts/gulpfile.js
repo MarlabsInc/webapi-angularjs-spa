@@ -8,6 +8,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     jshintreporter = require('jshint-stylish'),
     minifycss = require('gulp-minify-css'),
+    size = require('gulp-size'),
+    clean = require('gulp-clean'),
     rename = require('gulp-rename');
 
 var filePath = {
@@ -22,6 +24,7 @@ gulp.task('app-js-minify', function () {
     gulp.src(filePath.appjsminify.src)
         .pipe(uglify())
         .pipe(concat('ngscripts.js'))
+        .pipe(size())
         .pipe(gulp.dest(filePath.appjsminify.dest));
 });
 
@@ -48,6 +51,11 @@ gulp.task('minify-css', function () {
     .pipe(gulp.dest(filePath.minifycss.dest));
 });
 
-gulp.task('default', ['app-js-minify', 'libs-js-minify', 'minify-css']);
+gulp.task('clean', function () {
+    gulp.src('./ngscripts.js', { read: false })
+    .pipe(clean());
+});
+gulp.task('build', ['app-js-minify', 'libs-js-minify', 'minify-css']);
+gulp.task('clean',['clean']);
 
 //gulp.watch('./app/**/*.js', ['js']);
