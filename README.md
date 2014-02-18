@@ -19,13 +19,13 @@ Server-Side
 Client-Side
 -----------
 
-* AngularJS 1.1.5
+* AngularJS
 * Semantic UI
+* Gulp.js
 
 # Roadmap Targets
 
 * Code refactoring.
-* Use $resource for working with REST API.
 * Unit tests with Karma/Jasmine
 * Task automation with Gulp.js
 * Leverage Browserify 
