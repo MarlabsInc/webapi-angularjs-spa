@@ -16,9 +16,9 @@
             httpInterceptor.response = function (response) {
                 console.log('response: ' + response.config.url);
                 requestQueue.pop();
-                if (requestQueue.length == 0) {
+                if (requestQueue.length === 0) {
                     $timeout(function () {
-                        if (requestQueue.length == 0) {
+                        if (requestQueue.length === 0) {
                             hideOverlay(element);
                         }
                     }, 500);
@@ -27,9 +27,9 @@
             };
             httpInterceptor.responseError = function (response) {
                 requestQueue.pop();
-                if (requestQueue.length == 0) {
+                if (requestQueue.length === 0) {
                     $timeout(function () {
-                        if (requestQueue.length == 0) {
+                        if (requestQueue.length === 0) {
                             hideOverlay(element);
                         }
                     }, 500);

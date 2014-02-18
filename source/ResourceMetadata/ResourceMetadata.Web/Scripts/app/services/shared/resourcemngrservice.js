@@ -1,4 +1,4 @@
-﻿app.factory('resourceMngrSvc', function ($http, $resource, $q) {
+﻿app.factory('resourceMngrSvc', ['$http', '$resource', '$q', function ($http, $resource, $q) {
     var User = $resource("/api/User/", null, { register: { method: 'post' }, login: { method: 'post' }, logOff: { method: 'put' } });
 
     return {
@@ -23,4 +23,4 @@
             return User.logOff().$promise;
         }
     };
-});
+}]);

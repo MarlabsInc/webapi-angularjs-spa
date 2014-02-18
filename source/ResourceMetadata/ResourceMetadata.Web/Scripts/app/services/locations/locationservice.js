@@ -21,5 +21,5 @@
         deleteLocation: function (locationId) {
             return Location.delete({ locationId: locationId }).$promise;
         }
-    }
+    };
 }]);

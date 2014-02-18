@@ -5,7 +5,7 @@
         .then(function (data) {
             $location.url('/Resources');
         });
-    }
+    };
 
     init();
 

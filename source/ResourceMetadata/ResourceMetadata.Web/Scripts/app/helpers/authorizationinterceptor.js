@@ -1,4 +1,4 @@
-﻿app.factory('authorizationInterceptor', function ($rootScope, $q, $location) {
+﻿app.factory('authorizationInterceptor', ['$rootScope', '$q', '$location', function ($rootScope, $q, $location) {
     return {
         responseError: function (rejection) {
             switch (rejection.status) {
@@ -19,6 +19,6 @@
 
             return $q.reject(rejection);
         }
-    }
-});
+    };
+}]);
 

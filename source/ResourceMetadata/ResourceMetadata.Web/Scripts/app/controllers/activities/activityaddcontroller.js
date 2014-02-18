@@ -5,5 +5,5 @@
             .then(function (addedActivity) {
                 $location.url('/Resources/' + addedActivity.ResourceId);
             });
-    }
+    };
 }]);

@@ -47,7 +47,7 @@
         .then(function (data) {
             $scope.loaded = true;
             $scope.$emit('logOn');
-            $location.url('/Home')
+            $location.url('/Home');
         }, function (error) {
             $scope.loaded = true;
             $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
