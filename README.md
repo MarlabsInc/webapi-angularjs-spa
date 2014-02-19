@@ -23,6 +23,24 @@ Client-Side
 * Semantic UI
 * Gulp.js
 
+Building the application
+============
+
+Visual Studio
+-----------
+
+1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have Nuget version 2.7 or higher)
+
+Client-Side
+-----------
+          
+1. If you haven't installed Node.js, download and install it from http://nodejs.org/
+2. Navigate to project directory ***source/ResourceMetadata/ResourceMetadata.Web/Scripts/*** in command prompt.
+3. Run command **npm install**
+4. Execute gulp tasks
+    1. Run command **gulp build**.
+    2. In order to clean the destination files created by build task, run **gulp cleanbuild**.
+
 # Roadmap Targets
 
 * Code refactoring.
