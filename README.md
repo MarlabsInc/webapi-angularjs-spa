@@ -35,7 +35,7 @@ Client-Side
 -----------
           
 1. If you haven't installed Node.js, download and install it from http://nodejs.org/
-2. Navigate to project directory ***source/ResourceMetadata/ResourceMetadata.Web/Scripts/*** in command prompt.
+2. Navigate to project directory ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts)*** in command prompt.
 3. Run command **npm install**
 4. Execute gulp tasks
     1. Run command **gulp build**.
