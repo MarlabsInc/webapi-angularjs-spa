@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ResourceMetadata.Data.Repositories
 {
-    public class UserRepository : RepositoryBase<User>, IUserRepository
+    public class UserRepository : RepositoryBase<ApplicationUser>, IUserRepository
     {
 
         public UserRepository(IDatabaseFactory dbFactory): base(dbFactory)
@@ -18,7 +18,7 @@ namespace ResourceMetadata.Data.Repositories
     }
 
 
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<ApplicationUser>
     { 
     }
 }

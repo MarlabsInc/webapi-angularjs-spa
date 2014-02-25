@@ -23,7 +23,8 @@ namespace ResourceMetadata.Web.Mappers
             Mapper.CreateMap<ResourceViewModel, Resource>();
             Mapper.CreateMap<LocationViewModel, Location>();
             Mapper.CreateMap<ResourceActivityViewModel, ResourceActivity>();
-            Mapper.CreateMap<RegisterViewModel, User>();
+            Mapper.CreateMap<RegisterViewModel, ApplicationUser>();
+            Mapper.CreateMap<RegisterViewModel, ApplicationUser>().ForMember(user => user.UserName, vm => vm.MapFrom(rm => rm.Email));
         }
     }
 }

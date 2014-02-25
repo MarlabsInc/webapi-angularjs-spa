@@ -22,7 +22,7 @@ namespace ResourceMetadata.Service
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<Location> GetLocationsByUserId(int userId)
+        public IEnumerable<Location> GetLocationsByUserId(string userId)
         {
             return repository.GetMany(location => location.UserId == userId);
         }
@@ -67,7 +67,7 @@ namespace ResourceMetadata.Service
 
     public interface ILocationService : IUnitOfWork
     {
-        IEnumerable<Location> GetLocationsByUserId(int userId);
+        IEnumerable<Location> GetLocationsByUserId(string userId);
         Location AddLocation(Location location);
         Location GetLocationById(int id);
         Location UpdateLoaction(Location location);

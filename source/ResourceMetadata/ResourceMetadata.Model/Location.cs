@@ -14,7 +14,7 @@ namespace ResourceMetadata.Model
         public string Description { get; set; }
 
         public DateTime CreatedOn { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

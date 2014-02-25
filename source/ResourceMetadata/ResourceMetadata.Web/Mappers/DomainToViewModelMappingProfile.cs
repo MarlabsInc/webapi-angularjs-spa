@@ -26,7 +26,7 @@ namespace ResourceMetadata.Web.Mappers
             Mapper.CreateMap<Location, LocationViewModel>();
             Mapper.CreateMap<ResourceActivity,ResourceActivityViewModel>()
                 .ForMember(vm => vm.ActivityDateString, dm=> dm.MapFrom(dModel => dModel.ActivityDate.ToLongDateString()));
-            Mapper.CreateMap<User, RegisterViewModel>();
+            Mapper.CreateMap<ApplicationUser, RegisterViewModel>();
         }
     }
 }

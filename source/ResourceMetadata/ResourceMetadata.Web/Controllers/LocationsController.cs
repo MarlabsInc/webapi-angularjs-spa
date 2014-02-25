@@ -20,15 +20,13 @@ namespace ResourceMetadata.Controllers
             this.locationService = locationService;
             this.userService = userService;
         }
-
         public IHttpActionResult Get()
         {
-
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
             var user = userService.GetUserByEmail(userEmail);
             if (user != null)
             {
-                int userId = user.Id;
+                string userId = user.Id;
                 var locations = locationService.GetLocationsByUserId(userId);
                 var locationViewModels = new List<LocationViewModel>();
                 Mapper.Map(locations, locationViewModels);

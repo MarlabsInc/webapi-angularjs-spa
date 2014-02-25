@@ -16,6 +16,8 @@ using ResourceMetadata.Data.Infrastructure;
 using ResourceMetadata.Web.Mappers;
 using System.Web.Mvc;
 using ResourceMetadata.Web.Controllers;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 
 namespace ResourceMetadata
@@ -41,15 +43,14 @@ namespace ResourceMetadata
             containerBuilder.RegisterType<ResourceActivityService>().As<IResourceActivityService>().InstancePerApiRequest();
             containerBuilder.RegisterType<LocationService>().As<ILocationService>().InstancePerApiRequest();
             containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerApiRequest();
-            containerBuilder.RegisterApiControllers(System.Reflection.Assembly.GetExecutingAssembly());            
+            containerBuilder.RegisterApiControllers(System.Reflection.Assembly.GetExecutingAssembly());
+
+            containerBuilder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ResourceManagerEntities())))
+                .As<UserManager<ApplicationUser>>().InstancePerHttpRequest();
+
+
             IContainer container = containerBuilder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            //var mvcContainerBuilder = new ContainerBuilder();
-            //mvcContainerBuilder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());
-            //IContainer mvcContainer = mvcContainerBuilder.Build();
-            //GlobalConfiguration.Configuration.DependencyResolver = new AutofacDependencyResolver(mvcContainer);
-            
         }
     }
 }

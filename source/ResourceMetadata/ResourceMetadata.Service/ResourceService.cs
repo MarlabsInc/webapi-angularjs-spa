@@ -19,7 +19,7 @@ namespace ResourceMetadata.Service
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<Resource> GetAllResourcesByUserId(int userId)
+        public IEnumerable<Resource> GetAllResourcesByUserId(string userId)
         {
             return repository.GetMany(res => res.Location.UserId == userId);
         }
@@ -61,6 +61,8 @@ namespace ResourceMetadata.Service
                 repository.Delete(existingResource);
             }
 
+            
+
             repository.Update(resource);
             SaveChanges();
             return resource;
@@ -79,7 +81,7 @@ namespace ResourceMetadata.Service
             return resource;
         }
 
-        public IEnumerable<Resource> GetTopFiveResourcesByUserId(int userId)
+        public IEnumerable<Resource> GetTopFiveResourcesByUserId(string userId)
         {
             var resources = repository.GetMany(res => res.Location.UserId == userId).OrderBy(res => res.Priority).Take(5);
             return resources;
@@ -101,8 +103,8 @@ namespace ResourceMetadata.Service
 
         Resource GetResourceByPriority(int priority);
 
-        IEnumerable<Resource> GetAllResourcesByUserId(int userId);
+        IEnumerable<Resource> GetAllResourcesByUserId(string userId);
 
-        IEnumerable<Resource> GetTopFiveResourcesByUserId(int userId);
+        IEnumerable<Resource> GetTopFiveResourcesByUserId(string userId);
     }
 }

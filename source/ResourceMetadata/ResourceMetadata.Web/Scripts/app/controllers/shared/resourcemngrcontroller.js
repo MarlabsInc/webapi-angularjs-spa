@@ -46,6 +46,8 @@
         resourceMngrSvc.registerUser(userRegistration)
         .then(function (data) {
             $scope.loaded = true;
+            $scope.loginMode = true;
+            $scope.registrationMode = false;
             $scope.$emit('logOn');
             $location.url('/Home');
         }, function (error) {

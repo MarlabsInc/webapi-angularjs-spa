@@ -35,6 +35,12 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\IdentityUserLoginConfiguration.cs" />
+    <Compile Include="Configurations\IdentityUserRoleConfiguration.cs" />
     <Compile Include="Configurations\LocationConfiguration.cs" />
     <Compile Include="Configurations\ResourceActivityConfiguration.cs" />
     <Compile Include="Configurations\ResourceConfiguration.cs" />

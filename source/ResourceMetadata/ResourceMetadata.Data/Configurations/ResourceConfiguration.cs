@@ -14,9 +14,7 @@ namespace ResourceMetadata.Data.Configurations
         public ResourceConfiguration()
         {
             HasRequired(r => r.Location).WithMany().HasForeignKey(r => r.LocationId).WillCascadeOnDelete(true);
-            //HasMany(t => t.Activities).WithRequired(activity => activity.Resource).HasForeignKey(a => a.ResourceId).WillCascadeOnDelete(true);
         }
-
 
     }
 }

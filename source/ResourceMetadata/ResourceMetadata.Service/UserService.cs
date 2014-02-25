@@ -18,20 +18,20 @@ namespace ResourceMetadata.Service
             this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
         }
-        public User GetUserByEmailAndPassword(string email, string password)
+        public ApplicationUser GetUserByEmailAndPassword(string email, string password)
         {
             var users = userRepository.GetMany(user => user.Email == email && user.Password == password);
             return users.SingleOrDefault();
         }
 
-        public User RegisterUser(User user)
+        public ApplicationUser RegisterUser(ApplicationUser user)
         {
             user =userRepository.Add(user);
             SaveChanges();
             return user;
         }
 
-        public User GetUserByEmail(string email)
+        public ApplicationUser GetUserByEmail(string email)
         {
            var user = userRepository.GetMany(u => u.Email == email).FirstOrDefault();
            return user;
@@ -46,9 +46,9 @@ namespace ResourceMetadata.Service
 
     public interface IUserService : IUnitOfWork
     {
-        User GetUserByEmailAndPassword(string email, string password);
-        User GetUserByEmail(string email);
-        User RegisterUser(User user);
+        ApplicationUser GetUserByEmailAndPassword(string email, string password);
+        ApplicationUser GetUserByEmail(string email);
+        ApplicationUser RegisterUser(ApplicationUser user);
 
     }
 }

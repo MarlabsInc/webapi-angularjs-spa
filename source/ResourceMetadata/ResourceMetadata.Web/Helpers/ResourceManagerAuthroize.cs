@@ -14,13 +14,13 @@ namespace ResourceMetadata.Web.Helpers
 
         public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
-            var skipAuthroization = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any()
-              || actionContext.ControllerContext.ControllerDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any();
+            //var skipAuthroization = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any()
+            //  || actionContext.ControllerContext.ControllerDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any();
 
-            if (skipAuthroization)
-            {
-                return;
-            }
+            //if (skipAuthroization)
+            //{
+            //    return;
+            //}
             base.OnAuthorization(actionContext);
 
             var currentContext = HttpContext.Current;

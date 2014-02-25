@@ -11,6 +11,10 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Security;
+using Microsoft.AspNet.Identity;
+using owin = Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Threading.Tasks;
 
 namespace ResourceMetadata.Web.Controllers
 {
@@ -18,13 +22,27 @@ namespace ResourceMetadata.Web.Controllers
     {
         private readonly IUserService userService;
 
-        public UserController(IUserService userService)
+        private readonly UserManager<ApplicationUser> userManager;
+        public UserController(IUserService userService, UserManager<ApplicationUser> userManager)
         {
             this.userService = userService;
+            this.userManager = userManager;
+
+            //Todo: This needs to be moved from here.
+            this.userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
+                {
+                    AllowOnlyAlphanumericUserNames = false
+                };
         }
 
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().Authentication;
+            }
+        }
 
-        [AllowAnonymous]
         public IHttpActionResult Get()
         {
             if (System.Threading.Thread.CurrentPrincipal.Identity.IsAuthenticated)
@@ -33,28 +51,18 @@ namespace ResourceMetadata.Web.Controllers
             }
 
             return Unauthorized();
-        }
-
-
-
-        [AllowAnonymous]
+        } 
+  
         [HttpPut]
         public IHttpActionResult LogOut()
         {
-            if (HttpContext.Current != null && HttpContext.Current.Session != null)
-            {
-                HttpContext.Current.Session.Abandon();
-            }
-            var userCookie = new HttpCookie(FormsAuthentication.FormsCookieName);
-            userCookie.Expires = DateTime.Now.AddYears(-1);
-            HttpContext.Current.Response.Cookies.Add(userCookie);
-            FormsAuthentication.SignOut();
-
+            AuthenticationManager.SignOut();
             return Ok();
         }
 
-        [AllowAnonymous]
-        public IHttpActionResult Post(RegisterViewModel viewModel)
+       
+        [OverrideAuthorization]
+        public async Task<IHttpActionResult> Post(RegisterViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -62,27 +70,47 @@ namespace ResourceMetadata.Web.Controllers
                 {
                     case Enums.LoginActions.Login:
                         {
-                            var user = userService.GetUserByEmailAndPassword(viewModel.Email, viewModel.Password);
+                            var user = userManager.FindByName(viewModel.Email);
 
                             if (user == null)
                             {
                                 return new ResourceMetadata.Web.Helpers.InvalidUserResult(Request);
                             }
 
-                            var ticket = new FormsAuthenticationTicket(viewModel.Email, true, 30);
-                            var jsonString = JsonConvert.SerializeObject(ticket);
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket)));
+                            await SignInAsync(user, isPersistent: false);
                             return Ok();
                         }
                     case Enums.LoginActions.Register:
                         {
-                            User user = new User();
-                            Mapper.Map(viewModel, user);
+                            try
+                            {
+                                ApplicationUser user = new ApplicationUser();
+                                Mapper.Map(viewModel, user);
+                                var identityResult = await userManager.CreateAsync(user);
 
-                            userService.RegisterUser(user);
-                            var ticket = new FormsAuthenticationTicket(viewModel.Email, true, 3);
-                            var jsonString = JsonConvert.SerializeObject(ticket);
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket)));
+                                if (identityResult.Succeeded)
+                                {
+                                    await SignInAsync(user, isPersistent: false);
+                                }
+                                else
+                                {
+                                    foreach (var error in identityResult.Errors)
+                                    {
+
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                                throw ex;
+                            }
+
+
+                            //userService.RegisterUser(user);
+                            //var ticket = new FormsAuthenticationTicket(viewModel.Email, true, 3);
+                            //var jsonString = JsonConvert.SerializeObject(ticket);
+                            //HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket)));
                             return Ok();
                         }
                     default:
@@ -91,7 +119,19 @@ namespace ResourceMetadata.Web.Controllers
                         }
                 }
             }
+
             return InternalServerError();
         }
+
+        #region Private methods
+        #region SignInAsync
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+        }
+        #endregion SignInAsync 
+        #endregion SignInAsync
     }
 }
