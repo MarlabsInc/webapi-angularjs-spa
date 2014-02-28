@@ -18,11 +18,7 @@ namespace ResourceMetadata.Service
             this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
         }
-        public ApplicationUser GetUserByEmailAndPassword(string email, string password)
-        {
-            var users = userRepository.GetMany(user => user.Email == email && user.Password == password);
-            return users.SingleOrDefault();
-        }
+     
 
         public ApplicationUser RegisterUser(ApplicationUser user)
         {
@@ -44,9 +40,8 @@ namespace ResourceMetadata.Service
 
     }
 
-    public interface IUserService : IUnitOfWork
+    public interface IUserService
     {
-        ApplicationUser GetUserByEmailAndPassword(string email, string password);
         ApplicationUser GetUserByEmail(string email);
         ApplicationUser RegisterUser(ApplicationUser user);
 

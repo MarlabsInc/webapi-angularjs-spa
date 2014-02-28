@@ -68,12 +68,14 @@
                 <label for="password">
                     Password<span style="color: Red">*</span>
                 </label>
-                <input type="password" id="password" placeholder="Password" required data-ng-model="userRegistration.password" />
+                <input type="password" id="password" placeholder="Password" cst-password required data-ng-model="userRegistration.password" />
+                <span ng-show="registrationform.password.$dirty && registrationform.password.$error.passwordlength">Password should contain at least 6 characaters</span>
             </div><div class="ui divider"></div>
 
             <div class="field">
                 <label for="confirmpassword">
                     Confirm Password<span style="color: Red">*</span>
+                    <span ng-show="registrationform.confirmpassword.$error.passwordlength">Password should contain at least 6 characaters</span>
                 </label>
                 <input type="password" id="confirmpassword" placeholder="Password" required data-ng-model="userRegistration.confirmPassword" />
             </div><div class="ui divider"></div>

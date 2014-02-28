@@ -10,22 +10,25 @@ using ResourceMetadata.Service;
 using AutoMapper;
 using ResourceMetadata.Web.Helpers;
 using System.Threading;
+using Microsoft.AspNet.Identity;
 
 namespace ResourceMetadata.Controllers
 {
     public class ResourcesController : ApiController
     {
         private readonly IResourceService resourceService;
-        private readonly IUserService userService;
-        public ResourcesController(IResourceService resourceService, IUserService userService)
+        //private readonly IUserService userService;
+        private readonly UserManager<ApplicationUser> userManager;
+        public ResourcesController(IResourceService resourceService, UserManager<ApplicationUser> userManager)
         {
             this.resourceService = resourceService;
-            this.userService = userService;
+            this.userManager = userManager;
         }
         public IHttpActionResult Get()
         {
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
-            var user = userService.GetUserByEmail(userEmail);
+            var user = userManager.FindByName(userEmail);
+
             if (user != null)
             {
 
@@ -41,7 +44,7 @@ namespace ResourceMetadata.Controllers
         public IHttpActionResult GetTopFiveResources(int count)
         {
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
-            var user = userService.GetUserByEmail(userEmail);
+            var user = userManager.FindByName(userEmail);
 
             if (user != null)
             {

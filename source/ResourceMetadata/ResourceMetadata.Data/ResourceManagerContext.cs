@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using ResourceMetadata.Model;
 using ResourceMetadata.Data.Configurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
-
+using System.Data.Entity;
 
 namespace ResourceMetadata.Data
 {
@@ -35,8 +34,6 @@ namespace ResourceMetadata.Data
             //Configurations Auto generated tables for IdentityDbContext.
             modelBuilder.Configurations.Add(new IdentityUserRoleConfiguration());
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration());
-
-
         }
     }
 
@@ -44,8 +41,8 @@ namespace ResourceMetadata.Data
     {
         protected override void Seed(ResourceManagerEntities context)
         {
-            context.Users.Add(new ApplicationUser { Email = "abc@yahoo.com", Password = "Marlabs" });
-            context.SaveChanges();           
+            //context.Users.Add(new ApplicationUser { Email = "abc@yahoo.com", Password = "Marlabs" });
+            //context.SaveChanges();           
         }
     }
 

@@ -65,7 +65,7 @@ namespace ResourceMetadata.Service
         }
     }
 
-    public interface ILocationService : IUnitOfWork
+    public interface ILocationService 
     {
         IEnumerable<Location> GetLocationsByUserId(string userId);
         Location AddLocation(Location location);

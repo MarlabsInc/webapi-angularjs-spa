@@ -16,4 +16,5 @@ namespace ResourceMetadata.Data.Configurations
             //HasRequired(role => role.User).WithMany().HasForeignKey(role => role.UserId);
         }
     }
+
 }

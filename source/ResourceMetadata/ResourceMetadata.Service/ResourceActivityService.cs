@@ -43,7 +43,7 @@ namespace ResourceMetadata.Service
         }
     }
 
-    public interface IResourceActivityService : IUnitOfWork
+    public interface IResourceActivityService 
     {
         ResourceActivity AddResourceActivity(ResourceActivity activity);
         void DeleteActivity(int id);

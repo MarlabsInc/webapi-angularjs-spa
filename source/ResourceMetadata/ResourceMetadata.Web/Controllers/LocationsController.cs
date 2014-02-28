@@ -9,21 +9,27 @@ using ResourceMetadata.Model;
 using ResourceMetadata.Service;
 using AutoMapper;
 using System.Threading;
+using Microsoft.AspNet.Identity;
+
 namespace ResourceMetadata.Controllers
 {
     public class LocationsController : ApiController
     {
         private readonly ILocationService locationService;
-        private readonly IUserService userService;
-        public LocationsController(ILocationService locationService, IUserService userService)
+        //private readonly IUserService userService;
+        private readonly UserManager<ApplicationUser> userManager;
+        public LocationsController(ILocationService locationService, UserManager<ApplicationUser> userManager)
         {
+
             this.locationService = locationService;
-            this.userService = userService;
+            //this.userService = userService;
+            this.userManager = userManager;
         }
         public IHttpActionResult Get()
         {
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
-            var user = userService.GetUserByEmail(userEmail);
+            var user = userManager.FindByName(userEmail);
+
             if (user != null)
             {
                 string userId = user.Id;
@@ -46,7 +52,7 @@ namespace ResourceMetadata.Controllers
         public IHttpActionResult Post(LocationViewModel location)
         {
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
-            var user = userService.GetUserByEmail(userEmail);
+            var user = userManager.FindByName(userEmail);
 
             if (user != null)
             {
@@ -63,8 +69,8 @@ namespace ResourceMetadata.Controllers
 
         public IHttpActionResult Put(int id, LocationViewModel locationViewModel)
         {
-               string userEmail = Thread.CurrentPrincipal.Identity.Name;
-            var user = userService.GetUserByEmail(userEmail);
+            string userEmail = Thread.CurrentPrincipal.Identity.Name;
+            var user = userManager.FindByName(userEmail);
 
             if (user != null)
             {

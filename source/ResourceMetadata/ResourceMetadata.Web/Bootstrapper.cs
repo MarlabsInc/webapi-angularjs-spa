@@ -45,8 +45,11 @@ namespace ResourceMetadata
             containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerApiRequest();
             containerBuilder.RegisterApiControllers(System.Reflection.Assembly.GetExecutingAssembly());
 
-            containerBuilder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ResourceManagerEntities())))
-                .As<UserManager<ApplicationUser>>().InstancePerHttpRequest();
+            containerBuilder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ResourceManagerEntities())
+            {
+                /*Avoids UserStore invoking SaveChanges on every actions.*/
+                //AutoSaveChanges = false
+            })).As<UserManager<ApplicationUser>>().InstancePerHttpRequest();
 
 
             IContainer container = containerBuilder.Build();

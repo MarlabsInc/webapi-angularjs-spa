@@ -90,7 +90,7 @@ namespace ResourceMetadata.Service
 
 
 
-    public interface IResourceService : IUnitOfWork
+    public interface IResourceService 
     {
         Resource AddResource(Resource resource);
         IEnumerable<Resource> GetAllResources();

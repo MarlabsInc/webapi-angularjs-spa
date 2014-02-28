@@ -31,8 +31,8 @@ namespace ResourceMetadata.Web.Controllers
             //Todo: This needs to be moved from here.
             this.userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
                 {
-                    AllowOnlyAlphanumericUserNames = false
-                };
+                    AllowOnlyAlphanumericUserNames = false                      
+                };       
         }
 
         private IAuthenticationManager AuthenticationManager
@@ -51,8 +51,8 @@ namespace ResourceMetadata.Web.Controllers
             }
 
             return Unauthorized();
-        } 
-  
+        }
+
         [HttpPut]
         public IHttpActionResult LogOut()
         {
@@ -60,7 +60,7 @@ namespace ResourceMetadata.Web.Controllers
             return Ok();
         }
 
-       
+
         [OverrideAuthorization]
         public async Task<IHttpActionResult> Post(RegisterViewModel viewModel)
         {
@@ -70,7 +70,7 @@ namespace ResourceMetadata.Web.Controllers
                 {
                     case Enums.LoginActions.Login:
                         {
-                            var user = userManager.FindByName(viewModel.Email);
+                            var user = await userManager.FindAsync(viewModel.Email, viewModel.Password);
 
                             if (user == null)
                             {
@@ -86,11 +86,13 @@ namespace ResourceMetadata.Web.Controllers
                             {
                                 ApplicationUser user = new ApplicationUser();
                                 Mapper.Map(viewModel, user);
-                                var identityResult = await userManager.CreateAsync(user);
+
+                                var identityResult = await userManager.CreateAsync(user, viewModel.Password);
 
                                 if (identityResult.Succeeded)
                                 {
                                     await SignInAsync(user, isPersistent: false);
+                                    return Ok();
                                 }
                                 else
                                 {
@@ -98,6 +100,8 @@ namespace ResourceMetadata.Web.Controllers
                                     {
 
                                     }
+
+                                    return InternalServerError();
                                 }
                             }
                             catch (Exception ex)
@@ -107,11 +111,6 @@ namespace ResourceMetadata.Web.Controllers
                             }
 
 
-                            //userService.RegisterUser(user);
-                            //var ticket = new FormsAuthenticationTicket(viewModel.Email, true, 3);
-                            //var jsonString = JsonConvert.SerializeObject(ticket);
-                            //HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket)));
-                            return Ok();
                         }
                     default:
                         {
@@ -127,11 +126,20 @@ namespace ResourceMetadata.Web.Controllers
         #region SignInAsync
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-            var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+            try
+            {
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+                var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
-        #endregion SignInAsync 
+        #endregion SignInAsync
         #endregion SignInAsync
     }
 }
