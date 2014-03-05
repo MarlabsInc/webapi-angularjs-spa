@@ -17,7 +17,6 @@ namespace ResourceMetadata.Controllers
     public class ResourcesController : ApiController
     {
         private readonly IResourceService resourceService;
-        //private readonly IUserService userService;
         private readonly UserManager<ApplicationUser> userManager;
         public ResourcesController(IResourceService resourceService, UserManager<ApplicationUser> userManager)
         {

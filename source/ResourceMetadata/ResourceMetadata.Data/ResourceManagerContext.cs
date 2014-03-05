@@ -8,6 +8,7 @@ using ResourceMetadata.Data.Configurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 
 namespace ResourceMetadata.Data
 {
@@ -41,6 +42,45 @@ namespace ResourceMetadata.Data
     {
         protected override void Seed(ResourceManagerEntities context)
         {
+            try
+            {
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
+                {
+                    AllowOnlyAlphanumericUserNames = false
+                };
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+                if (!roleManager.RoleExists("Admin"))
+                {
+                    roleManager.Create(new IdentityRole("Admin"));
+                }
+
+                if (!roleManager.RoleExists("Member"))
+                {
+                    roleManager.Create(new IdentityRole("Member"));
+                }
+
+                var user = new ApplicationUser();
+                user.FirstName = "Admin";
+                user.LastName = "Marlabs";
+                user.Email = "admin@marlabs.com";
+                user.UserName = "admin@marlabs.com";
+
+                var userResult = userManager.Create(user, "Marlabs");
+
+                if (userResult.Succeeded)
+                {
+                    //var user = userManager.FindByName("admin@marlabs.com");
+                    userManager.AddToRole<ApplicationUser>(user.Id, "Admin");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
             //context.Users.Add(new ApplicationUser { Email = "abc@yahoo.com", Password = "Marlabs" });
             //context.SaveChanges();           
         }

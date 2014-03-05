@@ -183,3 +183,19 @@ textarea {
 .hide {
     display: none;
 }
+
+.validation-summary-errors > ul {
+    list-style-type: none !important;
+    color: red;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border-left: 5px solid #e80c4d !important;
+}
+.input-validation-error:focus {
+    border-left: 5px solid #e80c4d !important;
+}

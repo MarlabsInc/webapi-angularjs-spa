@@ -1,15 +1,29 @@
-﻿@{
+﻿@using ResourceMetadata.Web.Helpers;
+@model ResourceMetadata.Web.ViewModels.UserProfileViewModel
+@{
     ViewBag.Title = "Index";
 
 }
-
-<div ng-controller="ResourceMngrCtrl">
-    <div class="menu-container"><cst-top-menu ng-show="isAuthenticated" /></div>
+<div class="ui small inverted menu" cst-top-menu>
+    <a class="item" href="/Home">Home</a>
+    <a class="item" href="/Resources">Resources</a>
+    <a class="item" href="/Locations">Locations</a>
+    <a class="item" href="/About">About</a>
+    <div class="right menu">
+        @Html.ActionLink("Logout", "LogOut", "Account", new { id = 1 }, new { target = "_self", @class = "item" })
+        @*<a class="item" href="/Account/LogOut">Logout</a>*@
+    </div>
+</div>
+<div>
+    <script>
+        var userProfile = @Html.Raw(Json.Encode(Model))
+    </script>
+ 
     <section id="main" style="height:90%;">
         <div data-ng-view>
         </div>
     </section>
-    <cst-loading-overlay class="hide"></cst-loading-overlay>
+    <cst-loading-overlay class="show"></cst-loading-overlay>
 </div>
 
 @section Scripts{

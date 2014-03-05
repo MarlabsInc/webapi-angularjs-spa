@@ -6,34 +6,30 @@ using System.Net.Http;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace ResourceMetadata.Web.Helpers
 {
-    public class ResourceManagerAuthroize : AuthorizeAttribute
+    public class ResourceManagerAuthroize : System.Web.Mvc.AuthorizeAttribute
     {
+        private readonly string loginUrl;
 
-        public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
+        public ResourceManagerAuthroize(string loginUrl)
         {
-            //var skipAuthroization = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any()
-            //  || actionContext.ControllerContext.ControllerDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any();
+            this.loginUrl = loginUrl;
+        }
 
-            //if (skipAuthroization)
-            //{
-            //    return;
-            //}
-            base.OnAuthorization(actionContext);
 
-            var currentContext = HttpContext.Current;
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            var currentContext = filterContext.HttpContext;
 
-            if (currentContext != null && (currentContext.User == null || !Thread.CurrentPrincipal.Identity.IsAuthenticated))
+            if (currentContext != null && (currentContext.User == null || !currentContext.User.Identity.IsAuthenticated))
             {
-                actionContext.Response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.Unauthorized,
-                    Content = new StringContent("Your session has expired. Please relogin to continue.")
-                };
+                currentContext.Response.Redirect(this.loginUrl, true);
             }
 
+            base.OnAuthorization(filterContext);
         }
     }
 

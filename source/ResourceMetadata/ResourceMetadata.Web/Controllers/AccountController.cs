@@ -1,22 +1,24 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using ResourceMetadata.Model;
+using ResourceMetadata.Service;
+using ResourceMetadata.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using ResourceMetadata.Web.Helpers;
-using System.Web.Mvc.Filters;
-using ResourceMetadata.Service;
-using Microsoft.AspNet.Identity;
-using ResourceMetadata.Model;
-using System.Threading.Tasks;
-using Microsoft.Owin.Security;
-using ResourceMetadata.Web.ViewModels;
-using AutoMapper;
 
 namespace ResourceMetadata.Web.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
+
+        private readonly IUserService userService;
+
         private readonly UserManager<ApplicationUser> userManager;
         private IAuthenticationManager AuthenticationManager
         {
@@ -25,9 +27,12 @@ namespace ResourceMetadata.Web.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
-        public HomeController(IUserService userService, UserManager<ApplicationUser> userManager)
-        { 
+
+        public AccountController(IUserService userService, UserManager<ApplicationUser> userManager)
+        {
+            this.userService = userService;
             this.userManager = userManager;
+
             //Todo: This needs to be moved from here.
             this.userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
             {
@@ -35,43 +40,37 @@ namespace ResourceMetadata.Web.Controllers
             };
         }
 
-        [ResourceManagerAuthroize("Account/Login")]
-        //[Authorize]
-        public ActionResult Index()
-        {            
-            return View(GetUserProfile());
+        [OverrideAuthentication]
+        public ActionResult Login()
+        {
+            return View(new LoginViewModel());
         }
 
-        private UserProfileViewModel GetUserProfile()
+        [HttpPost]
+        [OverrideAuthentication]
+        public async Task<ActionResult> Login(LoginViewModel viewModel)
         {
-            var userName = User.Identity.GetUserName();
-            var user = userManager.FindByName(userName);
+            var user = await userManager.FindAsync(viewModel.Email, viewModel.Password);
 
-            if (user != null)
+            if (user == null)
             {
-                string userRole = "Member";
-
-                if (user.Roles != null && user.Roles.Count > 0)
-                {
-                    userRole = user.Roles.First().Role.Name;
-                }
-
-                var userProfile = new UserProfileViewModel
-                {
-                    Email = user.Email,
-                    Role = userRole
-                };
-
-                return userProfile;
+                return View();
             }
 
-            throw new UnauthorizedAccessException();
+            await SignInAsync(user, isPersistent: false);
+            return RedirectToAction("Index", "Home");
+        }
+        [OverrideAuthentication]
+        public ActionResult Register()
+        {
+            return View(new RegisterViewModel());
         }
 
         [HttpPost]
         [OverrideAuthentication]
         public async Task<ActionResult> Register(RegisterViewModel viewModel)
         {
+
             if (ModelState.IsValid)
             {
                 try
@@ -79,12 +78,12 @@ namespace ResourceMetadata.Web.Controllers
                     ApplicationUser user = new ApplicationUser();
                     Mapper.Map(viewModel, user);
 
-                    var identityResult =  await userManager.CreateAsync(user, viewModel.Password);
+                    var identityResult = userManager.Create(user, viewModel.Password);
                     //var userRoleResult = userManager.AddToRole(user.Id, "Member");
 
                     if (identityResult.Succeeded)
                     {
-                        var userRoleResult = userManager.AddToRole(user.Id, "Member");
+                        var userRoleResult = await userManager.AddToRoleAsync(user.Id, "Member");
 
                         if (userRoleResult.Succeeded)
                         {
@@ -117,6 +116,15 @@ namespace ResourceMetadata.Web.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult LogOut(int id)
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Login");
+        }
+
+
+        #region Private methods
         #region SignInAsync
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
@@ -134,6 +142,7 @@ namespace ResourceMetadata.Web.Controllers
 
         }
 
+        #endregion SignInAsync
         #endregion SignInAsync
     }
 }

@@ -20,7 +20,7 @@ namespace ResourceMetadata.Web
         {
             //WebApiConfig.Register(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            GlobalConfiguration.Configuration.Filters.Add(new ResourceManagerAuthroize());
+            //GlobalConfiguration.Configuration.Filters.Add(new ResourceManagerAuthroize());
             Bootstrapper.Configure();
             Database.SetInitializer(new ResourceManagerDbInitializer());
             AreaRegistration.RegisterAllAreas();

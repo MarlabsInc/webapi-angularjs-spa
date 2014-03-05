@@ -1,0 +1,78 @@
+﻿@model ResourceMetadata.Web.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+@*<div class="ui active inverted dimmer" data-ng-hide="loaded">
+        <div class="ui text loader">Loading</div>
+    </div>*@
+<div style="margin-top:75px;">
+    <div id="logincontainer">
+        @*@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form", @class = "ui secondary small form segment" }))
+            {*@
+        <form method="post" id="loginform" role="form" class="ui secondary small form segment">
+            <h5 class="ui header">Login</h5>
+            <div class="ui divider"></div>
+          
+            <div class="field">
+                <label for="email">
+                    Email<span style="color: Red">*</span>
+                </label>
+                @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" }) 
+            </div><div class="ui divider"></div>
+            <div class="field">
+                <label for="password">
+                    Password<span style="color: Red">*</span>
+                </label>
+                @Html.PasswordFor(model => model.Password, new { placeholder = "Password" })
+                @*<input type="password" id="password" name="password" placeholder="Password" required />*@
+            </div><div class="ui divider"></div>
+            <div class="inline field">
+                <button data-ng-click="login(loginform,userLogin)"
+                        class="ui blue mini button">
+                    Login
+                </button>
+                @Html.ActionLink("Register", "Register")
+            </div>
+            @*}*@
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $("#loginform").submit(function (e) {
+            var email = $("#Email").val();
+            var password = $("#Password").val();
+
+            if (email && password) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Token',
+                    data: { grant_type: "password", username: $("#Email").val(), password: $("#Password").val() },
+                    success: function (data) {
+                        debugger;
+                        if (window.localStorage) {
+                            localStorage.setItem('access_token', data.access_token);
+                        }
+                        // console.log(data);
+                        window.location = '/Home/Index';
+                    },
+                    error: function (err) { console.log(err); }
+                });
+            }
+
+            return false;
+        });
+
+
+    </script>
+}

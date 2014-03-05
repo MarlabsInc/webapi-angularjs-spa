@@ -1,8 +1,15 @@
 ﻿window.app = angular.module('resourceManagerApp', ['ui.select2', 'ngRoute', 'ngResource', 'ngAnimate'])
-    .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+    .config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', function ($routeProvider, $locationProvider, $httpProvider, $provide) {
+
+        $provide.constant('userProfile', userProfile);
+        var accessToken = localStorage.getItem("access_token") ;
+        localStorage.clear();
+        $provide.constant('userProfile', accessToken);
+        $httpProvider.defaults.headers.common.Authorization = "Bearer " + accessToken;
+
         $locationProvider.html5Mode(true);
         $routeProvider
-            .when('/Login', { templateUrl: '/Scripts/app/views/login/Login.html' })
+            //.when('/Login', { templateUrl: '/Scripts/app/views/login/Login.html' })
             .when('/Locations', { templateUrl: '/Scripts/app/views/locations/Locations.html', controller: 'LocationsCtrl' })
             .when('/About', { templateUrl: '/Scripts/app/views/about/About.html' })
             .when('/Locations/Add', { templateUrl: '/Scripts/app/views/locations/Add.html', controller: 'LocationCtrl' })
@@ -14,7 +21,7 @@
             .when('/Activities/Add', { templateUrl: '/Scripts/app/views/activities/Add.html', controller: 'ActivityAddCtrl' })
             .when('/Home', { templateUrl: '/Scripts/app/views/home/Home.html', controller: 'HomeCtrl' })
             .when('/Error', { templateUrl: '/Scripts/app/views/shared/Error.html' })
-            .otherwise({ redirectTo: '/Login' });
+            .otherwise({ redirectTo: '/Home' });
 
         $httpProvider.interceptors.push('authorizationInterceptor');
         $httpProvider.interceptors.push('httpInterceptor');

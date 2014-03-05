@@ -1,11 +1,13 @@
-﻿app.directive('cstLoadingOverlay', ['$timeout', '$q', 'httpInterceptor', function ($timeout, $q, httpInterceptor) {
+﻿app.directive('cstLoadingOverlay', ['$timeout', '$q', 'httpInterceptor', 'templateSvc', function ($timeout, $q, httpInterceptor, templateSvc) {
+    var IS_HTML_PAGE = /\.html$|\.html\?/i;
+    var modifiedTemplates = {};
 
     return {
         restrict: 'E',
         templateUrl: '/Scripts/app/partials/Loader.html',
         link: function (scope, element, attribute) {
             var requestQueue = [];
-            httpInterceptor.request = function (config) { 
+            httpInterceptor.request = function (config) {
                 console.log('request: ' + config.url);
                 requestQueue.push({});
                 if (requestQueue.length == 1) {
@@ -14,6 +16,13 @@
                 return config || $q.when(config);
             };
             httpInterceptor.response = function (response) {
+                if (IS_HTML_PAGE.test(response.config.url)) {
+                    if (!modifiedTemplates[response.config.url]) {
+                        response.data = templateSvc.processTemplate(response);
+                        modifiedTemplates[response.config.url] = true;
+                    }
+                }
+
                 console.log('response: ' + response.config.url);
                 requestQueue.pop();
                 if (requestQueue.length === 0) {
@@ -54,3 +63,24 @@
 app.factory('httpInterceptor', function () {
     return {};
 });
+
+
+
+app.service('templateSvc', ['$templateCache', 'userProfile', function ($templateCache, userProfile) {
+    var HAS_FLAGS_EXP = /data-(keep|omit)/;
+    return {
+        processTemplate: function (response) {
+            var content = response.data;
+            var element = $('<div>').append(content);
+            if (HAS_FLAGS_EXP.test(content)) {
+                element.find('[data-omit="' + userProfile.Role + '"]').each(function () {
+                    var subElem = $(this);
+                    subElem.remove();
+                });
+            }
+            content = element.html();
+            $templateCache.put(response.config.url, content);
+            return content;
+        }
+    };
+}]);
