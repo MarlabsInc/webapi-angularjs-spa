@@ -22,7 +22,7 @@ namespace ResourceMetadata.Web.Helpers
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            var currentContext = filterContext.HttpContext;
+          var currentContext = filterContext.HttpContext;
 
             if (currentContext != null && (currentContext.User == null || !currentContext.User.Identity.IsAuthenticated))
             {

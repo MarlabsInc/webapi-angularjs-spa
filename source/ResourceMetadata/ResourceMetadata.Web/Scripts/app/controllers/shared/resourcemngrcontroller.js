@@ -1,4 +1,4 @@
-﻿app.controller('ResourceMngrCtrl', ['$scope', '$location', 'resourceMngrSvc', function ($scope, $location, resourceMngrSvc) {
+﻿app.controller('ResourceMngrCtrl', ['$scope', '$location', '$window', 'resourceMngrSvc', function ($scope, $location, $window, resourceMngrSvc) {
     $scope.loginMode = true;
     $scope.registrationMode = false;
     $scope.loaded = true;
@@ -62,7 +62,8 @@
             $scope.$emit('logOff');
             $scope.loginMode = true;
             $scope.registrationMode = false;
-            $location.url('/Login');
+            //$location.url('/Login');
+            $window.location = '/Home/Login/';
         }, function (error) {
 
         });

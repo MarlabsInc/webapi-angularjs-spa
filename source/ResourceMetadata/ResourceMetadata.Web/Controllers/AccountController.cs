@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace ResourceMetadata.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : ApiController
     {
 
         private readonly IUserService userService;
@@ -24,7 +24,7 @@ namespace ResourceMetadata.Web.Controllers
         {
             get
             {
-                return HttpContext.GetOwinContext().Authentication;
+                return HttpContext.Current.GetOwinContext().Authentication;
             }
         }
 
@@ -40,44 +40,40 @@ namespace ResourceMetadata.Web.Controllers
             };
         }
 
-        [OverrideAuthentication]
-        public ActionResult Login()
-        {
-            return View(new LoginViewModel());
-        }
+    
+
+        //[HttpPost]
+        //[OverrideAuthentication]
+        //public async Task<IHttpActionResult> Login(LoginViewModel viewModel)
+        //{
+        //    var user = await userManager.FindAsync(viewModel.Email, viewModel.Password);
+
+        //    if (user == null)
+        //    {
+        //        return InternalServerError();
+        //    }
+
+        //    await SignInAsync(user, isPersistent: false);
+        //    return RedirectToAction("Index", "Home");
+        //}
+        //[OverrideAuthentication]
+        //public ActionResult Register()
+        //{
+        //    return View(new RegisterViewModel());
+        //}
 
         [HttpPost]
         [OverrideAuthentication]
-        public async Task<ActionResult> Login(LoginViewModel viewModel)
-        {
-            var user = await userManager.FindAsync(viewModel.Email, viewModel.Password);
-
-            if (user == null)
-            {
-                return View();
-            }
-
-            await SignInAsync(user, isPersistent: false);
-            return RedirectToAction("Index", "Home");
-        }
-        [OverrideAuthentication]
-        public ActionResult Register()
-        {
-            return View(new RegisterViewModel());
-        }
-
-        [HttpPost]
-        [OverrideAuthentication]
-        public async Task<ActionResult> Register(RegisterViewModel viewModel)
+        public async Task<IHttpActionResult> Post(RegisterViewModel viewModel)
         {
 
             if (ModelState.IsValid)
-            {
+            {                
                 try
                 {
                     ApplicationUser user = new ApplicationUser();
                     Mapper.Map(viewModel, user);
-
+                    
                     var identityResult = userManager.Create(user, viewModel.Password);
                     //var userRoleResult = userManager.AddToRole(user.Id, "Member");
 
@@ -87,20 +83,22 @@ namespace ResourceMetadata.Web.Controllers
 
                         if (userRoleResult.Succeeded)
                         {
-                            await SignInAsync(user, isPersistent: false);
-                            return RedirectToAction("Index", "Home");
+                            //await SignInAsync(user, isPersistent: false);
+                            //return RedirectToAction("Index", "Home");
+                            //return Json(new { status = "success" });
+                            return Ok();
                         }
 
-                        return View();
+                        return InternalServerError();
                     }
                     else
                     {
                         foreach (var error in identityResult.Errors)
                         {
-                            //ModelState.AddModelError(error)
+                            //ModelState.AddModelError(error);
                         }
 
-                        return View();
+                        return InternalServerError();
                     }
                 }
                 catch (Exception ex)
@@ -111,16 +109,16 @@ namespace ResourceMetadata.Web.Controllers
             }
             else
             {
-                return View();
+                return BadRequest(ModelState);
             }
 
         }
 
         [HttpGet]
-        public ActionResult LogOut(int id)
+        public IHttpActionResult LogOut()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Login");
+            return Ok();
         }
 
 

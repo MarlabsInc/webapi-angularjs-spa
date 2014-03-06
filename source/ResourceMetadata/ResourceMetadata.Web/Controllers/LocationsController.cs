@@ -27,7 +27,7 @@ namespace ResourceMetadata.Controllers
         }
         
         public IHttpActionResult Get()
-        {
+        {            
             string userEmail = Thread.CurrentPrincipal.Identity.Name;
             var user = userManager.FindByName(userEmail);
 

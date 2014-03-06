@@ -35,12 +35,25 @@ namespace ResourceMetadata.Web.Controllers
             };
         }
 
-        [ResourceManagerAuthroize("Account/Login")]
+        [ResourceManagerAuthroize("Home/Login")]
         //[Authorize]
         public ActionResult Index()
         {            
-            return View(GetUserProfile());
+            return View();
         }
+
+        [OverrideAuthorization]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [OverrideAuthorization]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
 
         private UserProfileViewModel GetUserProfile()
         {
@@ -68,72 +81,7 @@ namespace ResourceMetadata.Web.Controllers
             throw new UnauthorizedAccessException();
         }
 
-        [HttpPost]
-        [OverrideAuthentication]
-        public async Task<ActionResult> Register(RegisterViewModel viewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    ApplicationUser user = new ApplicationUser();
-                    Mapper.Map(viewModel, user);
 
-                    var identityResult =  await userManager.CreateAsync(user, viewModel.Password);
-                    //var userRoleResult = userManager.AddToRole(user.Id, "Member");
-
-                    if (identityResult.Succeeded)
-                    {
-                        var userRoleResult = userManager.AddToRole(user.Id, "Member");
-
-                        if (userRoleResult.Succeeded)
-                        {
-                            await SignInAsync(user, isPersistent: false);
-                            return RedirectToAction("Index", "Home");
-                        }
-
-                        return View();
-                    }
-                    else
-                    {
-                        foreach (var error in identityResult.Errors)
-                        {
-                            //ModelState.AddModelError(error)
-                        }
-
-                        return View();
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-            }
-            else
-            {
-                return View();
-            }
-
-        }
-
-        #region SignInAsync
-        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
-        {
-            try
-            {
-                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-        #endregion SignInAsync
+        
     }
 }

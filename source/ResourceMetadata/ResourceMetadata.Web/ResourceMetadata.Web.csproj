@@ -315,6 +315,7 @@
     <Content Include="Scripts\libs\select2\select2.min.js" />
     <Content Include="Scripts\libs\semantic\semantic.js" />
     <Content Include="Scripts\libs\semantic\semantic.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -377,8 +378,8 @@
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\package.json" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -391,6 +392,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\jshint\" />
     <Folder Include="Scripts\app\user\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
