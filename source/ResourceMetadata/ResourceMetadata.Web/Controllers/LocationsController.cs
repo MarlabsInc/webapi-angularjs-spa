@@ -25,7 +25,7 @@ namespace ResourceMetadata.Controllers
             //this.userService = userService;
             this.userManager = userManager;
         }
-        
+     
         public IHttpActionResult Get()
         {            
             string userEmail = Thread.CurrentPrincipal.Identity.Name;

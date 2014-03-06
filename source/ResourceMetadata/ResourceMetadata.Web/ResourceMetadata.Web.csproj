@@ -298,6 +298,11 @@
     <Content Include="Scripts\gulpfile.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\libs\angular-1.1.5.min.js" />
     <Content Include="Scripts\libs\angular-1.2.11.min.js" />
     <Content Include="Scripts\libs\angular-1.2.5.min.js" />
