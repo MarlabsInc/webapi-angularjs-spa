@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Data", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Service", "ResourceMetadata.Service\ResourceMetadata.Service.csproj", "{2DE79BEB-2A40-42AB-8065-E9416C9076E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Web", "ResourceMetadata.Web\ResourceMetadata.Web.csproj", "{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.API", "ResourceMetadata.API\ResourceMetadata.API.csproj", "{96093264-9F83-4489-ADBE-9A25FC0D40F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{2DE79BEB-2A40-42AB-8065-E9416C9076E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DE79BEB-2A40-42AB-8065-E9416C9076E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DE79BEB-2A40-42AB-8065-E9416C9076E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A16ABD5-97A5-4EB5-A7EE-D65EEDA9B56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
