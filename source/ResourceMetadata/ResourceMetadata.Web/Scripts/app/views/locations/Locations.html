@@ -1,0 +1,47 @@
+﻿<h5 class="ui header">Locations</h5>
+<div class="ui divider"></div>
+<div>
+    <table class="ui small table segment">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th data-omit="Member">
+                </th>
+                <th data-omit="Member">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr>
+                <td class="danger" colspan="4" data-ng-show="locations.length == 0">
+                    There are no locations
+                </td>
+            </tr>
+            <tr data-ng-repeat="location in locations">
+                <td>
+                    {{location.Name}}
+                </td>
+                <td>
+                    {{location.Description}}
+                </td>
+                <td style="width: 4%;" data-omit="Member">
+                    <a href="/Locations/Edit/{{location.Id}}"><i class="edit icon"></i></a>
+                </td>
+                <td style="width: 4%;" data-omit="Member">
+                    <a href="javascript:;" data-ng-click="deleteLocation(location.Id)"><i class="trash icon"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="float: right;" data-omit="Member">
+        <a class="ui mini blue button" href="/Locations/Add">Create new</a>
+    </div>
+
+</div>
+

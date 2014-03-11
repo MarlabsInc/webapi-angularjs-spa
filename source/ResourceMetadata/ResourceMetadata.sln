@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Service", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.API", "ResourceMetadata.API\ResourceMetadata.API.csproj", "{96093264-9F83-4489-ADBE-9A25FC0D40F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMetadata.Web", "ResourceMetadata.Web\ResourceMetadata.Web.csproj", "{69F1397A-AAF3-4D8F-9D2E-E2FDC190BBC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96093264-9F83-4489-ADBE-9A25FC0D40F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F1397A-AAF3-4D8F-9D2E-E2FDC190BBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F1397A-AAF3-4D8F-9D2E-E2FDC190BBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F1397A-AAF3-4D8F-9D2E-E2FDC190BBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F1397A-AAF3-4D8F-9D2E-E2FDC190BBC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

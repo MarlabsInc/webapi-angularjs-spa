@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
-using ResourceMetadata.API.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using ResourceMetadata.API.App_Start;

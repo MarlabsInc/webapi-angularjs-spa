@@ -8,7 +8,6 @@ using ResourceMetadata.API.ViewModels;
 using ResourceMetadata.Model;
 using ResourceMetadata.Service;
 using AutoMapper;
-using ResourceMetadata.API.Helpers;
 using System.Threading;
 using Microsoft.AspNet.Identity;
 

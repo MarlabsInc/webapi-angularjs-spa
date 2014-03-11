@@ -1,0 +1,33 @@
+﻿<h5 class="ui header">Add Activity</h5>
+<div class="ui divider"></div>
+
+<form name="activityform" role="form" class="ui secondary small form segment">
+    <h5 class="ui header">
+        Add Activity
+    </h5><div class="ui divider"></div>
+    <div class="field">
+        <label for="title">
+            Title<span style="color: Red">*</span>
+        </label>
+        <input type="text" id="title" placeholder="Title" required data-ng-model="activity.Title" />
+    </div><div class="ui divider"></div>
+    <div class="field">
+        <label for="notes">
+            Notes<span style="color: Red">*</span>
+        </label>
+        <textarea id="notes" placeholder="Notes" required data-ng-model="activity.Notes"></textarea>
+    </div><div class="ui divider"></div>
+    <div class="field" style="margin-bottom:10px;">
+        <label for="date">
+            Date<span style="color: Red">*</span>
+        </label>
+        <input id="activityDate" name="activityDate" required placeholder="Date" type="text" cst-datepicker data-ng-model="activity.activityDate" />
+    </div><div class="ui divider"></div>
+    <div class="inline-field">
+        <button data-ng-disabled="activityform.$invalid" data-ng-click="addActivity(activity)"
+                class="ui blue mini button">
+            Submit
+        </button>
+        <a class="ui black mini button" href="/Resources/{{activity.resourceId}}">Cancel</a>
+    </div>
+</form>
