@@ -38,44 +38,45 @@ namespace ResourceMetadata.API.Controllers
             {
                 AllowOnlyAlphanumericUserNames = false
             };
-        } 
+        }
 
         [HttpPost]
         [OverrideAuthorization]
         public async Task<IHttpActionResult> Post(RegisterViewModel viewModel)
         {
             if (ModelState.IsValid)
-            {                
+            {
                 try
                 {
                     ApplicationUser user = new ApplicationUser();
                     Mapper.Map(viewModel, user);
-                    
+
                     var identityResult = userManager.Create(user, viewModel.Password);
                     //var userRoleResult = userManager.AddToRole(user.Id, "Member");
 
                     if (identityResult.Succeeded)
                     {
-                        var userRoleResult = await userManager.AddToRoleAsync(user.Id, "Member");
+                        //var userRoleResult = await userManager.AddToRoleAsync(user.Id, "Member");
 
-                        if (userRoleResult.Succeeded)
-                        {
-                            //await SignInAsync(user, isPersistent: false);
-                            //return RedirectToAction("Index", "Home");
-                            //return Json(new { status = "success" });
-                            return Ok();
-                        }
+                        //if (userRoleResult.Succeeded)
+                        //{
+                        //    //await SignInAsync(user, isPersistent: false);
+                        //    //return RedirectToAction("Index", "Home");
+                        //    //return Json(new { status = "success" });
+                        //    return Ok();
+                        //}
 
-                        return InternalServerError();
+                        //return InternalServerError();
+                        return Ok();
                     }
                     else
                     {
                         foreach (var error in identityResult.Errors)
                         {
-                            //ModelState.AddModelError(error);
+                            ModelState.AddModelError(error,error);
                         }
 
-                        return InternalServerError();
+                        return BadRequest(ModelState);
                     }
                 }
                 catch (Exception ex)
