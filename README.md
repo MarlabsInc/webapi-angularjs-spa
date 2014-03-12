@@ -29,8 +29,9 @@ Building the application
 Visual Studio
 -----------
 
-1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have Nuget version 2.7 or higher)
+1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have    Nuget version 2.7 or higher)
 2. The Project ResourceMetada.API is configured to run using IIS.
+3. You may need to update the corresponding Application Pool Advanced settings in IIS to use LocalSystem as Identity    (ProcessModel section).
 
 Client-Side
 -----------
