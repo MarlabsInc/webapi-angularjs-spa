@@ -71,6 +71,7 @@
     <Content Include="Content\themes\fonts\icons.otf" />
     <Content Include="Content\themes\fonts\icons.ttf" />
     <Content Include="Content\themes\fonts\icons.woff" />
+    <Content Include="Scripts\config.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\package.json" />
     <None Include="Web.Debug.config">

@@ -1,6 +1,6 @@
 ﻿app.factory('serviceHelperSvc', ['$http', '$resource', function ($http, $resource) {
-   var baseUrl = 'http://localhost:3602/';
-     //var baseUrl = '';
+    var baseUrl = config.apiurl;
+    //var baseUrl = '';
     var buildUrl = function (resourceUrl) {
         if (resourceUrl.lastIndexOf('/') !== resourceUrl.length - 1) {
             resourceUrl += "/";
