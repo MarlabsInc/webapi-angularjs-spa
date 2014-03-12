@@ -1,4 +1,4 @@
-webapi-angularjs-spa
+webapi-angularjs-spa v1.1.0
 ====================
 
 [![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](http://www.marlabs.com)
@@ -30,14 +30,16 @@ Visual Studio
 -----------
 
 1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have Nuget version 2.7 or higher)
+2. The Project ResourceMetada.API is configured to run using IIS.
 
 Client-Side
 -----------
-          
-1. If you haven't installed Node.js, download and install it from http://nodejs.org/
-2. Navigate to project directory ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts)*** in command prompt.
-3. Run command **npm install**
-4. Execute gulp tasks
+      
+1. Config.js file at  ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/config.js](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts/config.js)*** holds the api url used by the Client application. Update this file to change the api url appropriately.
+2. If you haven't installed Node.js, download and install it from http://nodejs.org/
+3. Navigate to the Scripts directory of ResourceMetadata.Web project ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts)*** in command prompt.
+4. Run command **npm install**
+5. Execute gulp tasks
     1. Run command **gulp build**.
     2. In order to clean the destination files created by build task, run **gulp cleanbuild**.
 
