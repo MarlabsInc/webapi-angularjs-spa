@@ -31,6 +31,7 @@ Visual Studio
 
 1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have    Nuget version 2.7 or higher)
 2. The Project ResourceMetada.API is configured to run using IIS Express.
+3. Before starting the Client Application (ResourceMetadata.Web), please ensure that the API project is running in IIS     or IIS express.
 
 Client-Side
 -----------
