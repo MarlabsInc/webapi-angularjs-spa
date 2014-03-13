@@ -30,8 +30,7 @@ Visual Studio
 -----------
 
 1. Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have    Nuget version 2.7 or higher)
-2. The Project ResourceMetada.API is configured to run using IIS.
-3. You may need to update the corresponding Application Pool Advanced settings in IIS to use LocalSystem as Identity    (ProcessModel section).
+2. The Project ResourceMetada.API is configured to run using IIS Express.
 
 Client-Side
 -----------
@@ -43,6 +42,11 @@ Client-Side
 5. Execute gulp tasks
     1. Run command **gulp build**.
     2. In order to clean the destination files created by build task, run **gulp cleanbuild**.
+    
+Migrating from v1.0.0 to v1.1.0
+-------------------------------
+  If you are already using the Application version 1.0.0, please drop the database ResourceMetadata from your SQL server before running the Application
+    
 
 # Roadmap Targets
 
