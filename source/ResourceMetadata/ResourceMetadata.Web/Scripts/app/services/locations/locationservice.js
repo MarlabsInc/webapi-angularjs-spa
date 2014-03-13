@@ -1,5 +1,4 @@
 ﻿app.factory('locationSvc', ['$resource', 'serviceHelperSvc', function ($resource, serviceHelper) {
-    var url = '/api/Locations/';
     var Location = serviceHelper.Location;
 
     return {

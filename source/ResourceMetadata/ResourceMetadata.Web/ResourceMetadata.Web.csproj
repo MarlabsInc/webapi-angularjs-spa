@@ -173,7 +173,6 @@
     <Content Include="Scripts\app\services\locations\locationservice.js" />
     <Content Include="Scripts\app\services\resources\resourceservice.js" />
     <Content Include="Scripts\app\services\shared\confirmationservice.js" />
-    <Content Include="Scripts\app\services\shared\errormanagerservice.js" />
     <Content Include="Scripts\app\services\shared\resourcemngrservice.js" />
     <Content Include="Scripts\app\services\shared\servicehelper.js" />
     <Content Include="Scripts\app\views\about\About.html" />
@@ -191,10 +190,7 @@
     <Content Include="Scripts\gulpfile.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\libs\angular-1.1.5.min.js" />
     <Content Include="Scripts\libs\angular-1.2.11.min.js" />
-    <Content Include="Scripts\libs\angular-1.2.5.min.js" />
-    <Content Include="Scripts\libs\angular-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-animate-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-cookies-1.2.9.js" />
     <Content Include="Scripts\libs\angular-cookies-1.2.9.min.js" />
@@ -202,7 +198,6 @@
     <Content Include="Scripts\libs\angular-route-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
     <Content Include="Scripts\libs\angular-ui\select2.min.js" />
-    <Content Include="Scripts\libs\angular.min.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\libs\jquery-ui-1.10.3.min.js" />

@@ -39,7 +39,7 @@ namespace ResourceMetadata.API.Controllers
             return Created(Url.Link("DefaultApi", new { controller = "ResourceActivities", id = activity.Id }), activity);
         }
 
-        [Route("api/ResourceActivities/{id}")]
+        [Route("api/Resources/{resourceId}/Activities/{id}")]
         public IHttpActionResult Delete(int id)
         {
             activityService.DeleteActivity(id);

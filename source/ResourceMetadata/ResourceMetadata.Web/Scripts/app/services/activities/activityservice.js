@@ -6,7 +6,7 @@
             return Activity.save({ resourceId: activity.resourceId }, activity).$promise;
         },
         deleteActivity: function (activity) {
-            return Activity.delete({ activityId: activity.Id }).$promise;
+            return Activity.delete({ resourceId: activity.ResourceId, activityId: activity.Id }).$promise;
         },
         getActivites: function (resourceId) {
             return Activity.query({ resourceId: resourceId });

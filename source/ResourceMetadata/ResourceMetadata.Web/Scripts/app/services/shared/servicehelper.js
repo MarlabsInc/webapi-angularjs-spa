@@ -30,8 +30,9 @@
         },
         Location: $resource(buildUrl('/api/Locations/:locationId'), { locationId: '@Id' }, { 'update': { method: 'PUT' } }),
 
-        ResourceActivity: $resource(buildUrl('/api/Resources/:resourceId/Activities/:activityId'),
-                { resourceId: '@ResourceId', activityId: '@Id' },
-                { 'delete': { method: 'delete', url: buildUrl('/api/ResourceActivities/:activityId') } })
+        ResourceActivity: $resource(buildUrl('api/Resources/:resourceId/Activities/:activityId'),
+                { resourceId: '@ResourceId', activityId: '@Id' }
+               // ,{ 'delete': { method: 'delete', url: buildUrl('/api/ResourceActivities/:activityId') } }
+                )
     };
 }]);

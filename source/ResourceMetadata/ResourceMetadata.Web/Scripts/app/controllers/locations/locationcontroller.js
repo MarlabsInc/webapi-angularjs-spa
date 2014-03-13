@@ -1,5 +1,5 @@
 ﻿app.controller('LocationCtrl', ['$scope', '$location', '$routeParams', 'locationSvc',
-        function ($scope, $location, $routeParams, locationSvc, errorMngrSvc) {
+        function ($scope, $location, $routeParams, locationSvc) {
             $scope.addLocation = function (location) {
                 locationSvc.addLocation(location)
                 .then(function (data) {
