@@ -1,4 +1,4 @@
-webapi-angularjs-spa v1.1.0
+WebApi-AngularjJS-Spa v1.1.0
 ====================
 
 [![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](http://www.marlabs.com)
@@ -48,12 +48,21 @@ Migrating from v1.0.0 to v1.1.0
 -------------------------------
   If you are already using the Application version 1.0.0, please drop the database ResourceMetadata from your SQL server before running the Application
     
+# Current Features
+
+* REST API with ASP.NET Web API 2.
+* Server-Side security with ASP.NET Identity.
+* Single Page Application(SPA) with AngularJS.
+* AngularJS factory $resource for interacting with RESTful server-side data sources.
+* AngularJS $http interceptors.
+* AngularJS directives.
+* Task automation with Gulp.js
+
 
 # Roadmap Targets
 
 * Code refactoring.
 * Unit tests with Karma/Jasmine
-* Task automation with Gulp.js
 * Leverage Browserify 
 * Performance optimizations and best prarctices for SPA.
 
