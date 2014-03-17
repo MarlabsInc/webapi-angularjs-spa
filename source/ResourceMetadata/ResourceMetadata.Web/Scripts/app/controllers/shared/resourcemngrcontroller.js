@@ -16,6 +16,9 @@
             if (errorResponse.status == 404) {
                 $scope.errorMessage = errorResponse.data;
             }
+            if (errorResponse.status === 400) {
+                $scope.errorMessage = "Invalid Email/Password";
+            }
             else {
                 $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
             }
@@ -36,6 +39,7 @@
         }
     };
     $scope.register = function (userRegistration) {
+
         if (userRegistration.password !== userRegistration.confirmPassword) {
             $scope.errorMessage = "Passwords do not match";
             return;
@@ -57,7 +61,14 @@
             });
         }, function (error) {
             $scope.loaded = true;
-            $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
+            if (error.status === 400) {
+                $scope.errorMessage = "Email already exists.";
+            }
+            else {
+                $scope.errorMessage = "An error occured while performing this action. Please try after some time.";
+            }
+
+
         });
     };
 
