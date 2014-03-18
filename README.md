@@ -38,7 +38,7 @@ Client-Side
       
 1. Config.js file at  ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/config.js](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts/config.js)*** holds the api url used by the Client application. Update this file to change the api url appropriately.
 2. If you haven't installed Node.js, download and install it from http://nodejs.org/
-3. Navigate to the Scripts directory of ResourceMetadata.Web project ***[source/ResourceMetadata/ResourceMetadata.Web/Scripts/](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/Scripts)*** in command prompt.
+3. Navigate to the directory of ResourceMetadata.Web project ***[source/ResourceMetadata/ResourceMetadata.Web/](https://github.com/MarlabsInc/webapi-angularjs-spa/tree/master/source/ResourceMetadata/ResourceMetadata.Web/)*** in command prompt.
 4. Run command **npm install**
 5. Execute gulp tasks
     1. Run command **gulp build**.
