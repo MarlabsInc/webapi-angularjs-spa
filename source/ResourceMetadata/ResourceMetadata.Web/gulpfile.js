@@ -13,10 +13,10 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 
 var filePath = {
-    appjsminify: { src: './app/**/*.js', dest: './app' },
-    libsjsminify: { src: ['libs/**/*.js', '!*.min.js', '!/**/*.min.js'], dest: 'libs/' },
-    jshint: { src: './app/**/*.js' },
-    minifycss: { src: ['../Content/themes/**/*.css', '!*.min.css', '!/**/*.min.css'], dest: '../Content/themes/' }
+    appjsminify: { src: './Scripts/app/**/*.js', dest: './Scripts/app' },
+    libsjsminify: { src: ['./Scripts/libs/**/*.js', '!*.min.js', '!/**/*.min.js'], dest: './Scripts/libs/' },
+    jshint: { src: './Scripts/app/**/*.js' },
+    minifycss: { src: ['./Content/themes/**/*.css', '!*.min.css', '!/**/*.min.css'], dest: './Content/themes/' }
 };
 
 
@@ -55,16 +55,16 @@ gulp.task('minify-css', function () {
 gulp.task('clean', function () {
     gulp.src(
         [
-            'app/ngscripts.js',
-            'libs/angular-ui/select2.min.js',
-            'libs/select2/select2.min.js',
-            'libs/semantic/semantic.min.js',
-            'libs/jquery-1.9.1.min.js',
-            '../Content/themes/semantic/semantic.min.css',
-            '../Content/themes/Site.min.css',
-            '../Content/themes/select2/select2.min.css'
+            'Scripts/app/ngscripts.js',
+            'Scripts/libs/angular-ui/select2.min.js',
+            'Scripts/libs/select2/select2.min.js',
+            'Scripts/libs/semantic/semantic.min.js',
+            'Scripts/libs/jquery-1.9.1.min.js',
+            './Content/themes/semantic/semantic.min.css',
+            './Content/themes/Site.min.css',
+            './Content/themes/select2/select2.min.css'
         ], { read: false })
-    .pipe(clean({force:true}));
+    .pipe(clean({ force: true }));
 });
 gulp.task('build', ['app-js-minify', 'libs-js-minify', 'minify-css']);
 gulp.task('cleanbuild', ['clean']);

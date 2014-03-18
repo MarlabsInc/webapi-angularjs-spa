@@ -72,8 +72,7 @@
     <Content Include="Content\themes\fonts\icons.ttf" />
     <Content Include="Content\themes\fonts\icons.woff" />
     <Content Include="Scripts\config.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Scripts\package.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,9 +186,7 @@
     <Content Include="Scripts\app\views\resources\Edit.html" />
     <Content Include="Scripts\app\views\resources\Resources.html" />
     <Content Include="Scripts\app\views\shared\Error.html" />
-    <Content Include="Scripts\gulpfile.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="Scripts\libs\angular-1.2.11.min.js" />
     <Content Include="Scripts\libs\angular-animate-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-cookies-1.2.9.js" />
