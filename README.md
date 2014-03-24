@@ -1,4 +1,4 @@
-WebApi-AngularjJS-Spa v1.1.0
+WebApi-AngularJS-Spa v1.1.0
 ====================
 
 [![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](http://www.marlabs.com)
