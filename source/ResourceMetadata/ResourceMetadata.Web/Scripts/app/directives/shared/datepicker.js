@@ -1,4 +1,4 @@
-﻿app.directive('cstDatepicker', function () {
+﻿utilities.directive('cstDatepicker', function () {
     return {
         restrict: "A",
         require: 'ngModel',

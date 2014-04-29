@@ -1,12 +1,17 @@
-﻿app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', 'confirmSvc', function ($scope, resourceSvc, confirmSvc) {
+﻿app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', function ($scope, resourceSvc) {
     $scope.resources = [];
     $scope.deleteResource = function (resourceId) {
-        if (confirmSvc.confirm('Are you sure you want to delete this item?')) {
-            resourceSvc.deleteResource(resourceId)
+            resourceSvc.deleteResource(resourceId).$promise
             .then(function (data) {
-                loadResources();
+
+                for (var i = $scope.resources.length - 1; i >= 0; i--) {
+                    if ($scope.resources[i].Id === resourceId) {
+                        $scope.resources.splice(i, 1);
+                        break;
+                    }
+                }
+
             });
-        }
     };
     init();
 

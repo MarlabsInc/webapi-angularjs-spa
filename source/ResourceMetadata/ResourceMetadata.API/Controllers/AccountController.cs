@@ -51,22 +51,10 @@ namespace ResourceMetadata.API.Controllers
                     ApplicationUser user = new ApplicationUser();
                     Mapper.Map(viewModel, user);
 
-                    var identityResult = userManager.Create(user, viewModel.Password);
-                    //var userRoleResult = userManager.AddToRole(user.Id, "Member");
+                    var identityResult = await userManager.CreateAsync(user, viewModel.Password);
 
                     if (identityResult.Succeeded)
                     {
-                        //var userRoleResult = await userManager.AddToRoleAsync(user.Id, "Member");
-
-                        //if (userRoleResult.Succeeded)
-                        //{
-                        //    //await SignInAsync(user, isPersistent: false);
-                        //    //return RedirectToAction("Index", "Home");
-                        //    //return Json(new { status = "success" });
-                        //    return Ok();
-                        //}
-
-                        //return InternalServerError();
                         return Ok();
                     }
                     else
@@ -92,12 +80,12 @@ namespace ResourceMetadata.API.Controllers
 
         }
 
-        [HttpGet]
-        public IHttpActionResult LogOut()
-        {
-            AuthenticationManager.SignOut();
-            return Ok();
-        }
+     
+        //public IHttpActionResult Put()
+        //{
+        //    AuthenticationManager.SignOut();
+        //    return Ok();
+        //}
 
 
         #region Private methods

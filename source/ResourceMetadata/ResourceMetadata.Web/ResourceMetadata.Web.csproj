@@ -71,6 +71,11 @@
     <Content Include="Content\themes\fonts\icons.otf" />
     <Content Include="Content\themes\fonts\icons.ttf" />
     <Content Include="Content\themes\fonts\icons.woff" />
+    <Content Include="Content\themes\jasmine-2.0.0\jasmine.css" />
+    <Content Include="Scripts\app\directives\shared\confirmmodal.js" />
+    <Content Include="Scripts\app\directives\shared\externalurl.js" />
+    <Content Include="Scripts\app\partials\confirm-modal.html" />
+    <Content Include="Scripts\app\views\shared\Register.html" />
     <Content Include="Scripts\config.js" />
     <Content Include="package.json" />
     <None Include="Web.Debug.config">
@@ -155,14 +160,10 @@
     <Content Include="Scripts\app\controllers\shared\resourcemngrcontroller.js" />
     <Content Include="Scripts\app\directives\activities\ResourceActivityList.html" />
     <Content Include="Scripts\app\directives\activities\resourceactivitylist.js" />
-    <Content Include="Scripts\app\directives\shared\confirmationmodal.js" />
     <Content Include="Scripts\app\directives\shared\datepicker.js" />
     <Content Include="Scripts\app\directives\shared\itemdelete.js" />
     <Content Include="Scripts\app\directives\shared\loadingoverlay.js" />
     <Content Include="Scripts\app\directives\shared\modal.js" />
-    <Content Include="Scripts\app\directives\shared\passwordvalidator.js" />
-    <Content Include="Scripts\app\directives\shared\requestverificationtoken.js" />
-    <Content Include="Scripts\app\directives\shared\select2dropdown.js" />
     <Content Include="Scripts\app\directives\shared\topmenu.js" />
     <Content Include="Scripts\app\helpers\authorizationinterceptor.js" />
     <Content Include="Scripts\app\ngscripts.js" />
@@ -171,7 +172,6 @@
     <Content Include="Scripts\app\services\activities\activityservice.js" />
     <Content Include="Scripts\app\services\locations\locationservice.js" />
     <Content Include="Scripts\app\services\resources\resourceservice.js" />
-    <Content Include="Scripts\app\services\shared\confirmationservice.js" />
     <Content Include="Scripts\app\services\shared\resourcemngrservice.js" />
     <Content Include="Scripts\app\services\shared\servicehelper.js" />
     <Content Include="Scripts\app\views\about\About.html" />
@@ -180,7 +180,7 @@
     <Content Include="Scripts\app\views\locations\Add.html" />
     <Content Include="Scripts\app\views\locations\Edit.html" />
     <Content Include="Scripts\app\views\locations\Locations.html" />
-    <Content Include="Scripts\app\views\login\Login.html" />
+    <Content Include="Scripts\app\views\shared\Login.html" />
     <Content Include="Scripts\app\views\resources\Add.html" />
     <Content Include="Scripts\app\views\resources\Details.html" />
     <Content Include="Scripts\app\views\resources\Edit.html" />
@@ -191,10 +191,15 @@
     <Content Include="Scripts\libs\angular-animate-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-cookies-1.2.9.js" />
     <Content Include="Scripts\libs\angular-cookies-1.2.9.min.js" />
+    <Content Include="Scripts\libs\angular-mocks-1.2.9.js" />
     <Content Include="Scripts\libs\angular-resource-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-route-1.2.9.min.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
     <Content Include="Scripts\libs\angular-ui\select2.min.js" />
+    <Content Include="Scripts\libs\jasmine-2.0.0\boot.js" />
+    <Content Include="Scripts\libs\jasmine-2.0.0\console.js" />
+    <Content Include="Scripts\libs\jasmine-2.0.0\jasmine-html.js" />
+    <Content Include="Scripts\libs\jasmine-2.0.0\jasmine.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\libs\jquery-ui-1.10.3.min.js" />
@@ -202,6 +207,19 @@
     <Content Include="Scripts\libs\select2\select2.min.js" />
     <Content Include="Scripts\libs\semantic\semantic.js" />
     <Content Include="Scripts\libs\semantic\semantic.min.js" />
+    <Content Include="Scripts\test\spec\activitiescontrollerspec.js" />
+    <Content Include="Scripts\test\spec\activityservicespec.js" />
+    <Content Include="Scripts\test\spec\locationcontrollerspec.js" />
+    <Content Include="Scripts\test\spec\locationscontrollerspec.js" />
+    <Content Include="Scripts\test\spec\locationservicespec.js" />
+    <Content Include="Scripts\test\spec\resourcecontrollerspec.js" />
+    <Content Include="Scripts\test\spec\resourceeditcontrollerspec.js" />
+    <Content Include="Scripts\test\spec\resourcescontrollerspec.js" />
+    <Content Include="Scripts\test\spec\resourcemngrcontrollerspec.js" />
+    <Content Include="Scripts\test\spec\resourcemngrservicespec.js" />
+    <Content Include="Scripts\test\spec\resourceservicespec.js" />
+    <Content Include="Scripts\test\spec\spechelper.js" />
+    <Content Include="SpecRunner.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

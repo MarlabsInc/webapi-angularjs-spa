@@ -12,10 +12,12 @@ namespace ResourceMetadata.Service
     public class ResourceService : IResourceService
     {
         private IResourceRepository repository;
+        private IResourceActivityRepository activityRepository;
         private readonly IUnitOfWork unitOfWork;
-        public ResourceService(IResourceRepository repository, IUnitOfWork unitOfWork)
+        public ResourceService(IResourceRepository repository, IResourceActivityRepository activityRepository, IUnitOfWork unitOfWork)
         {
             this.repository = repository;
+            this.activityRepository = activityRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -54,18 +56,31 @@ namespace ResourceMetadata.Service
 
         public Resource UpdateResource(Resource resource)
         {
-            var existingResource = GetResourceByPriority(resource.Priority);
-
-            if (existingResource != null && existingResource.Id !=  resource.Id)
+            try
             {
-                repository.Delete(existingResource);
+                var existingResource = GetResourceByPriority(resource.Priority);
+
+                if (existingResource != null && existingResource.Id != resource.Id)
+                {
+                    repository.Delete(existingResource);
+                }
+
+    
+
+                foreach (var activity in resource.Activities.ToList())
+                {
+                    activityRepository.Delete(activity);
+                }
+
+                repository.Update(resource);
+                SaveChanges();
+                return resource;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
-            
-
-            repository.Update(resource);
-            SaveChanges();
-            return resource;
         }
 
         public void DeleteResource(int id)
@@ -90,7 +105,7 @@ namespace ResourceMetadata.Service
 
 
 
-    public interface IResourceService 
+    public interface IResourceService
     {
         Resource AddResource(Resource resource);
         IEnumerable<Resource> GetAllResources();

@@ -1,4 +1,4 @@
-﻿app.directive('cstModal', function () {
+﻿utilities.directive('cstModal', function () {
     return {
         required: 'ngModel',
         restrict: 'A',

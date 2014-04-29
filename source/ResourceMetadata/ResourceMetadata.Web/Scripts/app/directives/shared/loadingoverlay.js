@@ -1,4 +1,5 @@
-﻿app.directive('cstLoadingOverlay', ['$timeout', '$q', 'httpInterceptor', 'templateSvc', function ($timeout, $q, httpInterceptor, templateSvc) {
+﻿"use strict";
+utilities.directive('cstLoadingOverlay', ['$timeout', '$q', 'httpInterceptor', 'templateSvc', function ($timeout, $q, httpInterceptor, templateSvc) {
     var IS_HTML_PAGE = /\.html$|\.html\?/i;
     var modifiedTemplates = {};
 
@@ -60,13 +61,13 @@
 
 }]);
 
-app.factory('httpInterceptor', function () {
+utilities.factory('httpInterceptor', function () {
     return {};
 });
 
 
 
-app.service('templateSvc', ['$templateCache', function ($templateCache) {
+utilities.service('templateSvc', ['$templateCache', function ($templateCache) {
     var HAS_FLAGS_EXP = /data-(keep|omit)/;
     return {
         processTemplate: function (response) {

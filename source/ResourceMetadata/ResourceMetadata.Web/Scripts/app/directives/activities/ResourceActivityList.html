@@ -7,7 +7,11 @@
             </a> against this Resource on <b>{{activity.ActivityDateString}}</b>
             <div class="summary">
             </div>
-        </div><i class="trash icon" style="width:5%;" data-ng-click="deleteActivity(activity);"></i>
+        </div>
+        <i class="trash icon" style="float: right;" title="Delete" message="Do you want to remove this item?"
+           modal-id="{{activity.Id}}" on-approve="deleteActivity(activity);"
+           on-deny="closeModal();" cst-confirm-modal></i>
+
         <div class="ui modal" id="activity-modal-{{activity.Id}}">
             <i class="close icon"></i>
             <div class="header" style="font-size:1em !important;">

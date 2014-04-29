@@ -1,0 +1,54 @@
+﻿<div id="regsitrationcontainer" name="regsitrationcontainer">
+    <form name="registrationform" role="form" class="ui secondary small form segment">
+        <h5 class="ui header">Register</h5>
+        <div class="ui divider"></div>
+        <div ng-show="errorMessage">
+            <div class="error-message">
+                {{errorMessage}}
+            </div>
+            <div class="ui divider"></div>
+        </div>
+        <div class="field">
+            <label for="firstname">
+                First Name<span style="color: Red">*</span>
+            </label>
+            <input type="text" id="firstname" placeholder="First Name" required data-ng-model="userRegistration.firstName" />
+        </div><div class="ui divider"></div>
+        <div class="field">
+            <label for="lastname">
+                Last Name<span style="color: Red">*</span>
+            </label>
+            <input type="text" id="lastname" placeholder="Last Name" required data-ng-model="userRegistration.lastName" />
+        </div><div class="ui divider"></div>
+        <div class="field">
+            <label for="email">
+                Email<span style="color: Red">*</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="Email" required data-ng-model="userRegistration.email" />
+            <span ng-show="registrationform.email.$dirty && registrationform.email.$error.email" class="field-error">Invalid email</span>
+        </div><div class="ui divider"></div>
+        <div class="field">
+            <label for="password">
+                Password<span style="color: Red">*</span>
+            </label>
+            <input type="password" id="password" name="password" placeholder="Password" ng-minlength="6" required data-ng-model="userRegistration.password" />
+            <span ng-show="registrationform.password.$dirty && registrationform.password.$error.minlength" class="field-error">Password should contain at least 6 characaters</span>
+        </div><div class="ui divider"></div>
+
+        <div class="field">
+            <label for="confirmpassword">
+                Confirm Password<span style="color: Red">*</span>
+            </label>
+            <input type="password" id="confirmpassword" placeholder="Password" required data-ng-model="userRegistration.confirmPassword" />
+        </div><div class="ui divider"></div>
+
+
+        <div class="inline field">
+            <button data-ng-disabled="registrationform.$invalid" data-ng-click="register(userRegistration)"
+                    class="ui blue mini button">
+                Register
+            </button>
+            <a href="/Login">Back to Login</a>
+        </div>
+    </form>
+</div>

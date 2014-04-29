@@ -2,7 +2,7 @@
     function ($scope, $location, $routeParams, resourceSvc) {
         init();
         $scope.editResource = function (resource) {
-            resourceSvc.editResource(resource).then(function (data) {
+            resourceSvc.editResource(resource).$promise.then(function (data) {
                 $location.url('/Resources');
             });
         };
@@ -18,13 +18,11 @@
 
         function init() {
             resourceSvc.createResourceEditFormModel($routeParams.resourceId)
-         .then(function (data) {
-             $scope.locations = data[1];
-             $scope.resource = data[0];
-
-             //hack for issue with select2 hard coded values pre-selection.
-             $scope.priorities = priorityValues();
-         });
+                .then(function (data) {
+                    $scope.resource = data[0];
+                    $scope.locations = data[1];
+                    //hack for issue with select2 hard coded values pre-selection.
+                    $scope.priorities = priorityValues();
+                });
         }
-
     }]);

@@ -1,11 +1,6 @@
 ﻿app.factory('serviceHelperSvc', ['$http', '$resource', function ($http, $resource) {
     var baseUrl = config.apiurl;
-    //var baseUrl = '';
     var buildUrl = function (resourceUrl) {
-        if (resourceUrl.lastIndexOf('/') !== resourceUrl.length - 1) {
-            resourceUrl += "/";
-        }
-
         return baseUrl + resourceUrl;
     };
     var addRequestHeader = function (key, value) {
@@ -19,16 +14,12 @@
         Account: $resource(buildUrl('api/Account/'), null,
             {
                 register: { method: 'post' },
-                logOff: { method: 'GET' }
+                logOff: { method: 'put' }
             }),
         Resource: $resource(buildUrl('api/Resources/:resourceId'),
             { resourceId: '@Id' },
             { 'update': { method: 'PUT' } }),
-
-        setAuthroizationHeader: function (value) {
-            $http.defaults.headers.common.Authorization = "Bearer " + value;
-        },
-        Location: $resource(buildUrl('/api/Locations/:locationId'), { locationId: '@Id' }, { 'update': { method: 'PUT' } }),
+        Location: $resource(buildUrl('api/Locations/:locationId'), { locationId: '@Id' }, { 'update': { method: 'PUT' } }),
 
         ResourceActivity: $resource(buildUrl('api/Resources/:resourceId/Activities/:activityId'),
                 { resourceId: '@ResourceId', activityId: '@Id' })

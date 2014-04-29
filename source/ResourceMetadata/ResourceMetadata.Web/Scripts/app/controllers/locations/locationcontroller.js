@@ -1,13 +1,13 @@
 ﻿app.controller('LocationCtrl', ['$scope', '$location', '$routeParams', 'locationSvc',
         function ($scope, $location, $routeParams, locationSvc) {
             $scope.addLocation = function (location) {
-                locationSvc.addLocation(location)
+                locationSvc.addLocation(location).$promise
                 .then(function (data) {
                     $location.url('/Locations');
                 });
             };
             $scope.editLocation = function (location) {
-                locationSvc.editLocation(location).then(function (data) {
+                locationSvc.editLocation(location).$promise.then(function (data) {
                     $location.url('/Locations');
                 });
             };

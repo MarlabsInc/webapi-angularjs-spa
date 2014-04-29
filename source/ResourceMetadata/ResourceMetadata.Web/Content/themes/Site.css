@@ -103,9 +103,7 @@ a {
 }
 
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
-}
+
 
 .ui.small.table.segment th, tr {
     font-size: small;
@@ -134,6 +132,16 @@ input.ng-valid-required {
     border-left: 5px solid #6ECFF5 !important;
 }
 
+input.ng-invalid-email,
+input.ng-invalid-email:focus {
+    border-left: 5px solid #e80c4d !important;
+}
+
+input.ng-invalid-minlength,
+input.ng-invalid-minlength:focus {
+    border-left: 5px solid #e80c4d !important;
+}
+
 textarea.ng-valid-required {
     border-left: 5px solid #6ECFF5 !important;
 }
@@ -146,7 +154,7 @@ input:focus {
 }
 
 input.ng-invalid-required:focus {
-    border-left: 5px solid #6ECFF5 !important;
+    border-left: 5px solid #e80c4d !important;
     box-shadow: none !important;
     border-bottom-left-radius: .325em !important;
     border-top-left-radius: .325em !important;
@@ -155,8 +163,14 @@ input.ng-invalid-required:focus {
 
 textarea.ng-invalid-required {
     border-left: 5px solid #e80c4d !important;
+    box-shadow: none !important;
+    border-bottom-left-radius: .325em !important;
+    border-top-left-radius: .325em !important;
 }
 
+    textarea.ng-invalid-required:focus {
+        border-left: 5px solid #e80c4d !important;
+    }
 
 textarea:focus {
     border-left: 5px solid #6ECFF5 !important;
@@ -165,12 +179,7 @@ textarea:focus {
     border-top-left-radius: .325em !important;
 }
 
-textarea.ng-invalid-required:focus {
-    border-left: 5px solid #6ECFF5 !important;
-    box-shadow: none !important;
-    border-bottom-left-radius: .325em !important;
-    border-top-left-radius: .325em !important;
-}
+
 
 textarea {
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -196,6 +205,41 @@ textarea {
 .input-validation-error {
     border-left: 5px solid #e80c4d !important;
 }
-.input-validation-error:focus {
-    border-left: 5px solid #e80c4d !important;
+
+    .input-validation-error:focus {
+        border-left: 5px solid #e80c4d !important;
+    }
+
+
+.field-error {
+    color: #e80c4d;
 }
+
+.ui.modal {
+    width: 58%;
+    margin-left: -29%;
+}
+
+    .ui.modal > .header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 0em;
+        padding: 1em 1em;
+        font-size: 1em;
+        font-weight: bold;
+        -webkit-border-radius: 0.325em 0.325em 0px 0px;
+        -moz-border-radius: 0.325em 0.325em 0px 0px;
+        border-radius: 0.325em 0.325em 0px 0px;
+    }
+
+    .ui.modal > .content {
+        font-size: .9em;
+        display: table;
+        width: 100%;
+        position: relative;
+        padding: 1em;
+        background-color: #F4F4F4;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+    }

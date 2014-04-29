@@ -1,20 +1,26 @@
 ﻿
-app.controller('LocationsCtrl', ['$scope', 'confirmSvc', 'locationSvc',
-        function ($scope, confirmSvc, locationSvc) {
+app.controller('LocationsCtrl', ['$scope', 'locationSvc',
+        function ($scope, locationSvc) {
             $scope.locations = [];
-            init();
+
             $scope.deleteLocation = function (locationId) {
-                if (confirmSvc.confirm('Do you want to delete this item?')) {
-                    locationSvc.deleteLocation(locationId)
-                    .then(function (data, responseHeaders) {
-                        loadLocations();
-                    });
-                }
+                locationSvc.deleteLocation(locationId).$promise
+                .then(function (data, responseHeaders) {
+                    for (var i = $scope.locations.length - 1; i >= 0 ; i--) {
+                        if ($scope.locations[i].Id === locationId) {
+                            $scope.locations.splice(i, 1);
+                            break;
+                        }
+                    }
+                });
+
             };
-            function init() {
-                loadLocations();
+            this.init = function () {
+                this.loadLocations();
             }
-            function loadLocations() {
+            this.loadLocations = function () {
                 $scope.locations = locationSvc.getLocations();
             }
+
+            this.init();
         }]);

@@ -189,3 +189,9 @@ source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/select2/select2.min.js
 source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/semantic/semantic.min.js
 source/ResourceMetadata/ResourceMetadata.Web/Scripts/node_modules
 source/ResourceMetadata/ResourceMetadata.Web/node_modules
+
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/boot.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/console.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/jasmine-html.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/jasmine.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/angular-mocks-1.2.9.min.js

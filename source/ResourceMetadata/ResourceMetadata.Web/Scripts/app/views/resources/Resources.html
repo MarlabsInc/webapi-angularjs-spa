@@ -34,7 +34,9 @@
                     <a href="/Resources/Edit/{{resource.Id}}"><i class="edit icon"></i></a>
                 </td>
                 <td style="width: 4%;">
-                    <a href="javascript:;" data-ng-click="deleteResource(resource.Id)"><i class="trash icon"></i></a>
+                    <i class="trash icon" style="float: right;" title="Delete {{resource.Name}}" message="Do you want to remove this item?"
+                       modal-id="{{resource.Id}}" on-approve="deleteResource(resource.Id);"
+                       on-deny="closeModal();" cst-confirm-modal></i>
                 </td>
             </tr>
         </tbody>

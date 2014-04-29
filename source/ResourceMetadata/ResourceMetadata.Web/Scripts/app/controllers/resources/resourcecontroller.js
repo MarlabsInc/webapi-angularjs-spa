@@ -1,7 +1,8 @@
-﻿app.controller('ResourceCtrl', ['$scope', '$routeParams', '$location', 'resourceSvc', function ($scope, $routeParams, $location, resourceSvc) {
+﻿app.controller('ResourceCtrl', ['$scope', '$routeParams', '$location', 'resourceSvc','locationSvc', function ($scope, $routeParams, $location, resourceSvc, locationSvc) {
     $scope.resource = { hasActivites: false };
+
     $scope.addResource = function (resource) {
-        resourceSvc.addResource(resource)
+        resourceSvc.addResource(resource).$promise
         .then(function (data) {
             $location.url('/Resources');
         });
@@ -14,7 +15,7 @@
             $scope.resource = resourceSvc.getResource($routeParams.resourceId);
         }
         else {
-            $scope.locations = resourceSvc.createResourceAddFormModel();
+            $scope.locations = locationSvc.getLocations();
         }
     }
 }]);

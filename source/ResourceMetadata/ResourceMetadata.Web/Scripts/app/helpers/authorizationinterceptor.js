@@ -12,7 +12,6 @@
                     break;
                 }
                 default: {
-                    // $location.url('/Error');
                     break;
                 }
             }

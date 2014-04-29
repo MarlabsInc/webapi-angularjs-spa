@@ -1,11 +1,12 @@
-﻿window.app = angular.module('resourceManagerApp', ['ui.select2', 'ngRoute', 'ngResource', 'ngAnimate']); 
+﻿window.app = angular.module('resourceManagerApp', ['ui.select2', 'ngRoute', 'ngResource', 'ngAnimate', 'custom-utilities']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', function ($routeProvider, $locationProvider, $httpProvider, $provide) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $httpProvider.defaults.useXDomain = true;
     $locationProvider.html5Mode(true);
     $routeProvider
-        .when('/Login', { templateUrl: '/Scripts/app/views/login/Login.html' })
+        .when('/Login', { templateUrl: '/Scripts/app/views/shared/Login.html' })
+        .when('/Register', { templateUrl: '/Scripts/app/views/shared/Register.html' })
         .when('/Locations', { templateUrl: '/Scripts/app/views/locations/Locations.html', controller: 'LocationsCtrl' })
         .when('/About', { templateUrl: '/Scripts/app/views/about/About.html' })
         .when('/Locations/Add', { templateUrl: '/Scripts/app/views/locations/Add.html', controller: 'LocationCtrl' })
@@ -23,6 +24,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', 
     $httpProvider.interceptors.push('httpInterceptor');
 }]);
 
+window.utilities = angular.module("custom-utilities", []);
 
 
 
