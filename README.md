@@ -66,5 +66,10 @@ Migrating from v1.0.0 to v1.1.0
 * Leverage Browserify 
 * Performance optimizations and best prarctices for SPA.
 
+# Team
+
+* [Shiju Varghese](http://weblogs.asp.net/shijuvarghese/) - Architect
+* [Dileep C.D.](https://github.com/DileepCD) - Lead Developer
+
 
 
