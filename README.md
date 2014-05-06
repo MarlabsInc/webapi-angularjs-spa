@@ -57,14 +57,15 @@ Migrating from v1.0.0 to v1.1.0
 * AngularJS $http interceptors.
 * AngularJS directives.
 * Task automation with Gulp.js
+* Unit tests for client-side JavaScript with Jasmine.
 
 
 # Roadmap Targets
 
-* Code refactoring.
-* Unit tests with Karma/Jasmine
 * Leverage Browserify 
 * Performance optimizations and best prarctices for SPA.
+* Enhanced security model for SPA.
+* Hybrid mobile app with HTML5 and AngularJS.  
 
 # Team
 
