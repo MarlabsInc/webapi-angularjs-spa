@@ -1,4 +1,4 @@
-WebApi-AngularJS-Spa v1.1.0
+WebApi-AngularJS-Spa v1.2.0
 ====================
 
 [![alt text](http://www.marlabs.com/sites/default/files/logo.png "Marlabs")](http://www.marlabs.com)
@@ -46,7 +46,12 @@ Client-Side
     
 Migrating from v1.0.0 to v1.1.0
 -------------------------------
-  If you are already using the Application version 1.0.0, please drop the database ResourceMetadata from your SQL server before running the Application
+  If you are already using the Application version 1.0.0, please drop the database ResourceMetadata from your SQL server before running the Application.
+
+# Changes in v1.2.0
+
+* Added unit tests for client-side JavaScript with Jasmine.
+* Added paging with ng-Table.
     
 # Current Features
 
@@ -58,6 +63,7 @@ Migrating from v1.0.0 to v1.1.0
 * AngularJS directives.
 * Task automation with Gulp.js
 * Unit tests for client-side JavaScript with Jasmine.
+* Paging using ng-Table.
 
 
 # Roadmap Targets
@@ -65,7 +71,7 @@ Migrating from v1.0.0 to v1.1.0
 * Leverage Browserify 
 * Performance optimizations and best prarctices for SPA.
 * Enhanced security model for SPA.
-* Hybrid mobile app with HTML5 and AngularJS.  
+* Next-generation hybrid mobile apps with HTML5 and AngularJS.  
 
 # Team
 
