@@ -22,7 +22,7 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', 'ngTableParams', funct
 
     $scope.tableParams = new ngTableParams({
         page: 1,            // show first page
-        count: 5,
+        count: 10,
         sorting: {
             Name: 'asc'
         }
@@ -43,6 +43,9 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', 'ngTableParams', funct
     $scope.deleteResource = function (resourceId) {
         resourceSvc.deleteResource(resourceId).$promise
         .then(function (data) {
+            if ($scope.tableParams.page() !== 1 && $scope.tableParams.data.length === 1) {
+                $scope.tableParams.page(1);
+            }
             $scope.tableParams.reload();
         });
     };

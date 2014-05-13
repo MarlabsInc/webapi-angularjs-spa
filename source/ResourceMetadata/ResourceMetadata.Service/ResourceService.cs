@@ -33,12 +33,6 @@ namespace ResourceMetadata.Service
         }
         public Resource AddResource(Resource resource)
         {
-            var existingResource = GetResourceByPriority(resource.Priority);
-            if (existingResource != null)
-            {
-                repository.Delete(existingResource);
-            }
-
             repository.Add(resource);
             unitOfWork.SaveChanges();
             return resource;
@@ -58,18 +52,6 @@ namespace ResourceMetadata.Service
         {
             try
             {
-                var existingResource = GetResourceByPriority(resource.Priority);
-
-                if (existingResource != null && existingResource.Id != resource.Id)
-                {
-                    repository.Delete(existingResource);
-                }
-
-                foreach (var activity in resource.Activities.ToList())
-                {
-                    activityRepository.Delete(activity);
-                }
-
                 repository.Update(resource);
                 SaveChanges();
                 return resource;

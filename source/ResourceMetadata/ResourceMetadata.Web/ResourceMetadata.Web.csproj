@@ -74,9 +74,7 @@
     <Content Include="Content\themes\jasmine-2.0.0\jasmine.css" />
     <Content Include="Scripts\app\directives\shared\confirmmodal.js" />
     <Content Include="Scripts\app\directives\shared\externalurl.js" />
-    <Content Include="Scripts\app\directives\shared\pager.js" />
     <Content Include="Scripts\app\partials\confirm-modal.html" />
-    <Content Include="Scripts\app\partials\pager.html" />
     <Content Include="Scripts\app\views\resources\Resources-ng-table.html" />
     <Content Include="Scripts\app\views\shared\Register.html" />
     <Content Include="Scripts\config.js" />
