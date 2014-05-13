@@ -195,3 +195,5 @@ source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/console.
 source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/jasmine-html.min.js
 source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jasmine-2.0.0/jasmine.min.js
 source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/angular-mocks-1.2.9.min.js
+source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/**/*.min.js
+!source/ResourceMetadata/ResourceMetadata.Web/Scripts/libs/jquery-ui-1.10.3.min.js

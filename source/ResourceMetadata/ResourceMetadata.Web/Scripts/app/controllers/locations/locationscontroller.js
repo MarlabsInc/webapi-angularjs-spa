@@ -1,26 +1,22 @@
 ﻿
-app.controller('LocationsCtrl', ['$scope', 'locationSvc',
-        function ($scope, locationSvc) {
-            $scope.locations = [];
+app.controller('LocationsCtrl', ['$scope', 'ngTableParams', 'locationSvc',
+        function ($scope, ngTableParams, locationSvc) {
+            $scope.tableParams = new ngTableParams({
+                total: 1,
+                page: 1
+            }, {
+                counts: [],
+                getData: function ($defer, params) {
+                    locationSvc.getLocations().$promise.then(function (locations) {
+                        $defer.resolve(locations);
+                    });
+                }
+            });
 
             $scope.deleteLocation = function (locationId) {
                 locationSvc.deleteLocation(locationId).$promise
                 .then(function (data, responseHeaders) {
-                    for (var i = $scope.locations.length - 1; i >= 0 ; i--) {
-                        if ($scope.locations[i].Id === locationId) {
-                            $scope.locations.splice(i, 1);
-                            break;
-                        }
-                    }
+                    $scope.tableParams.reload();
                 });
-
             };
-            this.init = function () {
-                this.loadLocations();
-            }
-            this.loadLocations = function () {
-                $scope.locations = locationSvc.getLocations();
-            }
-
-            this.init();
         }]);

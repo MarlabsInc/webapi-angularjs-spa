@@ -25,6 +25,10 @@
         return sample;
     };
 
+    var getPagedResources = function (params) {
+        return Resource.getPagedItems(params);
+    };
+
     return {
         getTopFiveResources: getTopFiveResources,
         getResources: getResources,
@@ -32,7 +36,8 @@
         addResource: addResource,
         editResource: editResource,
         getResource: getResource,
-        createResourceEditFormModel: createResourceEditFormModel
+        createResourceEditFormModel: createResourceEditFormModel,
+        getPagedResources: getPagedResources
     };
 
 }]);

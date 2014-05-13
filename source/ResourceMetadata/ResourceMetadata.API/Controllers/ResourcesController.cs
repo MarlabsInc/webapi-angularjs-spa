@@ -37,6 +37,24 @@ namespace ResourceMetadata.API.Controllers
             return InternalServerError();
         }
 
+        public IHttpActionResult Get(int count, int page, string sortField, string sortOrder)
+        {
+            string userEmail = RequestContext.Principal.Identity.Name;
+            var user = userManager.FindByName(userEmail);
+
+            if (user != null)
+            {
+                int totalCount = 0;
+                var resources = resourceService.GetPagedResourcesByUserId(user.Id, count, page, sortField, sortOrder, ref totalCount).ToList();
+                IEnumerable<ResourceViewModel> resourceViewModels = new List<ResourceViewModel>();
+                Mapper.Map(resources, resourceViewModels);
+                PagedCollectionViewModel<ResourceViewModel> viewModel = new PagedCollectionViewModel<ResourceViewModel> { Data = resourceViewModels, TotalCount = totalCount };
+
+                return Ok(viewModel);
+            }
+            return InternalServerError();
+        }
+
 
         public IHttpActionResult GetTopFiveResources(int count)
         {

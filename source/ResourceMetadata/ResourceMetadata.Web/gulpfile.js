@@ -59,7 +59,9 @@ gulp.task('clean', function () {
             'Scripts/libs/angular-ui/select2.min.js',
             'Scripts/libs/select2/select2.min.js',
             'Scripts/libs/semantic/semantic.min.js',
+            'Scripts/libs/**/*.min.js',
             'Scripts/libs/jquery-1.9.1.min.js',
+            '!Scripts/libs/jquery-ui-1.10.3.min.js',
             './Content/themes/semantic/semantic.min.css',
             './Content/themes/Site.min.css',
             './Content/themes/select2/select2.min.css'

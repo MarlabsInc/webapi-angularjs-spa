@@ -1,0 +1,31 @@
+﻿<h5 class="ui header">Resources</h5>
+<div class="ui divider"></div>
+<div>
+    <table ng-table="tableParams" class="ui small table segment">
+        <tr ng-repeat="resource in $data">
+            <td sortable="'Name'" data-title="'Name'">
+                <a href="/Resources/{{resource.Id}}">{{resource.Name}} </a>
+            </td>
+            <td sortable="'Description'" data-title="'Description'">
+                {{resource.Description}}
+            </td>
+            <td style="width: 4%;">
+                <a href="/Resources/Edit/{{resource.Id}}"><i class="edit icon"></i></a>
+            </td>
+            <td style="width: 4%;">
+                <i class="trash icon" style="float: right;" title="Delete {{resource.Name}}" message="Do you want to remove this item?"
+                   modal-id="{{resource.Id}}" on-approve="deleteResource(resource.Id);"
+                   on-deny="closeModal();" cst-confirm-modal></i>
+            </td>
+        </tr>
+        <tr ng-hide="$data">
+            <td colspan="4" class="danger">There are no resources</td>
+        </tr>
+    </table>
+
+    <div style="float: right;">
+        <a class="ui mini blue button" href="/Resources/Add">Create new</a>
+    </div>
+</div>
+
+

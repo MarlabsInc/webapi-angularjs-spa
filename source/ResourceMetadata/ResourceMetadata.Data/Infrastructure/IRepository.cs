@@ -16,7 +16,9 @@ namespace ResourceMetadata.Data.Infrastructure
 
         void Update(T entity);
 
-        void Delete(T entity); 
+        void Delete(T entity);
+
+        IQueryable<T> Query(Expression<Func<T, bool>> where);
     }
 
 }

@@ -74,7 +74,10 @@
     <Content Include="Content\themes\jasmine-2.0.0\jasmine.css" />
     <Content Include="Scripts\app\directives\shared\confirmmodal.js" />
     <Content Include="Scripts\app\directives\shared\externalurl.js" />
+    <Content Include="Scripts\app\directives\shared\pager.js" />
     <Content Include="Scripts\app\partials\confirm-modal.html" />
+    <Content Include="Scripts\app\partials\pager.html" />
+    <Content Include="Scripts\app\views\resources\Resources-ng-table.html" />
     <Content Include="Scripts\app\views\shared\Register.html" />
     <Content Include="Scripts\config.js" />
     <Content Include="package.json" />
@@ -187,13 +190,11 @@
     <Content Include="Scripts\app\views\resources\Resources.html" />
     <Content Include="Scripts\app\views\shared\Error.html" />
     <Content Include="gulpfile.js" />
-    <Content Include="Scripts\libs\angular-1.2.11.min.js" />
-    <Content Include="Scripts\libs\angular-animate-1.2.9.min.js" />
-    <Content Include="Scripts\libs\angular-cookies-1.2.9.js" />
-    <Content Include="Scripts\libs\angular-cookies-1.2.9.min.js" />
-    <Content Include="Scripts\libs\angular-mocks-1.2.9.js" />
-    <Content Include="Scripts\libs\angular-resource-1.2.9.min.js" />
-    <Content Include="Scripts\libs\angular-route-1.2.9.min.js" />
+    <Content Include="Scripts\libs\angular-1.2.16.js" />
+    <Content Include="Scripts\libs\angular-animate-1.2.16.js" />
+    <Content Include="Scripts\libs\angular-mocks-1.2.16.js" />
+    <Content Include="Scripts\libs\angular-resource-1.2.16.js" />
+    <Content Include="Scripts\libs\angular-route-1.2.16.js" />
     <Content Include="Scripts\libs\angular-ui\select2.js" />
     <Content Include="Scripts\libs\angular-ui\select2.min.js" />
     <Content Include="Scripts\libs\jasmine-2.0.0\boot.js" />
@@ -203,6 +204,7 @@
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\libs\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\libs\ng-table\ng-table.js" />
     <Content Include="Scripts\libs\select2\select2.js" />
     <Content Include="Scripts\libs\select2\select2.min.js" />
     <Content Include="Scripts\libs\semantic\semantic.js" />

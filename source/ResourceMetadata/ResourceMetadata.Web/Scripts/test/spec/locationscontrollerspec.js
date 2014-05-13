@@ -1,51 +1,80 @@
 ﻿"use strict";
+
 describe('Locations Controller', function () {
     var $q, $controller, scope, controller, locationSvc, deferred;
-    var serviceHelper = serviceHelperMock();
+    //var serviceHelper = serviceHelperMock();
+
+    var locationSvcMock = function () {
+
+        var locations = [{
+            Id: 1,
+            Name: 'Web',
+            Description: 'Online resources',
+            CreatedOn: new Date(),
+            UserId: 1
+        }, {
+            Id: 2,
+            Name: 'Desktop',
+            Description: 'Local files from system',
+            CreatedOn: new Date(),
+            UserId: 1
+        }];
+
+        var getLocations = function () {
+            var promise = $q.when(locations);
+            return { $promise: promise };
+        };
+
+        var deleteLocation = function (locationId) {
+            angular.forEach(locations, function (key, val) {
+                if (val.Id === locationId) {
+                    //locations.splice(val, 1);
+                }
+            });
+
+            return { $promise: deferred.promise };
+        };
+
+        return {
+            getLocations: getLocations,
+            deleteLocation: deleteLocation
+        }
+    }
 
     beforeEach(module('resourceManagerApp'));
 
-    beforeEach(inject(function ($rootScope, _$q_, _$controller_, _locationSvc_) {
+    beforeEach(inject(function ($rootScope, _$q_, _$controller_) {
         scope = $rootScope.$new();
         $controller = _$controller_;
-        locationSvc = _locationSvc_;
         $q = _$q_;
         deferred = $q.defer();
+        locationSvc = locationSvcMock();
     }));
+
+
 
     afterEach(function () {
     });
 
-    it('Should fetch locations on initialization', function () {
-        expect(scope.locations).toBeUndefined();
-
-        spyOn(locationSvc, 'getLocations').and.returnValue(locationStaticData().locations);
-
-        controller = $controller("LocationsCtrl", { $scope: scope });
-
-        expect(controller).toBeDefined();
-
-        expect(locationSvc.getLocations).toHaveBeenCalled();
-
-        expect(scope.locations.length).toEqual(2);
-    });
-
-
-
     it('Should remove location from scope on deleteLocation', function () {
 
-        spyOn(locationSvc, 'deleteLocation').and.returnValue({ $promise: deferred.promise });
-        spyOn(locationSvc, 'getLocations').and.returnValue(locationStaticData().locations);
+        spyOn(locationSvc, 'deleteLocation').and.callThrough();
+        spyOn(locationSvc, 'getLocations').and.callThrough();
 
-        controller = $controller("LocationsCtrl", { $scope: scope });
-
+        controller = $controller("LocationsCtrl", { $scope: scope, locationSvc: locationSvc });
+        scope.tableParams.settings().$scope = scope;
         scope.deleteLocation(1);
 
         deferred.resolve();
         scope.$apply();
 
         expect(locationSvc.deleteLocation).toHaveBeenCalled();
-        expect(scope.locations).not.toContain(locationStaticData().location);
-
+        expect(scope.$data).not.toContain({
+            Id: 1,
+            Name: 'Web',
+            Description: 'Online resources',
+            CreatedOn: new Date(),
+            UserId: 1
+        });
     });
 });

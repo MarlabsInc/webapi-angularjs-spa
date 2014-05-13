@@ -1,24 +1,49 @@
-﻿app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', function ($scope, resourceSvc) {
-    $scope.resources = [];
-    $scope.deleteResource = function (resourceId) {
-            resourceSvc.deleteResource(resourceId).$promise
-            .then(function (data) {
+﻿"use strict";
+app.controller('ResourcesCtrl', ['$scope', 'resourceSvc', 'ngTableParams', function ($scope, resourceSvc, ngTableParams) {
+    var fetchPagedStruct = function (pagedStruct) {
+        var sorting = pagedStruct.sorting();
+        var sortField;
+        var sortOrder;
+        if (sorting) {
+            for (var prop in sorting) {
+                sortField = prop;
+                sortOrder = sorting[prop];
+                break;
+            }
+        }
 
-                for (var i = $scope.resources.length - 1; i >= 0; i--) {
-                    if ($scope.resources[i].Id === resourceId) {
-                        $scope.resources.splice(i, 1);
-                        break;
-                    }
-                }
-
-            });
+        return {
+            page: pagedStruct.page(),
+            count: pagedStruct.count(),
+            sortField: sortField,
+            sortOrder: sortOrder
+        }
     };
-    init();
 
-    function init() {
-        loadResources();
-    }
-    function loadResources() {
-        $scope.resources = resourceSvc.getResources();
-    }
+    $scope.tableParams = new ngTableParams({
+        page: 1,            // show first page
+        count: 5,
+        sorting: {
+            Name: 'asc'
+        }
+    }, {
+        counts: [],
+        total: 0,
+        getData: function ($defer, params) {
+            resourceSvc.getPagedResources(fetchPagedStruct(params))
+                .$promise.then(function (data) {
+                    params.total(data.TotalCount);// update table params                        
+                    $defer.resolve(data.Data);// set new data
+                }).catch(function (error) {
+                    console.log(error);
+                });
+        }
+    });
+
+    $scope.deleteResource = function (resourceId) {
+        resourceSvc.deleteResource(resourceId).$promise
+        .then(function (data) {
+            $scope.tableParams.reload();
+        });
+    };
 }]);

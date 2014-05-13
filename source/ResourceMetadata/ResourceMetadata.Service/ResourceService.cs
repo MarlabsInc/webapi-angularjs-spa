@@ -65,8 +65,6 @@ namespace ResourceMetadata.Service
                     repository.Delete(existingResource);
                 }
 
-    
-
                 foreach (var activity in resource.Activities.ToList())
                 {
                     activityRepository.Delete(activity);
@@ -98,7 +96,30 @@ namespace ResourceMetadata.Service
 
         public IEnumerable<Resource> GetTopFiveResourcesByUserId(string userId)
         {
-            var resources = repository.GetMany(res => res.Location.UserId == userId).OrderBy(res => res.Priority).Take(5);
+            var resources = repository.Query(res => res.Location.UserId == userId).OrderBy(res => res.Priority).Take(5);
+            return resources;
+        }
+
+        public IEnumerable<Resource> GetPagedResourcesByUserId(string userId, int count, int page, string sortField, string sortOrder, ref int totalCount)
+        {
+            var query = repository.Query(res => res.Location.UserId == userId);
+
+            switch (sortField)
+            {
+                case "Description":
+                    {
+                        query = sortOrder.ToLower() == "asc" ? query.OrderBy(res => res.Description) : query.OrderByDescending(res => res.Description);
+                        break;
+                    }
+                default:
+                    {
+                        query = sortOrder.ToLower() == "asc" ? query.OrderBy(res => res.Name) : query.OrderByDescending(res => res.Name);
+                        break;
+                    }
+            }
+
+            totalCount = query.Count();
+            var resources = query.Skip((page - 1) * count).Take(count);
             return resources;
         }
     }
@@ -121,5 +142,7 @@ namespace ResourceMetadata.Service
         IEnumerable<Resource> GetAllResourcesByUserId(string userId);
 
         IEnumerable<Resource> GetTopFiveResourcesByUserId(string userId);
+
+        IEnumerable<Resource> GetPagedResourcesByUserId(string userId, int count, int page, string sortField, string sortOrder, ref int totalCount);
     }
 }

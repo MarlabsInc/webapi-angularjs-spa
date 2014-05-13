@@ -63,5 +63,9 @@ namespace ResourceMetadata.Data.Infrastructure
             return dbset.Where(where).ToList();
         }
 
+        public virtual IQueryable<T> Query(Expression<Func<T, bool>> where)
+        {
+            return dbset.Where(where);
+        }
     }
 }

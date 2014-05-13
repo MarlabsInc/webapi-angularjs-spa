@@ -1,45 +1,27 @@
 ﻿<h5 class="ui header">Locations</h5>
 <div class="ui divider"></div>
 <div>
-    <table class="ui small table segment">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Description
-                </th>
-                <th data-omit="Member">
-                </th>
-                <th data-omit="Member">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr></tr>
-            <tr>
-                <td class="danger" colspan="4" ng-show="locations.length == 0">
-                    There are no locations
-                </td>
-            </tr>
-            <tr data-ng-repeat="location in locations">
-                <td>
-                    {{location.Name}}
-                </td>
-                <td>
-                    {{location.Description}}
-                </td>
-                <td style="width: 4%;" data-omit="Member">
-                    <a href="/Locations/Edit/{{location.Id}}"><i class="edit icon"></i></a>
-                </td>
-                <td style="width: 4%;" data-omit="Member">
-                    <i class="trash icon" style="float: right;" title="Delete" message="Do you want to remove this item?"
-                       modal-id="{{location.Id}}" on-approve="deleteLocation(location.Id);"
-                       cst-confirm-modal></i>
-                </td>
-            </tr>
-        </tbody>
+
+    <table ng-table="tableParams" class="ui small table segment">
+        <tr ng-repeat="location in $data">
+            <td data-title="'Name'">
+                {{location.Name}}
+            </td>
+            <td data-title="'Description'">
+                {{location.Description}}
+            </td>
+            <td style="width: 4%;" data-omit="Member">
+                <a href="/Locations/Edit/{{location.Id}}"><i class="edit icon"></i></a>
+            </td>
+            <td style="width: 4%;" data-omit="Member">
+                <i class="trash icon" style="float: right;" title="Delete" message="Do you want to remove this item?"
+                   modal-id="{{location.Id}}" on-approve="deleteLocation(location.Id);"
+                   cst-confirm-modal></i>
+            </td>
+        </tr>
+        <tr ng-hide="$data">
+            <td colspan="4" class="danger">There are no locations</td>
+        </tr>
     </table>
     <div style="float: right;" data-omit="Member">
         <a class="ui mini blue button" href="/Locations/Add">Create new</a>
