@@ -23,7 +23,7 @@ namespace ResourceMetadata.Service
 
         public IEnumerable<Resource> GetAllResourcesByUserId(string userId)
         {
-            return repository.GetMany(res => res.Location.UserId == userId);
+            return repository.GetMany(res => res.UserId == userId);
         }
 
 
@@ -78,13 +78,13 @@ namespace ResourceMetadata.Service
 
         public IEnumerable<Resource> GetTopFiveResourcesByUserId(string userId)
         {
-            var resources = repository.Query(res => res.Location.UserId == userId).OrderBy(res => res.Priority).Take(5);
+            var resources = repository.Query(res => res.UserId == userId).OrderBy(res => res.Priority).Take(5);
             return resources;
         }
 
         public IEnumerable<Resource> GetPagedResourcesByUserId(string userId, int count, int page, string sortField, string sortOrder, ref int totalCount)
         {
-            var query = repository.Query(res => res.Location.UserId == userId);
+            var query = repository.Query(res => res.UserId == userId);
 
             switch (sortField)
             {

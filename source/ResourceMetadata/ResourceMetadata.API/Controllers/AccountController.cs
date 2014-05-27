@@ -55,6 +55,7 @@ namespace ResourceMetadata.API.Controllers
 
                     if (identityResult.Succeeded)
                     {
+                        userManager.AddToRole(user.Id, "Member");
                         return Ok();
                     }
                     else
@@ -79,14 +80,6 @@ namespace ResourceMetadata.API.Controllers
             }
 
         }
-
-     
-        //public IHttpActionResult Put()
-        //{
-        //    AuthenticationManager.SignOut();
-        //    return Ok();
-        //}
-
 
         #region Private methods
         #region SignInAsync

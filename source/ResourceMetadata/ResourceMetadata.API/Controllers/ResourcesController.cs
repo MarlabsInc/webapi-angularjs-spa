@@ -10,6 +10,7 @@ using ResourceMetadata.Service;
 using AutoMapper;
 using System.Threading;
 using Microsoft.AspNet.Identity;
+using System.Web.Http.Filters;
 
 namespace ResourceMetadata.API.Controllers
 {
@@ -17,24 +18,21 @@ namespace ResourceMetadata.API.Controllers
     {
         private readonly IResourceService resourceService;
         private readonly UserManager<ApplicationUser> userManager;
+
         public ResourcesController(IResourceService resourceService, UserManager<ApplicationUser> userManager)
         {
             this.resourceService = resourceService;
             this.userManager = userManager;
         }
+
         public IHttpActionResult Get()
         {
             string userEmail = RequestContext.Principal.Identity.Name;
             var user = userManager.FindByName(userEmail);
-
-            if (user != null)
-            {
-                var resources = resourceService.GetAllResourcesByUserId(user.Id).ToList();
-                IList<ResourceViewModel> viewModel = new List<ResourceViewModel>();
-                Mapper.Map(resources, viewModel);
-                return Ok(viewModel);
-            }
-            return InternalServerError();
+            var resources = resourceService.GetAllResourcesByUserId(user.Id).ToList();
+            IList<ResourceViewModel> viewModel = new List<ResourceViewModel>();
+            Mapper.Map(resources, viewModel);
+            return Ok(viewModel);
         }
 
         public IHttpActionResult Get(int count, int page, string sortField, string sortOrder)
@@ -42,33 +40,25 @@ namespace ResourceMetadata.API.Controllers
             string userEmail = RequestContext.Principal.Identity.Name;
             var user = userManager.FindByName(userEmail);
 
-            if (user != null)
-            {
-                int totalCount = 0;
-                var resources = resourceService.GetPagedResourcesByUserId(user.Id, count, page, sortField, sortOrder, ref totalCount).ToList();
-                IEnumerable<ResourceViewModel> resourceViewModels = new List<ResourceViewModel>();
-                Mapper.Map(resources, resourceViewModels);
-                PagedCollectionViewModel<ResourceViewModel> viewModel = new PagedCollectionViewModel<ResourceViewModel> { Data = resourceViewModels, TotalCount = totalCount };
+            int totalCount = 0;
+            var resources = resourceService.GetPagedResourcesByUserId(user.Id, count, page, sortField, sortOrder, ref totalCount).ToList();
+            IEnumerable<ResourceViewModel> resourceViewModels = new List<ResourceViewModel>();
+            Mapper.Map(resources, resourceViewModels);
+            PagedCollectionViewModel<ResourceViewModel> viewModel = new PagedCollectionViewModel<ResourceViewModel> { Data = resourceViewModels, TotalCount = totalCount };
 
-                return Ok(viewModel);
-            }
-            return InternalServerError();
+            return Ok(viewModel);
+
         }
-
 
         public IHttpActionResult GetTopFiveResources(int count)
         {
             string userEmail = RequestContext.Principal.Identity.Name;
             var user = userManager.FindByName(userEmail);
 
-            if (user != null)
-            {
-                IList<ResourceViewModel> viewModel = new List<ResourceViewModel>();
-                var resources = resourceService.GetTopFiveResourcesByUserId(user.Id);
-                Mapper.Map(resources, viewModel);
-                return Ok(viewModel);
-            }
-            return InternalServerError();
+            IList<ResourceViewModel> viewModel = new List<ResourceViewModel>();
+            var resources = resourceService.GetTopFiveResourcesByUserId(user.Id);
+            Mapper.Map(resources, viewModel);
+            return Ok(viewModel);
         }
 
         public IHttpActionResult GetResourceById(int id)
@@ -80,14 +70,15 @@ namespace ResourceMetadata.API.Controllers
 
         }
 
-
         public IHttpActionResult PostResource(ResourceViewModel resourceViewModel)
         {
             Resource resource = new Resource();
             Mapper.Map(resourceViewModel, resource);
             resource.CreatedOn = DateTime.Now;
+            resource.UserId = userManager.FindByName(RequestContext.Principal.Identity.Name).Id;
+
             resource = resourceService.AddResource(resource);
-            Mapper.Map(resource, resourceViewModel);
+            resourceViewModel.Id = resource.Id;
             return Created(Url.Link("DefaultApi", new { controller = "Resources", id = resourceViewModel.Id }), resourceViewModel);
         }
 

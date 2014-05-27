@@ -12,6 +12,7 @@ namespace ResourceMetadata.Model
         {
             this.Activities = new HashSet<ResourceActivity>();
         }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -25,5 +26,7 @@ namespace ResourceMetadata.Model
         public bool IsShared { get; set; }
         public virtual ICollection<ResourceActivity> Activities { get; set; }
 
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

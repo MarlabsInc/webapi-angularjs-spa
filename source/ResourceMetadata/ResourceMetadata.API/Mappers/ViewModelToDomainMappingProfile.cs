@@ -20,7 +20,10 @@ namespace ResourceMetadata.API.Mappers
 
         protected override void Configure()
         {
-            Mapper.CreateMap<ResourceViewModel, Resource>().ForMember(resource => resource.Activities,vm=> vm.Ignore());
+            Mapper.CreateMap<ResourceViewModel, Resource>()
+                .ForMember(resource => resource.Activities, vm => vm.Ignore())
+                .ForMember(resource => resource.UserId, vm => vm.Ignore());
+
             Mapper.CreateMap<LocationViewModel, Location>();
             Mapper.CreateMap<ResourceActivityViewModel, ResourceActivity>();
             Mapper.CreateMap<RegisterViewModel, ApplicationUser>();

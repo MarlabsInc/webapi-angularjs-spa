@@ -13,34 +13,25 @@ using Microsoft.AspNet.Identity;
 
 namespace ResourceMetadata.API.Controllers
 {
+
     public class LocationsController : ApiController
     {
         private readonly ILocationService locationService;
-        //private readonly IUserService userService;
         private readonly UserManager<ApplicationUser> userManager;
+
         public LocationsController(ILocationService locationService, UserManager<ApplicationUser> userManager)
         {
 
             this.locationService = locationService;
-            //this.userService = userService;
             this.userManager = userManager;
         }
-     
+
         public IHttpActionResult Get()
         {
-
-            string userEmail = RequestContext.Principal.Identity.Name;
-            var user = userManager.FindByName(userEmail);
-
-            if (user != null)
-            {
-                string userId = user.Id;
-                var locations = locationService.GetLocationsByUserId(userId);
-                var locationViewModels = new List<LocationViewModel>();
-                Mapper.Map(locations, locationViewModels);
-                return Ok(locationViewModels);
-            }
-            return InternalServerError();
+            var locations = locationService.GetLocations();
+            var locationViewModels = new List<LocationViewModel>();
+            Mapper.Map(locations, locationViewModels);
+            return Ok(locationViewModels);
         }
 
         public IHttpActionResult Get(int id)
@@ -51,42 +42,29 @@ namespace ResourceMetadata.API.Controllers
             return Ok(viewModel);
         }
 
+
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Post(LocationViewModel location)
         {
-            string userEmail = RequestContext.Principal.Identity.Name;
-            var user = userManager.FindByName(userEmail);
-
-            if (user != null)
-            {
-                Location entity = new Location();
-                Mapper.Map(location, entity);
-                entity.CreatedOn = DateTime.UtcNow;
-                entity.UserId = user.Id;
-                locationService.AddLocation(entity);
-                Mapper.Map(entity, location);
-                return Created(Url.Link("DefaultApi", new { controller = "Locations", id = location.Id }), location);
-            }
-            return InternalServerError();
+            Location entity = new Location();
+            Mapper.Map(location, entity);
+            entity.CreatedOn = DateTime.UtcNow;
+            locationService.AddLocation(entity);
+            Mapper.Map(entity, location);
+            return Created(Url.Link("DefaultApi", new { controller = "Locations", id = location.Id }), location);
         }
 
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Put(int id, LocationViewModel locationViewModel)
         {
-            string userEmail = RequestContext.Principal.Identity.Name;
-            var user = userManager.FindByName(userEmail);
-
-            if (user != null)
-            {
-                locationViewModel.Id = id;
-                var location = locationService.GetLocationById(id);
-                Mapper.Map(locationViewModel, location);
-                location.UserId = user.Id;
-                locationService.UpdateLoaction(location);
-                return Ok(locationViewModel);
-            }
-            return InternalServerError();
+            locationViewModel.Id = id;
+            var location = locationService.GetLocationById(id);
+            Mapper.Map(locationViewModel, location);
+            locationService.UpdateLoaction(location);
+            return Ok(locationViewModel);
         }
 
-        // DELETE api/<controller>/5
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Delete(int id)
         {
             locationService.DeleteLocation(id);

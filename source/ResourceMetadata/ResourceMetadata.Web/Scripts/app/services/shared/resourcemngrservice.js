@@ -1,4 +1,4 @@
-﻿app.factory('resourceMngrSvc', ['$http', 'serviceHelperSvc', function ($http, serviceHelper) {
+﻿app.factory('resourceMngrSvc', ['$http', 'serviceHelperSvc', 'userProfileSvc', function ($http, serviceHelper, userProfileSvc) {
 
     var Token = serviceHelper.AuthorizationToken;
     var Account = serviceHelper.Account;
@@ -18,6 +18,7 @@
             var formData = { username: userLogin.Email, password: userLogin.Password, grant_type: 'password' };
             return Token.requestToken(buildFormData(formData), function (data) {
                 $http.defaults.headers.common.Authorization = "Bearer " + data.access_token;
+                userProfileSvc.role = data.role;
             });
         },
         registerUser: function (userRegistration) {

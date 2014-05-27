@@ -13,7 +13,7 @@ namespace ResourceMetadata.Data.Configurations
     {
         public LocationConfiguration()
         {
-            HasRequired(l => l.User).WithMany().HasForeignKey(l => l.UserId).WillCascadeOnDelete(true);
+            //HasRequired(l => l.User).WithMany().HasForeignKey(l => l.UserId).WillCascadeOnDelete(true);
         }
     }
 }

@@ -67,18 +67,18 @@ utilities.factory('httpInterceptor', function () {
 
 
 
-utilities.service('templateSvc', ['$templateCache', function ($templateCache) {
+utilities.service('templateSvc', ['$templateCache', 'userProfileSvc', function ($templateCache, userProfileSvc) {
     var HAS_FLAGS_EXP = /data-(keep|omit)/;
     return {
         processTemplate: function (response) {
             var content = response.data;
             var element = $('<div>').append(content);
-            //if (HAS_FLAGS_EXP.test(content)) {
-            //    element.find('[data-omit="' + userProfile.Role + '"]').each(function () {
-            //        var subElem = $(this);
-            //        subElem.remove();
-            //    });
-            //}
+            if (HAS_FLAGS_EXP.test(content)) {
+                element.find('[data-omit="' + userProfileSvc.role + '"]').each(function () {
+                    var subElem = $(this);
+                    subElem.remove();
+                });
+            }
             content = element.html();
             $templateCache.put(response.config.url, content);
             return content;

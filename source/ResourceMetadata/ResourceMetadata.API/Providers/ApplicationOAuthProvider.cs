@@ -48,7 +48,7 @@ namespace ResourceMetadata.API.Providers
                     context.Options.AuthenticationType);
                 ClaimsIdentity cookiesIdentity = await userManager.CreateIdentityAsync(user,
                     CookieAuthenticationDefaults.AuthenticationType);
-                AuthenticationProperties properties = CreateProperties(user.UserName);
+                AuthenticationProperties properties = CreateProperties(user.UserName, user.Roles.First().Role.Name);
                 AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
                 context.Validated(ticket);
                 context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -91,11 +91,12 @@ namespace ResourceMetadata.API.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string userName, string role)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                {"role", role}
             };
             return new AuthenticationProperties(data);
         }

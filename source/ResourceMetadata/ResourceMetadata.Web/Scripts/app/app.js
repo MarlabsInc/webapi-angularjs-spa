@@ -19,12 +19,14 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', 
         .when('/Home', { templateUrl: '/Scripts/app/views/home/Home.html', controller: 'HomeCtrl' })
         .when('/Error', { templateUrl: '/Scripts/app/views/shared/Error.html' })
         .otherwise({
-    redirectTo: '/Login'
-    });
+            redirectTo: '/Login'
+        });
 
-$httpProvider.interceptors.push('authorizationInterceptor');
-$httpProvider.interceptors.push('httpInterceptor');
-}]);
+    $httpProvider.interceptors.push('authorizationInterceptor');
+    $httpProvider.interceptors.push('httpInterceptor');
+}]).factory("userProfileSvc", function () {
+    return {};
+});
 
 window.utilities = angular.module("custom-utilities", []);
 
