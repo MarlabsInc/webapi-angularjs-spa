@@ -44,6 +44,8 @@ Client-Side
 5. Execute gulp tasks
     1. Run command **gulp build**.
     2. In order to clean the destination files created by build task, run **gulp cleanbuild**.
+    3. To run unit tests, run the command **gulp tests** 
+
     
 Migrating from Previous Versions
 -------------------------------
