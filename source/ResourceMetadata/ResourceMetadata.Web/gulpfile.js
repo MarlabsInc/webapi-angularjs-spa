@@ -1,7 +1,7 @@
 /**
  * Created by shijuvar on 16/2/14.
  */
-var testUrl = "http://localhost:9043/SpecRunner.html";
+
 
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
@@ -13,7 +13,8 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     clean = require('gulp-clean'),
     rename = require('gulp-rename'),
-    open = require('gulp-open');
+    open = require('gulp-open'),
+    connect = require('gulp-connect');
 
 var filePath = {
     appjsminify: { src: './Scripts/app/**/*.js', dest: './Scripts/app' },
@@ -54,12 +55,7 @@ gulp.task('minify-css', function () {
     .pipe(minifycss())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(filePath.minifycss.dest));
-});
-
-gulp.task('tests', function () {
-    gulp.src("./SpecRunner.html")
-        .pipe(open("", { url: testUrl }));
-});
+}); 
 
 gulp.task('clean', function () {
     gulp.src(
@@ -79,5 +75,14 @@ gulp.task('clean', function () {
 });
 gulp.task('build', ['app-js-minify', 'libs-js-minify', 'minify-css']);
 gulp.task('cleanbuild', ['clean']);
+
+gulp.task('tests', function () {
+    connect.server({ 
+        port:8000
+    });
+    var testUrl = "http://localhost:8000/SpecRunner.html";
+    gulp.src("./SpecRunner.html")
+      .pipe(open("", { url: testUrl }));
+});
 
 //gulp.watch('./app/**/*.js', ['js']);
