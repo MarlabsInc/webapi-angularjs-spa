@@ -22,6 +22,7 @@ Client-Side
 * AngularJS
 * Semantic UI
 * Gulp.js
+* Jasmine
 
 Building the application
 ============
@@ -44,14 +45,15 @@ Client-Side
     1. Run command **gulp build**.
     2. In order to clean the destination files created by build task, run **gulp cleanbuild**.
     
-Migrating from v1.0.0 to v1.1.0
+Migrating from Previous Versions
 -------------------------------
-  If you are already using the Application version 1.0.0, please drop the database ResourceMetadata from your SQL server before running the Application.
+  If you are already using the previous versions of the App, please drop the database ResourceMetadata from your SQL server before running the Application.
 
 # Changes in v1.2.0
 
 * Added unit tests for client-side JavaScript with Jasmine.
 * Added paging with ng-Table.
+* Role based security for both server-side and client-side.
     
 # Current Features
 
@@ -64,6 +66,7 @@ Migrating from v1.0.0 to v1.1.0
 * Task automation with Gulp.js
 * Unit tests for client-side JavaScript with Jasmine.
 * Paging using ng-Table.
+* Role based security.
 
 
 # Roadmap Targets
