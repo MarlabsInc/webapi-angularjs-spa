@@ -1,6 +1,8 @@
 /**
  * Created by shijuvar on 16/2/14.
  */
+var testUrl = "http://localhost:9043/SpecRunner.html";
+
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     uglify = require('gulp-uglify'),
@@ -10,7 +12,8 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     size = require('gulp-size'),
     clean = require('gulp-clean'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    open = require('gulp-open');
 
 var filePath = {
     appjsminify: { src: './Scripts/app/**/*.js', dest: './Scripts/app' },
@@ -18,6 +21,7 @@ var filePath = {
     jshint: { src: './Scripts/app/**/*.js' },
     minifycss: { src: ['./Content/themes/**/*.css', '!*.min.css', '!/**/*.min.css'], dest: './Content/themes/' }
 };
+
 
 
 gulp.task('app-js-minify', function () {
@@ -50,6 +54,11 @@ gulp.task('minify-css', function () {
     .pipe(minifycss())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(filePath.minifycss.dest));
+});
+
+gulp.task('tests', function () {
+    gulp.src("./SpecRunner.html")
+        .pipe(open("", { url: testUrl }));
 });
 
 gulp.task('clean', function () {
