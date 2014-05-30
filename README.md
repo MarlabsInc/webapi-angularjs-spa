@@ -56,6 +56,10 @@ Migrating from Previous Versions
 * Added unit tests for client-side JavaScript with Jasmine.
 * Added paging with ng-Table.
 * Role based security for both server-side and client-side.
+
+# Role Based Security
+
+Role based security has been implemented on both client-side and server-side. Write operations on the "Location" entity is restricted with admin role. There is a pre-defined admin user with credentials admin@marlabs.com/Marlabs
     
 # Current Features
 
