@@ -1,6 +1,5 @@
 ﻿window.app = angular.module('resourceManagerApp', ['ui.select2', 'ngTable', 'ngRoute', 'ngResource', 'ngAnimate', 'custom-utilities']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', function ($routeProvider, $locationProvider, $httpProvider, $provide) {
-    $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $httpProvider.defaults.useXDomain = true;
     $locationProvider.html5Mode(true);
@@ -29,6 +28,3 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', '$provide', 
 });
 
 window.utilities = angular.module("custom-utilities", []);
-
-
-
